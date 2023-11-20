@@ -1,8 +1,79 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700;1,800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap');
+@import 'variables';
 
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+body {
+	background-color: #fffcf7;
+}
+
+// Header
+.header-container {
+	height: 6rem;
+}
+
+// Body: 
+.rounded-box {
+	border-radius: 100%;
+	width: 27.5rem;
+	height: 27.5rem;
+	background: $red_primary;
+}
+
+
+// Title
+.title-banner {
+	font-size: 6rem;
+	color: $secondary;
+	font-weight: bold;
+}
+
+
+// Button
+.btn-next-page {
+	width: 14.875rem;
+}
+.btn-red-primary {
+	background-color: $red_primary;
+	color: #FCF6F0;
+	
+	&:hover {
+		background-color: darken($red_primary, 10%);
+		color: #FCF6F0;
+	}
+}
+
+// Layout
+.h-5r {
+	height: 5rem;
+}
+
+@media (min-width: 1600px) {
+	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+		max-width: 1440px;
+		max-height: 1024px;
+	}
+}
+
+.container {
+	padding: 0;
+}
+
+.sub-container {
+	padding: 5rem 7rem;
+}
+
+// Background
+
+
+// Text: 
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat';
+	line-height: 6.5rem;
 }
