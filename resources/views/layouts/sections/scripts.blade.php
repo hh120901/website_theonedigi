@@ -14,8 +14,7 @@
 
 	// swiper js
 	var swiper = new Swiper(".mySwiper", {
-			slidesPerView: 3,
-			spaceBetween: 50,
+			slidesPerView: 1,
 			loop: true,
 			navigation: {
 				breakpoints: {
@@ -32,8 +31,8 @@
 						spaceBetween: 20
 					}
 				},
-			nextEl: ".swiper-custom-next",
-			prevEl: ".swiper-custom-prev",
+			nextEl: ".custom-prev-btn",
+			prevEl: ".custom-next-btn"
 		},
 	});
 </script>

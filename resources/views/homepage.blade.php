@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+	{{-- Screen 1 --}}
 	<div class="custom-layout">
 		<div class="container position-relative" style="background-image: url({{ asset('assets/images/bgbanner1.png') }}); background-position-y: bottom;">
 			<div style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right;">
@@ -8,7 +9,7 @@
 					<div class="d-flex flex-wrap">
 						<div class="title w-50">
 							<h2 class="title-banner mb-5">WELCOME <br> TO OUR <br> PLACE!</h2>
-							<p class="fs-5 pe-5 pt-3 fw-semibold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo beatae nobis, amet dolore magni dicta quod quia autem voluptatem pariatur.</p>
+							<p class="fs-5 pe-5 fw-semibold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo beatae nobis, amet dolore magni dicta quod quia autem voluptatem pariatur.</p>
 						</div>
 						<div class="img-banner w-50 d-flex justify-content-center">
 							<div class="rounded-box d-flex align-items-end justify-content-center overflow-hidden">
@@ -16,7 +17,7 @@
 							</div>
 						</div>
 					</div>
-					<hr class="my-5">
+					<hr class="my-4">
 					<div class="d-flex">
 						<div class="w-50 pe-5">
 							<p class="fs-5 text-secondary fw-semibold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident consequuntur adipisci reiciendis sed facere necessitatib.</p>
@@ -41,4 +42,29 @@
 			</div>
 		</div>
 	</div>
+	{{-- Screen 2 --}}
+	{{--<div class="container position-relative">
+		<div class="row bg-primary">
+			<div class="col-3">
+				<span class="d-block bg-red-primary" style="width: 173px; height: 24px"></span>
+			</div>
+		</div>
+		<div class="sub-container">
+			<div class="swiper mySwiper bg-light">
+				<div class="swiper-wrapper">
+				  <div class="swiper-slide">Slide 1</div>
+				  <div class="swiper-slide">Slide 2</div>
+				  <div class="swiper-slide">Slide 3</div>
+				  <div class="swiper-slide">Slide 4</div>
+				  <div class="swiper-slide">Slide 5</div>
+				  <div class="swiper-slide">Slide 6</div>
+				  <div class="swiper-slide">Slide 7</div>
+				  <div class="swiper-slide">Slide 8</div>
+				  <div class="swiper-slide">Slide 9</div>
+				</div>
+				<div class="swiper-button-next"></div>
+				<div class="swiper-button-prev"></div>
+			</div>
+		</div>
+	</div>--}}
 @endsection
