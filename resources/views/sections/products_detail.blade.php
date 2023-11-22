@@ -3,7 +3,7 @@
 @section('content')
 	{{-- Screen 3 --}}
 	<div class="container position-relative">
-		<div class="sub-container">
+		<div class="sub-container pb-5">
 			<div class="d-flex">
 				<h2 class="title-banner me-5 mb-3">01</h2>
 				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mt-3">COMPANY FORMATION</h2>
@@ -22,7 +22,7 @@
 		</div>
 		<div class="d-flex justify-content-between align-items-start">
 			<span class="mt-3 block-span-red-135"></span>
-			<a href="{{ url('/about') }}" class="me-5 pe-5">
+			<a href="{{ url('/products') }}" class="me-5 pe-5">
 				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 			</a>
 		</div>
