@@ -189,12 +189,15 @@ body {
 		max-width: 1440px;
 		max-height: 928px;
 	}
+	.full-content .container {
+		height: 928px;
+	}
 }
-
 
 .container {
 	padding: 0;
 }
+
 
 .sub-container {
 	padding: 5rem 8.5rem;
@@ -227,6 +230,12 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat';
 }
+.no-decor {
+	text-decoration: none;
+}
+.site-name {
+	width: 130px;
+}
 .h4-title {
 	text-transform: uppercase;
 	letter-spacing: -0.5px;
@@ -245,7 +254,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // Swiper
-.swiper {
+.mySwiper {
 	width: 578px;
 	height: 752px;
 	.swiper-slide {
@@ -382,6 +391,16 @@ h1, h2, h3, h4, h5, h6 {
 	  /* Style for the previous button */
 	.blog-prev-btn  {
 		left: 1rem;
+	}
+}
+
+.home-swiper {
+	width: 100%;
+	position: relative;
+	.swiper-slide {
+		width: 100%;
+		height: auto;
+		position: relative;
 	}
 }
 
@@ -529,6 +548,9 @@ h1, h2, h3, h4, h5, h6 {
 	.ms-135px {
 		margin-left: 1rem;
 	}
+	.home-swiper {
+		max-height: auto;
+	}
 }
 
 .job-description {
@@ -537,4 +559,40 @@ h1, h2, h3, h4, h5, h6 {
 		line-height: 24.5px;
 		color: $gray-8;
 	}
+}
+// Menu: 
+.main-menu {
+	.nav-link {
+		color: $white;
+		margin: 0 10px;
+	}
+	.user-icon {
+		width: 36px;
+		height: 36px;
+	}
+	.active {
+		font-weight: 600;
+		border-bottom: 3px solid white;
+	}
+	.nav-item {
+		&:hover {
+			transform: scale(1.05);
+		}
+	}
+}
+
+.account-dropdown {
+	.dropdown-toggle::after {
+		display: none;
+	}
+}
+
+.input-search {
+	background-color: $secondary;
+	border: 1px solid $white;
+	padding: 1rem;
+	border-radius: 1rem;
+	color: white;
+	height: 40px;
+	width: 150px;
 }

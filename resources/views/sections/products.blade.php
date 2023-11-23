@@ -1,6 +1,4 @@
-@extends('layouts.app')
 
-@section('content')
 	{{-- Screen 3 --}}
 	<div class="container position-relative">
 		<div class="d-flex pt-5r"> 
@@ -10,7 +8,7 @@
 			<div>
 				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">OUR PRODUCTS</h2>
 				<div class="d-flex flex-wrap">
-					<div class="numbers d-flex flex-column align-items-center mt-3 mx-5" style="width: 75px">
+					<div class="numbers d-flex flex-column align-items-center mt-3 mx-3 mx-xl-5" style="width: 75px">
 						<div class="">
 							<button class="btn btn-control-up">
 								<i class="fal fa-caret-up fs-4"></i>
@@ -44,7 +42,7 @@
 							</button>
 						</div>
 					</div>
-					<div class="d-flex gap-5 flex-wrap mt-3 ms-5 ps-5">
+					<div class="d-flex gap-3 gap-xxl-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
 						{{-- card 1 --}}
 						<div class="our-products-card mx-4 card-index-1 active-1-2">
 							<div class="ratio ratio-1x1" style="height: 320px">
@@ -277,4 +275,4 @@
 			});
 		});
 	</script>
-@endsection
+

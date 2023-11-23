@@ -1,10 +1,7 @@
-@extends('layouts.app')
-
-@section('content')
 	{{-- Screen 1 --}}
 	<div class="custom-layout">
 		<div class="container position-relative" style="background-image: url({{ asset('assets/images/bgbanner1.png') }}); background-position-y: bottom;">
-			<div style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right;">
+			<div style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right; height: 100%;">
 				<div class="sub-container">
 					<div class="d-flex flex-wrap">
 						<div class="title w-50">
@@ -33,7 +30,7 @@
 							<a href="#"><img src="{{ asset('assets/images/Twitter.svg') }}" alt="TW-icon"></a>
 						</div>	
 						<div class="btn-scroll">
-							<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page">
+							<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page slide-next-btn">
 								SCROLL <img src="{{ asset('assets/images/arrow-right.svg') }}" alt="">
 							</button>
 						</div>
@@ -42,29 +39,4 @@
 			</div>
 		</div>
 	</div>
-	{{-- Screen 2 --}}
-	{{--<div class="container position-relative">
-		<div class="row bg-primary">
-			<div class="col-3">
-				<span class="d-block bg-red-primary" style="width: 173px; height: 24px"></span>
-			</div>
-		</div>
-		<div class="sub-container">
-			<div class="swiper mySwiper bg-light">
-				<div class="swiper-wrapper">
-				  <div class="swiper-slide">Slide 1</div>
-				  <div class="swiper-slide">Slide 2</div>
-				  <div class="swiper-slide">Slide 3</div>
-				  <div class="swiper-slide">Slide 4</div>
-				  <div class="swiper-slide">Slide 5</div>
-				  <div class="swiper-slide">Slide 6</div>
-				  <div class="swiper-slide">Slide 7</div>
-				  <div class="swiper-slide">Slide 8</div>
-				  <div class="swiper-slide">Slide 9</div>
-				</div>
-				<div class="swiper-button-next"></div>
-				<div class="swiper-button-prev"></div>
-			</div>
-		</div>
-	</div>--}}
-@endsection
+	

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.details')
 
 @section('content')
 	<div class="container">
@@ -65,7 +65,7 @@
 					<h4 class="fw-bold mb-4">INFORMATION TO APPLY</h4>
 				</div>
 				<div class="apply-form-body">
-					<form action="">
+					<form action="" enctype="multipart/form-data">
 						<div class="apply-input-group mb-4">
 							<label for="candidate_name">
 								<h6 class="small fw-bold">Full Name <span class="text-danger">*</span></h6>
