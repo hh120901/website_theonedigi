@@ -66,8 +66,6 @@
 				</div>
 				<div class="apply-form-body">
 					<form action="">
-
-
 						<div class="apply-input-group mb-4">
 							<label for="candidate_name">
 								<h6 class="small fw-bold">Full Name <span class="text-danger">*</span></h6>

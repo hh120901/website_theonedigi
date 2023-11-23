@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('homepage');
 });
+Route::get('/fullpage', function () {
+    return view('fullpage');
+});
 
 Route::get('/about', function () {
     return view('sections/about');
@@ -24,7 +27,6 @@ Route::get('/about-details', function () {
     return view('sections/about_detail');
 });
 
-
 Route::get('/products', function () {
     return view('sections/products');
 });
@@ -32,11 +34,9 @@ Route::get('/product-details', function () {
     return view('sections/products_detail');
 });
 
-
 Route::get('/teams', function () {
     return view('sections/teams');
 });
-
 
 Route::get('/blogs', function () {
     return view('sections/blogs');
@@ -52,3 +52,9 @@ Route::get('/career/details/{id?}', function () {
     return view('sections/career_detail');
 });
 
+Route::get('/contact1', function () {
+    return view('sections/contact1');
+});
+Route::get('/contact2', function () {
+    return view('sections/contact2');
+});
