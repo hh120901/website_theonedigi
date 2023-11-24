@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function () {
+    return view('fullpage');
+});
+
+Route::get('/#{slide?}', function () {
+    return view('fullpage');
+});
+
 Route::get('/about-details', function () {
     return view('sections/about_detail');
 });
@@ -30,11 +38,39 @@ Route::get('/career/details/{id?}', function () {
 });
 
 //  admin
+Route::get('/admin', function () {
+    return view('admin.dashboard');
+});
+Route::get('/admin/about', function () {
+    return view('admin.about.index');
+});
+Route::get('/admin/about/edit/{id?}', function () {
+    return view('admin.about.edit');
+});
+Route::get('/admin/blogs', function () {
+    return view('admin.blogs.index');
+});
+Route::get('/admin/blogs/edit/{id?}', function () {
+    return view('admin.blogs.edit');
+});
+Route::get('/admin/products', function () {
+    return view('admin.products.index');
+});
+Route::get('/admin/products/edit/{id?}', function () {
+    return view('admin.products.edit');
+});
+Route::get('/admin/teams', function () {
+    return view('admin.teams.index');
+});
+Route::get('/admin/teams/edit/{id?}', function () {
+    return view('admin.teams.edit');
+});
+Route::get('/admin/career', function () {
+    return view('admin.career.index');
+});
+Route::get('/admin/career/edit/{id?}', function () {
+    return view('admin.career.edit');
+});
 Route::get('/admin/login', function () {
     return view('admin.login');
-});
-
-
-Route::get('/{details?}', function () {
-    return view('fullpage');
 });

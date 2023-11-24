@@ -6,7 +6,7 @@
 		<div class="d-flex pt-5r">
 			<div class="">
 				<div class="d-flex justify-content-end">
-					<a href="{{ url('/about') }}">
+					<a href="{{ url('/#about') }}">
 						<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 					</a>
 				</div>

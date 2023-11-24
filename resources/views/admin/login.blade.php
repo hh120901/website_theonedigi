@@ -1,83 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Form with Drop Area</title>
-  <style>
-    #drop-area {
-      border: 2px dashed #ccc;
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-      cursor: pointer;
-      margin-bottom: 10px;
-    }
-
-    #drop-area.highlight {
-      border-color: #2196F3;
-    }
-  </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+	<meta name="robots" content="index,follow"/>
+	<meta name="author" content="{{ env('APP_NAME') }}">
+	<title>The One Digi</title>
+	@include('layouts/sections/styles')
 </head>
-<body>
-
-  <form id="myForm" action="/submit" method="post" enctype="multipart/form-data">
-    <div>
-      <label for="name">Name:</label>
-      <input type="text" id="name" name="name" required>
-    </div>
-    <div>
-      <label for="mail">Email:</label>
-      <input type="email" id="mail" name="mail" required>
-    </div>
-    <div>
-      <label for="phone">Phone:</label>
-      <input type="tel" id="phone" name="phone" required>
-    </div>
-    <div id="drop-area" ondragover="handleDragOver(event)" ondragleave="handleDragLeave()" ondrop="handleDrop(event)">
-		<p>Drop your resume file here or <label for="resume-input">choose a file</label></p>
-		<input type="file" id="resume-input" name="resume" onchange="handleFileSelect()">
-		<span id="file-name"></span>
-    </div>
-    <button type="submit">Submit</button>
-  </form>
-
-  <script>
-    function handleDragOver(event) {
-      event.preventDefault();
-      document.getElementById('drop-area').classList.add('highlight');
-    }
-
-    function handleDragLeave() {
-      document.getElementById('drop-area').classList.remove('highlight');
-    }
-
-    function handleDrop(event) {
-      event.preventDefault();
-      document.getElementById('drop-area').classList.remove('highlight');
-
-      var files = event.dataTransfer.files;
-      handleFiles(files);
-    }
-
-    function handleFileSelect() {
-		var files = document.getElementById('resume-input').files;
-		handleFiles(files);
-		document.getElementById('resume-input').value = files;
-    }
-
-    function handleFiles(files) {
-      if (files.length === 0) {
-			console.log('No file selected.');
-			return;
-      }
-
-      var fileName = files[0].name;
-      document.getElementById('resume-input').value = fileName;
-
-      console.log('File selected:', fileName);
-    }
-  </script>
-
+<body >
+	<section>
+		<div class="container bg-white">
+			<form action="{{ url('/admin') }}">
+				<div class="row bg-white mx-3 mx-md-0 align-items-center">
+					<div class="col-lg-4 px-0 d-none d-sm-block" style="height: 1024px">
+						<div style="background-image: url({{ asset('assets/images/bg-ad-light.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: left; height: 100%;">
+							<div style="background-image: url({{ asset('assets/images/bg-ad.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: center; height: 100%;">
+							</div>
+						</div>
+					</div>
+					<div class="col-lg-8 px-0">
+						<div class="h-100 py-5 pt-md-0 d-flex justify-content-center align-items-center">
+							<div>
+								<div class="d-flex mb-4 justify-content-center align-items-center">
+									<div class="ratio ratio-1x1" style="width: 100px; height: 100px">
+										<img src="{{ asset('assets/images/logo_site.png') }}" alt="logo">
+									</div>
+									<h2 class="fw-bold text-black fs-1 ms-5 mb-0">THE ONE <br> DIGI CORP</h2>
+								</div>
+								<div class="mb-4 text-center">
+									<strong class="my-3 fs-2 fw-semibold">Login</strong>
+								</div>
+								<div class="form-login">
+									<form action="">
+										<div class="apply-input-group mb-4">
+											<label class="mb-2" for="admin_email">
+												<strong class="fw-semibold">Email <span class="text-danger">*</span></strong>
+											</label>
+											<input type="text" id="admin_email" name="admin_email" class="form-control rounded-3 custom-input" placeholder="enter your mail" autocomplete="off" required>
+										</div>
+										<div class="apply-input-group mb-4">
+											<label class="mb-2" for="admin_password">
+												<strong class="fw-semibold">Password <span class="text-danger">*</span></strong>
+											</label>
+											<input type="password" id="admin_password" name="admin_password" class="form-control rounded-3 custom-input" autocomplete="off" placeholder="*******" required>
+										</div>
+										<div class="d-flex justify-content-center mb-4">
+											<span class="text-decoration-underline text-center">Forgot your password ?</span>
+										</div>
+										<div>
+											<button class="btn btn-red-400 w-100" type="submit" style="height: 50px">
+												Log in
+											</button>
+										</div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+	@include('layouts/sections/scripts')
 </body>
 </html>

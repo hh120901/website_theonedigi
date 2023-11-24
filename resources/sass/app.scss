@@ -1,6 +1,6 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700;1,800&family=Noto+Sans+JP:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import 'variables';
 
 * {
@@ -11,10 +11,9 @@
 
 body {
 	background-color: #fffcf7;
+	font-family: 'Public Sans', sans-serif;
 }
-//html {
-//	overflow-y: hidden;
-//  }
+
 
 // Header
 .header-container {
@@ -29,6 +28,12 @@ body {
 	background: $red_primary;
 }
 
+//Table
+.table-management {
+	td, th {
+		padding: 20px !important;
+	}
+}
 
 // Title
 .title-banner {
@@ -40,6 +45,34 @@ body {
 }
 
 // Button
+.btn-red-400 {
+	background-color: $red-400;
+	color: white;
+	font-weight: 700;
+	line-height: 21px;
+	&:hover {
+		background-color: darken($red-400, 20%);
+		color: $white;
+	}
+}
+.btn-outline-red-400 {
+	background-color: white;
+	color: $red-400;
+	border: 1px solid $red-400;
+	transition: background-color 0.3s linear ;
+	&:hover {
+		background-color: $red-400 !important;
+		color: $white;
+	}
+}
+.btn-remove-post,
+.btn-add-post {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 10rem;
+	height: 50px;
+}
 .btn-category,
 .btn-job {
 	width: 13.125rem;
@@ -207,6 +240,9 @@ body {
 .bg-red-primary {
 	background: $red_primary;
 }
+.bg-red-400 {
+	background: $red-400;
+}
 
 .background-border {
 	position: absolute;
@@ -228,7 +264,7 @@ body {
 }
 // Text: 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat';
+	font-family: 'Montserrat', sans-serif;
 }
 .no-decor {
 	text-decoration: none;
@@ -242,6 +278,9 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 28px;
 	font-weight: 800;
 	line-height: 36px;
+}
+.text-red-primary {
+	color: $red_primary;
 }
 .fs-3r {
 	font-size: 3rem;
@@ -415,32 +454,50 @@ h1, h2, h3, h4, h5, h6 {
 		padding: 0 1.2rem;
 	}
 	.form-check-input {
-		border-color: $red_primary;
+		border-color: $red_primary !important;
 		color: blue;
 		&:checked {
-			background-color: $red_primary;
+			background-color: $red_primary !important;
 		}
 	}
 }
-
+.form-check {
+	.form-check-input:checked {
+		background-color: $red-400;
+		border-color: $red-400;
+	}
+}
 .custom-form {
 	.custom-input {
 		background-color: $white;
 		width: 100%;
-		border: 1px solid $gray-8;
+		border: 1px solid $gray-400;
 		height: 3rem;
 		font-size: 14px;
 		padding: 0 1.2rem;
+		&.bg-white {
+			background-color: white !important;
+		}
 	}
 	.custom-textarea {
 		background-color: $white;
 		width: 100%;
-		border: 1px solid $gray-8;
+		border: 1px solid $gray-400;
 		height: 3rem;
 		font-size: 14px;
 		padding: 1.2rem;
 		border-radius: 1rem;
 		height: auto;
+		&.bg-white {
+			font-size: 16px;
+			background-color: white !important;
+		}
+	}
+	.custom-select {
+		height: 3rem;
+		border: 1px solid $gray-400;
+		border-radius: 1rem;
+		padding-left: 1rem;
 	}
 }
 
@@ -595,4 +652,74 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 	height: 40px;
 	width: 150px;
+}
+
+// Admin 
+
+// sidebar
+.sidebar {
+	width: 300px;
+	height: 1024px;
+	.logo-img {
+		width: 58px;
+		height: 58px;
+	}
+	.group-management {
+		padding: 0;
+		li {
+			margin-bottom: 20px;
+			margin-left: 3.2rem;
+			a {
+				text-decoration: none;
+				color: $black;
+				font-size: 14px;
+				font-weight: 400;
+				&.active {
+					color: $red-400;
+					font-weight: 600;
+				}
+			}
+			&:first-child {
+				margin-top: 20px;
+			}
+			&:hover {
+				a {
+					color: $red-400;
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+.head-bar {
+	height: 60px;
+	background: white;
+}
+.badge-notifi {
+	top: 4px;
+}
+.input-search-group {
+	width: 190px;
+	height: 32px;
+	input {
+		width: 150px;
+		&:focus {
+			border: none;
+			outline: none;
+		}
+	}
+	&:focus {
+		border: 2px solid #7F7F7F;
+	}
+}
+.post-status {
+	&.active {
+		color: #00A611;
+	}
+}
+.image-zone {
+	width: 100%;
+}
+.ratio::before {
+    display: none;
 }

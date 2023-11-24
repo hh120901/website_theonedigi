@@ -60,7 +60,7 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
 				</p>
 				<div class="d-flex justify-content-end">
-					<a href="{{ url('/blogs') }}">
+					<a href="{{ url('/#blogs') }}">
 						<img width="80" src="{{ asset('assets/images/arrow-left.svg') }}" alt="Go back">
 					</a>
 				</div>

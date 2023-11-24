@@ -11,7 +11,15 @@
 	@include('layouts/sections/styles')
 </head>
 <body>
-	@yield('content')
+	<div class="container">
+		<div class="d-flex">
+			@include('layouts.sections.admin.sidebar')
+			<div class="w-100">
+				@include('layouts.sections.admin.headbar')
+				@yield('content')
+			</div>
+		</div>
+	</div>
 	@include('layouts/sections/scripts')
 </body>
 </html>

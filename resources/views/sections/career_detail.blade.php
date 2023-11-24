@@ -11,7 +11,7 @@
 					<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">SENIOR MARKETING OPERATOR</h2>
 				</div>
 				<div class="me-5">
-					<a href="{{ url('/career') }}">
+					<a href="{{ url('/#career') }}">
 						<img width="80" src="{{ asset('assets/images/arrow-left.svg') }}" alt="Go back">
 					</a>
 				</div>
