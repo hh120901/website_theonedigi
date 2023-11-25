@@ -22,7 +22,7 @@
 		</div>
 		<div class="d-flex justify-content-between align-items-start">
 			<span class="mt-3 block-span-red-135"></span>
-			<a href="{{ url('/#products') }}" class="me-5 pe-5">
+			<a href="{{ url('/products') }}" class="me-5 pe-5">
 				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 			</a>
 		</div>

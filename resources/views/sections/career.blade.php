@@ -51,10 +51,6 @@
 					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
 					<span  class="mx-3">Full time</span>
 				</button>
-				<button class="btn btn-job-description rounded-4">
-					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
-					<span  class="mx-3">2-year contract</span>
-				</button>
 			</div>
 			<div class="job-description">
 				<p class="mt-3 small fw-medium">
@@ -79,10 +75,6 @@
 					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
 					<span  class="mx-3">Full time</span>
 				</button>
-				<button class="btn btn-job-description rounded-4">
-					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
-					<span  class="mx-3">2-year contract</span>
-				</button>
 			</div>
 			<div class="job-description">
 				<p class="mt-3 small fw-medium">
@@ -106,10 +98,6 @@
 				<button class="btn btn-job-description rounded-4">
 					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
 					<span  class="mx-3">Full time</span>
-				</button>
-				<button class="btn btn-job-description rounded-4">
-					<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
-					<span  class="mx-3">2-year contract</span>
 				</button>
 			</div>
 			<div class="job-description">
@@ -122,7 +110,6 @@
 </div>
 <script>
 	$(document).ready(function () {
-
 		$('.btn-job').on('click', function(){
 			$('.btn-job.active').removeClass('active');
 			$(this).addClass('active');

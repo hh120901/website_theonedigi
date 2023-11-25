@@ -78,11 +78,11 @@
 			})
 			// Catch url
 			var lastSegmentUrl = window.location.pathname.split('/').pop();
+			console.log(lastSegmentUrl)
 			// Lấy phần sau dấu #
-			var hashValue = window.location.hash;
-			console.log(hashValue);
+			//var hashValue = window.location.hash;
 			if(lastSegmentUrl !== '') {
-				var urlTargetSlide = $(hashValue);
+				var urlTargetSlide = $("#"+lastSegmentUrl); 
 				if (urlTargetSlide.length > 0) {
 					var urlTargetSlideIndex = urlTargetSlide.index();
 					swiper.slideTo(urlTargetSlideIndex);

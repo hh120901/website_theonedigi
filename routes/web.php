@@ -13,14 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('fullpage');
-});
-
-Route::get('/#{slide?}', function () {
-    return view('fullpage');
-});
-
 Route::get('/about-details', function () {
     return view('sections/about_detail');
 });
@@ -89,4 +81,8 @@ Route::get('/admin/contact/edit/{id?}', function () {
 
 Route::get('/admin/login', function () {
     return view('admin.login');
+});
+
+Route::get('/{slide?}', function () {
+    return view('fullpage');
 });

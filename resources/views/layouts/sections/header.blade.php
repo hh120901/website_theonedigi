@@ -21,17 +21,7 @@
 			</div>
 		</div>
 		<div class="d-flex justify-content-between align-items-center">
-			<input type="text" class="input-search me-4" placeholder="Search">
-			<div class="dropdown account-dropdown">
-				<a class="dropdown-toggle no-decor" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-					<img src="{{ asset('assets/images/user-circle.svg') }}" alt="">
-				</a>
-				<ul class="dropdown-menu">
-				  <li><a class="dropdown-item" href="#">Action</a></li>
-				  <li><a class="dropdown-item" href="#">Another action</a></li>
-				  <li><a class="dropdown-item" href="#">Something else here</a></li>
-				</ul>
-			</div>
+			<input type="text" class="input-search" placeholder="Search">
 			<div class="border-end border-white mx-3" style="height: 50px"></div>
 			<div class="d-flex gap-3">
 				<img src="{{ asset('assets/images/usa-flag.svg') }}" alt="">
