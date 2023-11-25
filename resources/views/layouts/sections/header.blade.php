@@ -1,5 +1,5 @@
 <div class="container text-white bg-dark">
-	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom header-container align-items-center px-lg-5">
+	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-between py-3 border-bottom header-container align-items-center px-3 px-lg-5">
 		<div class="d-flex align-items-center">
 			<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('assets/images/logo_todc.png') }}" alt="logo img"></a>
 			<a role="button" class="site-name no-decor navigation-to-slide" data-sl-target="home"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>

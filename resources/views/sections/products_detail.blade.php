@@ -10,7 +10,7 @@
 			</div>
 			<div class="d-flex mt-5">
 				<div class="w-50">
-					<div class="ratio ratio-1x1" style="max-height: 450px">
+					<div class="ratio ratio-1x1" style="height: 450px">
 						<img src="{{ asset('assets/images/image-product1.png') }}" alt="">
 					</div>
 				</div>
