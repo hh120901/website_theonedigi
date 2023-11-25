@@ -723,3 +723,10 @@ h1, h2, h3, h4, h5, h6 {
 .ratio::before {
     display: none;
 }
+.box-avatar {
+	width: 115px;
+	height: 115px;
+	img {
+		border-radius: 100%;
+	}
+}

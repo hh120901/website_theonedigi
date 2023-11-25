@@ -71,6 +71,22 @@ Route::get('/admin/career', function () {
 Route::get('/admin/career/edit/{id?}', function () {
     return view('admin.career.edit');
 });
+Route::get('/admin/users', function () {
+    return view('admin.users.index');
+});
+Route::get('/admin/users/edit/{id?}', function () {
+    return view('admin.users.edit');
+});
+Route::get('/admin/user-role', function () {
+    return view('admin.roles.index');
+});
+Route::get('/admin/contact', function () {
+    return view('admin.contact.index');
+});
+Route::get('/admin/contact/edit/{id?}', function () {
+    return view('admin.contact.edit');
+});
+
 Route::get('/admin/login', function () {
     return view('admin.login');
 });

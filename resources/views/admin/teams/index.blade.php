@@ -6,7 +6,7 @@
 			<div class="px-5 pt-5r">
 				<h4 class="ms-5 fw-bold text-red-primary mb-3">TEAMS</h4>
 				<div class="border rounded-3 px-3 py-4 mx-5 bg-white">
-					<div class="d-flex justify-content-between align-items-center">
+					<div class="d-flex flex-wrap justify-content-between align-items-center">
 						<span class="fs-5 fw-semibold">Resources List</span>
 						<div class="input-search-group border rounded-3 d-flex justify-content-center bg-white">
 							<input type="text" class="input-search-resources border-0 small rounded-3 ps-3"  placeholder="Search..." name="search_resouces" id="search_resouces">
@@ -44,7 +44,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/teams/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -61,7 +61,7 @@
 									<td class="post-status">Deactivated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/teams/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -78,7 +78,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/teams/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -95,7 +95,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/teams/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -112,7 +112,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/teams/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -120,7 +120,7 @@
 								
 							</tbody>
 						</table>
-						<div class="d-flex justify-content-between mt-4">
+						<div class="d-flex justify-content-between mt-4 flex-wrap">
 							<div>
 								<p class="fw-normal">Page: 1 <span class="text-muted">| 2 | 3 | Next | Back</span></p>
 							</div>

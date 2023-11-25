@@ -58,7 +58,7 @@
 								
 							</div>
 							<div class="mt-3">
-								<p class="mb-0">
+								<p class="mb-2">
 									If you would like to publish this blog right now, please check box here!
 								</p>
 								<div class="form-check">

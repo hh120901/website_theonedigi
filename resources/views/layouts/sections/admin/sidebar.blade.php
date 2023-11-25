@@ -6,7 +6,7 @@
 					<div class="logo-img ratio ratio-1x1">
 						<img src="{{ asset('assets/images/logo_site.png') }}" height="24px" alt="logo">
 					</div>
-					<h4 class="fw-semibold ms-4 mb-0 text-black">
+					<h4 class="fw-semibold ms-4 mb-0 text-black text-nowrap">
 						THE ONE <br> DIGI CORP
 					</h4>
 				</div>
@@ -32,7 +32,7 @@
 						</svg>
 						User management
 					</span>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/user') }}">User</a></li>
+					<li class="management-item"><a class="management-link" href="{{ url('/admin/users') }}">User</a></li>
 					<li class="management-item"><a class="management-link" href="{{ url('/admin/user-role') }}">User Roles</a></li>
 					<li class="management-item"><a class="management-link" href="{{ url('/admin/contact') }}">Request Contact Us</a></li>
 				</ul>

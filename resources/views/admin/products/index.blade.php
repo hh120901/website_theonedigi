@@ -44,7 +44,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/products/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -61,7 +61,7 @@
 									<td class="post-status">Deactivated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/products/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -78,7 +78,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/products/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -95,7 +95,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/products/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -112,7 +112,7 @@
 									<td class="post-status active">Activated</td>
 									<td class="">
 										<div class="d-flex align-items-center">
-											<a href="" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+											<a href="{{ url('/admin/products/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 											<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 										</div>
 									</td>
@@ -120,7 +120,7 @@
 								
 							</tbody>
 						</table>
-						<div class="d-flex justify-content-between mt-4">
+						<div class="d-flex justify-content-between mt-4 flex-wrap">
 							<div>
 								<p class="fw-normal">Page: 1 <span class="text-muted">| 2 | 3 | Next | Back</span></p>
 							</div>
