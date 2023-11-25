@@ -1,6 +1,6 @@
 <section class="sidebar">
-	<div class="" style="background-image: url({{ asset('assets/images/bg-ad-light.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: center; height: 100%;">
-		<div class="d-flex flex-column flex-shrink-0 p-3 w-100" style="background-image: url({{ asset('assets/images/bg-ad.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: center; height: 100%;">
+	<div>
+		<div class="d-flex flex-column flex-shrink-0 p-3 w-100" >
 			<a class="no-decor" href="{{ url('/admin') }}">
 				<div class="d-flex align-items-center">
 					<div class="logo-img ratio ratio-1x1">

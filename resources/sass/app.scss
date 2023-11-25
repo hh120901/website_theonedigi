@@ -225,6 +225,9 @@ body {
 	.full-content .container {
 		height: 928px;
 	}
+	.w-lg-50 {
+		width: 50%;
+	}
 }
 
 .container {
@@ -444,11 +447,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 //input
+.drop-zone {
+	&.drag-over {
+		border: 2px dashed blueviolet;
+		border-radius: 0.5rem;
+		opacity: 0.5;
+	}
+}
 .apply-form {
 	.career-input {
 		background-color: $white;
 		width: 100%;
-		border: 1px solid $gray-8;
+		border: 1px solid $gray-400;
 		height: 40px;
 		font-size: 14px;
 		padding: 0 1.2rem;
@@ -607,6 +617,13 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.home-swiper {
 		max-height: auto;
+	}
+	.sub-container {
+		padding: 2rem 1rem;
+	}
+	.title-banner {
+		font-size: 3rem;
+		line-height: 3.5rem;
 	}
 }
 

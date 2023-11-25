@@ -4,11 +4,11 @@
 			<div style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right; height: 100%;">
 				<div class="sub-container">
 					<div class="d-flex flex-wrap">
-						<div class="title w-50">
+						<div class="title w-lg-50">
 							<h2 class="title-banner mb-5">WELCOME <br> TO OUR <br> PLACE!</h2>
 							<p class="fs-5 pe-5 fw-semibold">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo beatae nobis, amet dolore magni dicta quod quia autem voluptatem pariatur.</p>
 						</div>
-						<div class="img-banner w-50 d-flex justify-content-center">
+						<div class="img-banner w-lg-50 d-flex justify-content-center">
 							<div class="rounded-box d-flex align-items-end justify-content-center overflow-hidden">
 								<img src="{{ asset('assets/images/ava_kevin.png') }}" alt="avt" width="413" height="413">
 							</div>
@@ -30,7 +30,7 @@
 							<a href="#"><img src="{{ asset('assets/images/Twitter.svg') }}" alt="TW-icon"></a>
 						</div>	
 						<div class="btn-scroll">
-							<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page slide-next-btn">
+							<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page slide-next-btn d-none d-lg-block">
 								SCROLL <img src="{{ asset('assets/images/arrow-right.svg') }}" alt="">
 							</button>
 						</div>

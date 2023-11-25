@@ -21,7 +21,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input btn-check-all" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="col">No</th>
@@ -35,7 +35,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input checkbox-manage-content" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="row">1</th>
@@ -52,7 +52,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input checkbox-manage-content" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="row">2</th>
@@ -69,7 +69,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input checkbox-manage-content" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="row">3</th>
@@ -86,7 +86,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input checkbox-manage-content" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="row">4</th>
@@ -103,7 +103,7 @@
 								<tr>
 									<th scope="col">
 										<div class="form-check d-flex justify-content-center">
-											<input class="form-check-input" type="checkbox" value="" id="flexCheckIndeterminate">
+											<input class="form-check-input checkbox-manage-content" type="checkbox" value="">
 										</div>
 									</th>
 									<th class="text-center" scope="row">5</th>

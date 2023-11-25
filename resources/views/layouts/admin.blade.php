@@ -20,6 +20,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="{{ asset('assets/admin/admin.js') }}"></script>
 	@include('layouts/sections/scripts')
 </body>
 </html>
