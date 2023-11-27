@@ -15,11 +15,16 @@
 							<div class="col-lg-6">
 								<div class="input-upload-image position-relative" role="button">
 									<label class="fw-semibold mb-3" for="">Image <span class="text-danger">*</span></label>
-									<div class="image-zone ratio ratio-1x1 rounded-3" style="height: 35rem">
-										<img class="rounded-3" src="{{ asset('assets/images/personal-card2.jpg') }}" alt="">
+									<div class="drop-zone image-zone ratio ratio-1x1 rounded-3 bg-secondary bg-opacity-10" style="height: 35rem">
+										<div class="d-flex flex-column justify-content-center align-items-center">
+											<p class="mb-2"><i class="fal fa-file-upload fs-3"></i></p>
+											<p>Drop file or click here to upload image</p>
+										</div>
+										<img class="rounded-3 previewImage" src="{{ asset('assets/images/personal-card.jpg') }}" alt="">
 									</div>
 								</div>
-								<input type="file" name="featured_image" id="featured_image" class="d-none">
+								<p class="file-name my-3 fw-semibold text-red-primary d-none"></p>
+								<input type="file" name="featured_image" id="featured_image" accept="image/*" class="d-none input-file">
 							</div>
 
 							<div class="col-lg-6">
@@ -80,11 +85,4 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function () {
-			$('.input-upload-image').on('click', function (){
-				$('#featured_image').trigger('click');
-			});
-		});
-	</script>
 @endsection

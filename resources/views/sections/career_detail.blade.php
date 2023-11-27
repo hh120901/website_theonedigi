@@ -85,14 +85,14 @@
 							<input type="text" id="candidate_phone" name="candidate_phone" class="rounded-4 career-input" placeholder="03 1234 4567" required>
 						</div>
 						<div class="apply-input-group mb-4">
-							<label for="candidate_resumn">
+							<label for="input_file">
 								<h6 class="small fw-bold">Your CV <span class="text-danger">*</span></h6>
 							</label>
-							<input type="file" id="candidate_resumn" name="candidate_resumn" class="d-none">
+							<input type="file" id="input_file" name="input_file" class="d-none input-file">
 							<div class="drop-zone">
 								<div class="d-flex flex-column justify-content-center align-items-center border rounded-3 py-4">
 									<p class="mb-2"><i class="fal fa-file-upload fs-4"></i></p>
-									<p class="fw-semibold mb-0">Click here to upload your resume</p>
+									<p class="fw-semibold mb-0">Drag or click here to upload your resume</p>
 								</div>
 							</div>
 							<p class="file-name my-3 fw-semibold text-red-primary"></p>
@@ -113,40 +113,4 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function () {
-			var dropZone = $('.drop-zone');
-			var inputField = $('#candidate_resumn')
-			dropZone.on('click', function(){
-				$('#candidate_resumn').trigger('click');
-			})
-			inputField.on('change', function(){
-				var fileName = $(this).val().split('\\').pop();
-				if (fileName != '') {
-					$(".file-name").text("Upload file completed: " + fileName);
-				} else {
-					$(".file-name").text("");
-				}
-			}) 
-
-			dropZone.on('dragover', function (e) {
-				e.preventDefault();
-				$(this).addClass('drag-over');
-			});
-
-			dropZone.on('dragleave', function (e) {
-				e.preventDefault();
-				$(this).removeClass('drag-over');
-			});
-
-			dropZone.on('drop', function (e) {
-				e.preventDefault();
-				$(this).removeClass('drag-over');
-				var files = e.originalEvent.dataTransfer.files;
-				inputField.prop('files', files);
-				var fileName = files[0].name;
-				$(".file-name").text("Upload file completed: " + fileName);
-			});
-		});
-	</script>
 @endsection

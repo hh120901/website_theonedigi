@@ -10,9 +10,10 @@
 						@csrf
 						<div class="row mt-5 me-4">
 							<div class="col-lg-3 d-flex justify-content-center px-0">
-								<div class="box-avatar ratio ratio-1x1">
-									<img src="{{ asset('assets/images/img-blank.jpg') }}" alt="avatar">
+								<div class="box-avatar ratio ratio-1x1 drop-zone">
+									<img class="previewImage" src="{{ asset('assets/images/img-blank.jpg') }}" alt="avatar">
 								</div>
+								<input type="file" name="featured_image" id="featured_image" accept="image/*" class="d-none input-file">
 							</div>
 							<div class="col-lg-9">
 								<div class="row">

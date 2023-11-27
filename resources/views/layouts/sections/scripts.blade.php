@@ -35,4 +35,57 @@
 			prevEl: ".custom-next-btn"
 		},
 	});
+
+	// drop-zone
+	var dropZone = $('.drop-zone');
+	var inputField = $('.input-file')
+	dropZone.on('click', function(){
+		$('.input-file').trigger('click');
+	})
+	inputField.on('change', function(){
+		var files = $(this).prop('files');
+		var fileName = $(this).val().split('\\').pop();
+		if (fileName != '') {
+			$(".file-name").text("Upload file completed: " + fileName);
+			let extend = getExtension(fileName);
+			let previewImg = $('.previewImage');
+			if (previewImg.length !== 0) {
+				var imageUrl = URL.createObjectURL(files[0]);
+				previewImg.attr('src', imageUrl);
+				previewImg.removeClass('d-none');
+			}
+		} else {
+			$(".file-name").text("");
+		}
+	}) 
+
+	dropZone.on('dragover', function (e) {
+		e.preventDefault();
+		$(this).addClass('drag-over');
+	});
+
+	dropZone.on('dragleave', function (e) {
+		e.preventDefault();
+		$(this).removeClass('drag-over');
+	});
+
+	dropZone.on('drop', function (e) {
+		e.preventDefault();
+		$(this).removeClass('drag-over');
+		var files = e.originalEvent.dataTransfer.files;
+		inputField.prop('files', files);
+		var fileName = files[0].name;
+		$(".file-name").text("Upload file completed: " + fileName);
+		let previewImg = $('.previewImage');
+		if (previewImg.length !== 0) {
+			var imageUrl = URL.createObjectURL(files[0]);
+			previewImg.attr('src', imageUrl);
+			previewImg.removeClass('d-none');
+		}
+	});
+	function getExtension(fileName) {
+		console.log(fileName);
+		return fileName.split('.').pop();
+	}
+
 </script>
