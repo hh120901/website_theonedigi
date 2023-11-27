@@ -14,7 +14,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="mt-4 ms-135px me-135px mb-5">
+	<div class="mt-4 ms-135px me-135px mb-4">
 		<div class="pt-3 d-flex justify-content-lg-between gap-3 flex-wrap">
 			<button class="btn btn-outline-red-primary btn-category active">
 				ALL BLOGS
@@ -128,6 +128,14 @@
 			<div class="swiper-pagination"></div>
 		  </div>
 	</div>
+	<div class="d-flex justify-content-between" style="margin-top: -2rem">
+		<a role="button" class="slide-prev-btn">
+			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+		</a>
+		<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
+			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+		</a>
+	</div>
 </div>
 <script>
 	$(document).ready(function () {
@@ -143,6 +151,23 @@
 				nextEl: ".blog-next-btn",
 				prevEl: ".blog-prev-btn",
 			},
+			breakpoints: {
+				// when window width is >= 320px
+				320: {
+				slidesPerView: 1,
+				spaceBetween: 20
+				},
+				// when window width is >= 480px
+				480: {
+				slidesPerView: 1,
+				spaceBetween: 20
+				},
+				// when window width is >= 640px
+				800: {
+				slidesPerView: 2,
+				spaceBetween: 40
+				},
+			}
 		});
 
 		$('.btn-category').on('click', function(){

@@ -3,7 +3,8 @@
 @section('content')
 	<div class="d-lg-none">
 			@include('homepage')
-			@include('sections.about')
+			{{--@include('sections.about')--}}
+			{{--@include('sections.products')--}}
 			@include('sections.teams')
 			@include('sections.blogs')
 			@include('sections.career')
@@ -51,6 +52,7 @@
 					nextEl: ".slide-next-btn",
 					prevEl: ".slide-prev-btn",
 				},
+				allowTouchMove: false,
 				speed: 600,
 			});
 			// click on header
@@ -61,7 +63,6 @@
 				let goToSlideIndex = slideTarget.index();
 				swiper.slideTo(goToSlideIndex);
 			})
-			// fix me: change to active
 			swiper.on('slideChange', function (){
 				var currentSlideIndex = swiper.activeIndex;
 				getNavBtn.each(function(){
@@ -78,7 +79,6 @@
 			})
 			// Catch url
 			var lastSegmentUrl = window.location.pathname.split('/').pop();
-			console.log(lastSegmentUrl)
 			// Lấy phần sau dấu #
 			//var hashValue = window.location.hash;
 			if(lastSegmentUrl !== '') {
@@ -92,31 +92,31 @@
 			var countScrollDown = 0;
 			var countScrollUp = 0;
 
-			$(window).on('wheel', function(event) {
-				let maxScrollValue = document.documentElement.scrollHeight - window.innerHeight;
-				// event.originalEvent.deltaY sẽ là giá trị chiều cuộn của sự kiện, dương khi cuộn lên và âm khi cuộn xuống
-				if (event.originalEvent.deltaY > 0) {
-					if (maxScrollValue != 0) {
-						countScrollUp ++;
-						if ($(window).scrollTop() >= maxScrollValue && countScrollUp >= 2){
-							$('#hidden_next').trigger('click');
-							countScrollUp = 0;
-						}
-					} else {
-						$('#hidden_next').trigger('click');
-					}
-				} else if (event.originalEvent.deltaY < 0) {
-					if (maxScrollValue != 0) {
-						countScrollDown ++;
-						if ($(window).scrollTop() <= 0 && countScrollDown >= 2){
-							$('#hidden_prev').trigger('click');
-							countScrollDown = 0;
-						}
-					} else {
-						$('#hidden_prev').trigger('click');
-					}
-				}
-			});
+			//$(window).on('wheel', function(event) {
+			//	let maxScrollValue = document.documentElement.scrollHeight - window.innerHeight;
+			//	// event.originalEvent.deltaY sẽ là giá trị chiều cuộn của sự kiện, dương khi cuộn lên và âm khi cuộn xuống
+			//	if (event.originalEvent.deltaY > 0) {
+			//		if (maxScrollValue != 0) {
+			//			countScrollUp ++;
+			//			if ($(window).scrollTop() >= maxScrollValue && countScrollUp >= 2){
+			//				$('#hidden_next').trigger('click');
+			//				countScrollUp = 0;
+			//			}
+			//		} else {
+			//			$('#hidden_next').trigger('click');
+			//		}
+			//	} else if (event.originalEvent.deltaY < 0) {
+			//		if (maxScrollValue != 0) {
+			//			countScrollDown ++;
+			//			if ($(window).scrollTop() <= 0 && countScrollDown >= 2){
+			//				$('#hidden_prev').trigger('click');
+			//				countScrollDown = 0;
+			//			}
+			//		} else {
+			//			$('#hidden_prev').trigger('click');
+			//		}
+			//	}
+			//});
 
 		});
 

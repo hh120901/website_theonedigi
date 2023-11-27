@@ -29,7 +29,7 @@
 						</label>
 						<textarea class="custom-textarea" name="contact_message" id="contact_message" rows="7"></textarea>
 					</div>
-					<button class="btn btn-outline-red-primary w-100 fw-bold rounded-4 mt-4 py-2 mb-5">
+					<button class="btn btn-outline-red-primary w-100 fw-bold rounded-4 mt-4 py-2">
 						Send
 					</button>
 				</form>
@@ -42,7 +42,10 @@
 			</div>
 		</div>
 	</div>
-	<div class="">
+	<div class="d-flex justify-content-between">
+		<a role="button" class="slide-prev-btn">
+			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+		</a>
 		<span class="block-span-red-135"></span>
 	</div>
 </div>

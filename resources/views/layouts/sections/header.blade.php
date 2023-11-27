@@ -11,20 +11,22 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="about">ABOUT</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="products">PRODUCTS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="teams">TEAMS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="blogs">BLOGS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="career">CAREER</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-2 navigation-to-slide" data-sl-target="contact">CONTACT</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="about">ABOUT</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="products">PRODUCTS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="teams">TEAMS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="blogs">BLOGS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="career">CAREER</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="contact">CONTACT</a></li>
 				</ul>
 			</div>
 		</div>
 		<div class="d-lg-flex justify-content-between align-items-center d-none">
-			<input type="text" class="input-search" placeholder="Search">
+			<input type="text" class="input-search font-heading" placeholder="Search">
 			<div class="border-end border-white mx-3" style="height: 50px"></div>
-			<div class="d-flex gap-3">
-				<img src="{{ asset('assets/images/usa-flag.svg') }}" alt="">
+			<div class="d-flex gap-3 align-items-center">
+				<div class="ratio ratio-1x1 border rounded-1 border-white" style="width: 40px; height: 28px">
+					<img class="rounded-1" src="{{ asset('assets/images/lang-eng.svg') }}" alt="">
+				</div>
 				<img src="{{ asset('assets/images/vn-flag.svg') }}" alt="">
 			</div>
 		</div>

@@ -14,7 +14,7 @@
 			</p>
 		</div>
 	</div>
-	<div class="mt-4 ms-135px me-135px mb-5">
+	<div class="mt-3 ms-135px me-135px mb-4">
 		<div class="pt-3 d-flex justify-content-lg-between gap-3 flex-wrap">
 			<button class="btn btn-outline-red-primary btn-job active">
 				HR
@@ -83,7 +83,7 @@
 			</div>
 		</div>
 		{{-- Job 1 --}}
-		<div class="job-card mb-3">
+		<div class="job-card">
 			<div class="d-flex flex-wrap justify-content-between">
 				<h4 class="job-title mb-0">Senior Marketing Operator</h4>
 				<div>
@@ -106,6 +106,14 @@
 				</p>
 			</div>
 		</div>
+	</div>
+	<div class="d-flex justify-content-between" style="margin-top: -4rem">
+		<a role="button" class="slide-prev-btn">
+			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+		</a>
+		<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
+			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+		</a>
 	</div>
 </div>
 <script>

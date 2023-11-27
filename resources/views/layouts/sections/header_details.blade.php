@@ -2,7 +2,7 @@
 	<header class="d-flex align-items-center justify-content-center justify-content-md-between py-3 border-bottom header-container align-items-center px-5">
 		<div class="d-flex align-items-center">
 			<a href="{{ url('/') }}" class="site-logo no-decor"><img src="{{ asset('assets/images/logo_todc.png') }}" alt="logo img"></a>
-			<a href="/" class="site-name no-decor"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>
+			<a href="{{ url('/') }}" class="site-name no-decor"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>
 		</div>
 		<div class="main-menu navbar navbar-expand-lg">
 			<button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"

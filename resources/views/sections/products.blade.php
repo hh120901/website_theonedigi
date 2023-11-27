@@ -1,7 +1,7 @@
 
 	{{-- Screen 3 --}}
 	<div class="container position-relative">
-		<div class="d-flex pt-5r"> 
+		<div class="d-flex pt-5r flex-wrap"> 
 			<div class="pt-5r">
 				<span class="mt-3 block-span-red-135"></span>
 			</div>
@@ -14,7 +14,7 @@
 								<i class="fal fa-caret-up fs-4"></i>
 							</button>
 						</div>
-						<div class="my-4">
+						<div class="my-4 d-flex d-lg-block">
 							<div class="mb-4 pt-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps active" role="button" data-active-card="1-2">
 								<span class="btn-select-products">1</span>
 								<div class="line-between-steps" style="height: 1.5rem"></div>
@@ -213,6 +213,14 @@
 					</div>
 				</div>
 			</div>
+		</div>
+		<div class="d-flex justify-content-between" style="margin-top: -2rem">
+			<a role="button" class="slide-prev-btn">
+				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+			</a>
+			<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
+				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+			</a>
 		</div>
 	</div>
 	<script>

@@ -12,30 +12,6 @@
 	//	$('[data-toggle="tooltip"]').tooltip();
 	//});
 
-	// swiper js
-	var swiper = new Swiper(".mySwiper", {
-			slidesPerView: 1,
-			loop: true,
-			navigation: {
-				breakpoints: {
-					576: {
-						slidesPerView: 1,
-						spaceBetween: 5,
-					},
-					768: {
-						slidesPerView: 2,
-						spaceBetween: 5,
-					},
-					1024: {
-						slidesPerView: 3,
-						spaceBetween: 20
-					}
-				},
-			nextEl: ".custom-prev-btn",
-			prevEl: ".custom-next-btn"
-		},
-	});
-
 	// drop-zone
 	var dropZone = $('.drop-zone');
 	var inputField = $('.input-file')

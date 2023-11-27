@@ -2,7 +2,7 @@
 	<div class="pt-5r ms-135px me-135px">
 		<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mb-5">LET'S BE PARTNERS IN SUCCESS!</h2>
 		<div class="row">
-			<div class="col-lg-6">
+			<div class="col-lg-6 d-flex flex-column justify-content-between">
 				<div>
 					<h4 class="h4-title">Main Office: The One Vietnam Co. Ltd,.</h4>
 					<span class="small-red-span my-4"></span>
@@ -19,6 +19,11 @@
 					</div>
 					<p>Email: loremipsum123@gmail.com</p>
 					<p>Website: www.loremipsum.com</p>
+				</div>
+				<div>
+					<a role="button" class="slide-prev-btn">
+						<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+					</a>
 				</div>
 			</div>
 			<div class="col-lg-6">

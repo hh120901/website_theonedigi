@@ -275,6 +275,9 @@ h1, h2, h3, h4, h5, h6 {
 .site-name {
 	width: 130px;
 }
+.font-heading {
+	font-family: 'Montserrat', sans-serif;
+}
 .h4-title {
 	text-transform: uppercase;
 	letter-spacing: -0.5px;
@@ -557,9 +560,12 @@ h1, h2, h3, h4, h5, h6 {
 	position: relative;
 	.person-card-header {
 		height: 320px;
-		transition: margin-bottom 0.5s ease;
+		transition: margin-bottom 0.5s ease, transform 0.5s ease;
+		overflow: hidden;
 		img {
 			transition: transform 0.5s ease;
+			width: 100%;
+			min-height: 320px;
 		}
 	}
 	.person-card-body {
@@ -578,9 +584,7 @@ h1, h2, h3, h4, h5, h6 {
 	&:hover {
 		.person-card-header {
 			margin-bottom: 1.5rem;
-			img {
-				transform: scale(1.1);
-			}
+			transform: scale(1.1);
 		}
 	}
 }
@@ -609,6 +613,12 @@ h1, h2, h3, h4, h5, h6 {
 
 // Responsive 
 @media (max-width: 1024px) {
+	.w-up-lg-100 {
+		width: 100%;
+		.mySwiper {
+			width: 100%;
+		}
+	}
     .me-135px {
 		margin-right: 1rem;
 	}
@@ -625,7 +635,18 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 3rem;
 		line-height: 3.5rem;
 	}
+	.blog-swiper {
+		.swiper-wrapper {
+			margin-left: 20px !important;
+			.swiper-slide {
+				.img-featured{
+					width: 100%;
+				}
+			}
+		}
+	}
 }
+
 
 .job-description {
 	p, li { 
@@ -638,7 +659,9 @@ h1, h2, h3, h4, h5, h6 {
 .main-menu {
 	.nav-link {
 		color: $white;
+		font-weight: 400;
 		margin: 0 10px;
+		transition: transform 0.4s ease-out;
 	}
 	.user-icon {
 		width: 36px;
@@ -646,11 +669,16 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.active {
 		font-weight: 600;
-		border-bottom: 3px solid white;
+		border: 1px solid white;
+		border-radius: 1rem;
 	}
 	.nav-item {
 		&:hover {
-			transform: scale(1.05);
+			a {
+				font-weight: 600;
+				border: 1px solid white;
+				border-radius: 1rem;
+			}
 		}
 	}
 }
