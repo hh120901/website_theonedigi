@@ -29,11 +29,16 @@
 							<a href="#"><img src="{{ asset('assets/images/Twitter.svg') }}" alt="TW-icon"></a>
 							<a href="#"><img src="{{ asset('assets/images/Linkedin.svg') }}" alt="In-icon"></a>
 						</div>	
-						<div class="btn-scroll">
+						{{--<div class="btn-scroll">
 							<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page slide-next-btn d-none d-lg-block">
-								SCROLL <img src="{{ asset('assets/images/arrow-right.svg') }}" alt="">
+								SCROLL <img src="https://isiro.id.vn/todc/public/assets/images/arrow-right.svg" alt="">
 							</button>
-						</div>
+						</div>--}}
+					</div>
+					<div class="d-none d-lg-flex justify-content-end" style="margin-top: -1rem">
+						<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
+							<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+						</a>
 					</div>
 				</div>
 			</div>

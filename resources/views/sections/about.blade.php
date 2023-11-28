@@ -179,7 +179,7 @@
 			<button class="btn about-btn-control-slide" data-gotosl='sl9'>9</button>
 		</div>
 	</div>
-	<div class="d-flex justify-content-between" style="margin-top: -1rem">
+	<div class="d-none d-lg-flex justify-content-between" style="margin-top: -1rem">
 		<a role="button" class="slide-prev-btn">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>

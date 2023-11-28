@@ -20,11 +20,6 @@
 					<p>Email: loremipsum123@gmail.com</p>
 					<p>Website: www.loremipsum.com</p>
 				</div>
-				<div>
-					<a role="button" class="slide-prev-btn">
-						<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
-					</a>
-				</div>
 			</div>
 			<div class="col-lg-6">
 				<div class="mb-3">
@@ -59,11 +54,19 @@
 					</div>
 					<p>Email: loremipsum123@gmail.com</p>
 					<p>Website: www.loremipsum.com</p>
-					<button class="btn btn-red-primary end-0 fs-4 btn-next-page position-absolute slide-next-btn d-lg-block d-none" style="bottom: 5%;">
+					{{--<button class="btn btn-red-primary end-0 fs-4 btn-next-page position-absolute slide-next-btn d-lg-block d-none" style="bottom: 5%;">
 						NEXT <img src="{{ asset('assets/images/arrow-right.svg') }}" alt="">
-					</button>
+					</button>--}}
 				</div>
 			</div>
+		</div>
+		<div class="d-none d-lg-flex justify-content-between" style="margin-top: -4rem">
+			<a role="button" class="slide-prev-btn">
+				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+			</a>
+			<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
+				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+			</a>
 		</div>
 	</div>
 </div>

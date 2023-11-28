@@ -13,11 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/about-details', function () {
+Route::get('/test', function () {
+    return view('testpage');
+});
+Route::get('/about-details/{id?}', function () {
     return view('sections/about_detail');
 });
 
-Route::get('/product-details', function () {
+Route::get('/product-details/{id?}', function () {
     return view('sections/products_detail');
 });
 

@@ -43,7 +43,7 @@
 		</div>
 	</div>
 	<div class="d-flex justify-content-between">
-		<a role="button" class="slide-prev-btn">
+		<a role="button" class="slide-prev-btn ms-5">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
 		<span class="block-span-red-135"></span>
