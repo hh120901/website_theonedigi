@@ -31,7 +31,7 @@ body {
 //Table
 .table-management {
 	td, th {
-		padding: 20px !important;
+		padding: 16px !important;
 	}
 }
 
@@ -771,5 +771,19 @@ h1, h2, h3, h4, h5, h6 {
 	height: 115px;
 	img {
 		border-radius: 100%;
+	}
+}
+// Pagination 
+.todc-pagination {
+	.page-item {
+		color: $gray-8;
+		border-right: 1px solid $gray-400;
+		&.disabled {
+			color: $gray-400;
+		}
+		&.active {
+			font-weight: 700;
+			color: $secondary;
+		}
 	}
 }

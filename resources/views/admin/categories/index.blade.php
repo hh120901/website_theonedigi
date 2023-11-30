@@ -16,37 +16,48 @@
 						</div>
 					</div>
 					<div class="mt-4">
-						@if (count($posts))
-							<table class="table table-bordered rounded-3 table-management">
+						@if (count($categories))
+							<table class="table table-bordered rounded-3 table-management table-hover">
 								<thead>
 									<tr>
 										<th scope="col">
 											<div class="form-check d-flex justify-content-center">
-												<input class="form-check-input btn-check-all" type="checkbox" value="" id="flexCheckIndeterminate">
+												<input class="form-check-input btn-check-all" type="checkbox" value="" id="cb">
 											</div>
 										</th>
 										<th class="text-center" scope="col">No</th>
-										<th scope="col">Title</th>
-										<th scope="col">Created Date</th>
+										<th scope="col">Name</th>
+										<th scope="col">Parent Category</th>
 										<th scope="col">Status</th>
+										<th scope="col">Description</th>
 										<th scope="col">Action</th>
 									</tr>
 								</thead>
 								<tbody>
-									@foreach ($posts as $i => $post)
+									@foreach ($categories as $i => $category)
 										<tr>
 											<th scope="col">
 												<div class="form-check d-flex justify-content-center">
-													<input class="form-check-input checkbox-manage-content" type="checkbox" value="" id="cb{{ $i }}">
+													<input class="form-check-input checkbox-manage-content" type="checkbox" value="" id="cb{{$i}}">
 												</div>
 											</th>
 											<th class="text-center" scope="row">{{ $i+1 }}</th>
-											<td>{{ $post->title }}</td>
-											<td>{{ $post->created_at }}</td>
-											<td class="post-status {{ $post->active == 1 ? 'active' : '' }}">{{ $post->active == 1 ? 'Activated' : 'Deactivated' }}</td>
+											<td>{{ $category->name }}</td>
+											<td>
+												@if (!empty($category->parent_id))
+													@php
+														$parentCat = \App\Models\PostCategory::find($category->parent_id);
+													@endphp
+												<span class="fw-medium">{{ !empty($parentCat) ? $parentCat->name : '' }}</span>
+												@else 
+												 	<span class="text-muted">None</span>
+												@endif
+											</td>
+											<td class="post-status {{ $category->active == 1 ? 'active' : '' }}">{{ $category->active == 1 ? 'Activated' : 'Deactivated' }}</td>
+											<td>{{ $category->description }}</td>
 											<td class="">
 												<div class="d-flex align-items-center">
-													<a href="{{ url('/admin/about/edit/1') }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+													<a href="{{ url('/admin/categories/edit/'.$category->id) }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
 													<a href=""><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 												</div>
 											</td>
@@ -57,13 +68,13 @@
 						@endif
 						<div class="d-flex justify-content-between mt-4 flex-wrap">
 							<div class="custom-pagination">
-								{{ $posts->render() }}
+								{{ $categories->render() }}
 							</div>
 							<div class="d-flex gap-3">
 								<a class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
 									Delete
 								</a>
-								<a href="{{ url('/admin/about/edit') }}" class="btn btn-red-400 btn-add-post">
+								<a href="{{ url('/admin/categories/edit') }}" class="btn btn-red-400 btn-add-post">
 									Add new
 								</a>
 							</div>

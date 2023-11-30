@@ -13,79 +13,70 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
+Route::any('/test', function () {
     return view('testpage');
 });
-Route::get('/about-details/{id?}', function () {
+Route::any('/about-details/{id?}', function () {
     return view('sections/about_detail');
 });
 
-Route::get('/product-details/{id?}', function () {
+Route::any('/product-details/{id?}', function () {
     return view('sections/products_detail');
 });
 
-Route::get('/blogs/details/{id?}', function () {
+Route::any('/blogs/details/{id?}', function () {
     return view('sections/blog_detail');
 });
 
-Route::get('/career/details/{id?}', function () {
+Route::any('/career/details/{id?}', function () {
     return view('sections/career_detail');
 });
 
 //  admin
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
-Route::get('/admin/about', function () {
-    return view('admin.about.index');
-});
-Route::get('/admin/about/edit/{id?}', function () {
-    return view('admin.about.edit');
-});
-Route::get('/admin/blogs', function () {
+Route::any('/admin', [App\Http\Controllers\Admin\Syslog::class, 'index'])->name('syslog');
+Route::any('/admin/about', [App\Http\Controllers\Admin\Syslog::class, 'about'])->name('syslog.about');
+Route::any('/admin/about/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'about'])->name('syslog.about.{action}.{id}');
+
+Route::any('/admin/blogs', function () {
     return view('admin.blogs.index');
 });
-Route::get('/admin/blogs/edit/{id?}', function () {
+Route::any('/admin/blogs/edit/{id?}', function () {
     return view('admin.blogs.edit');
 });
-Route::get('/admin/products', function () {
+Route::any('/admin/products', function () {
     return view('admin.products.index');
 });
-Route::get('/admin/products/edit/{id?}', function () {
+Route::any('/admin/products/edit/{id?}', function () {
     return view('admin.products.edit');
 });
-Route::get('/admin/teams', function () {
+Route::any('/admin/teams', function () {
     return view('admin.teams.index');
 });
-Route::get('/admin/teams/edit/{id?}', function () {
+Route::any('/admin/teams/edit/{id?}', function () {
     return view('admin.teams.edit');
 });
-Route::get('/admin/career', function () {
+Route::any('/admin/career', function () {
     return view('admin.career.index');
 });
-Route::get('/admin/career/edit/{id?}', function () {
+Route::any('/admin/career/edit/{id?}', function () {
     return view('admin.career.edit');
 });
-Route::get('/admin/users', function () {
-    return view('admin.users.index');
-});
-Route::get('/admin/users/edit/{id?}', function () {
-    return view('admin.users.edit');
-});
-Route::get('/admin/user-role', function () {
+Route::any('/admin/logout', [App\Http\Controllers\Admin\Syslog::class, 'logout'])->name('syslog.logout');
+Route::any('/admin/users', [App\Http\Controllers\Admin\Syslog::class, 'users'])->name('syslog.users');
+Route::any('/admin/users/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'users'])->name('syslog.users.{action}.{id}');
+Route::any('/admin/categories', [App\Http\Controllers\Admin\Syslog::class, 'categories'])->name('syslog.categories');
+Route::any('/admin/categories/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'categories'])->name('syslog.categories.{action}.{id}');
+
+Route::any('/admin/user-role', function () {
     return view('admin.roles.index');
 });
-Route::get('/admin/contact', function () {
+Route::any('/admin/contact', function () {
     return view('admin.contact.index');
 });
-Route::get('/admin/contact/edit/{id?}', function () {
+Route::any('/admin/contact/edit/{id?}', function () {
     return view('admin.contact.edit');
 });
 
-Route::get('/admin/login', function () {
-    return view('admin.login');
-});
+Route::any('/admin/login', [App\Http\Controllers\Admin\Syslog::class, 'login'])->name('syslog.login');
 
-Route::get('/{slide?}', function () {
-    return view('fullpage');
-});
+Route::any('/{slide?}', [App\Http\Controllers\Home::class, 'index'])->name('home');

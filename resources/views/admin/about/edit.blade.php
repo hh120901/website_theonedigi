@@ -5,9 +5,10 @@
 		<div>
 			<div class="px-5 pt-5">
 				<h4 class="ms-5 fw-bold text-red-primary mb-3">ADD NEW</h4>
-				<form action="" class="custom-form">
+				<form action="" enctype="multipart/form-data" name="adminForm" id="form-admin" method="POST" class="custom-form">
 					<div class="border rounded-3 px-3 py-4 mx-5 bg-white">
 						@csrf
+						<input type="hidden" id="task" name="task" value="{{ $request->input('task') }}">
 						<div class="d-flex justify-content-between align-items-center">
 							<span class="fs-5 fw-semibold">Detail</span>
 						</div>
@@ -53,7 +54,7 @@
 									If you would like to publish this blog right now, please check box here!
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="" id="publish" name="publish">
+									<input class="form-check-input"type="checkbox" value="1" id="active" name="active" {{ $post->active == 1 ? 'checked' : '' }}>
 									<label for="publish">Publish</label>
 								</div>
 							</div>
@@ -63,7 +64,7 @@
 						<a href="{{ url()->previous() }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
 							Cancle
 						</a>
-						<button type="submit" class="btn btn-red-400 btn-add-post">
+						<button type="submit" class="btn btn-red-400 btn-add-post btn-save">
 							Save
 						</button>
 					</div>

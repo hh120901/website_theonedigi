@@ -13,7 +13,8 @@
 <body >
 	<section>
 		<div class="container bg-white">
-			<form action="{{ url('/admin') }}">
+			<form action="{{ route('syslog.login') }}" method="POST">
+				@csrf
 				<div class="row bg-white mx-3 mx-md-0 align-items-center">
 					<div class="col-lg-4 px-0 d-none d-sm-block" style="height: 1024px">
 						<div style="background-image: url({{ asset('assets/images/bg-ad-light.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: left; height: 100%;">
@@ -34,28 +35,26 @@
 									<strong class="my-3 fs-2 fw-semibold">Login</strong>
 								</div>
 								<div class="form-login">
-									<form action="">
-										<div class="apply-input-group mb-4">
-											<label class="mb-2" for="admin_email">
-												<strong class="fw-semibold">Email <span class="text-danger">*</span></strong>
-											</label>
-											<input type="text" id="admin_email" name="admin_email" class="form-control rounded-3 custom-input" placeholder="enter your mail" autocomplete="off" required>
-										</div>
-										<div class="apply-input-group mb-4">
-											<label class="mb-2" for="admin_password">
-												<strong class="fw-semibold">Password <span class="text-danger">*</span></strong>
-											</label>
-											<input type="password" id="admin_password" name="admin_password" class="form-control rounded-3 custom-input" autocomplete="off" placeholder="*******" required>
-										</div>
-										<div class="d-flex justify-content-center mb-4">
-											<span class="text-decoration-underline text-center">Forgot your password ?</span>
-										</div>
-										<div>
-											<button class="btn btn-red-400 w-100" type="submit" style="height: 50px">
-												Log in
-											</button>
-										</div>
-									</form>
+									<div class="apply-input-group mb-4">
+										<label class="mb-2" for="email">
+											<strong class="fw-semibold">Email <span class="text-danger">*</span></strong>
+										</label>
+										<input type="text" id="email" name="email" class="form-control rounded-3 custom-input" placeholder="enter your mail" autocomplete="off" required>
+									</div>
+									<div class="apply-input-group mb-4">
+										<label class="mb-2" for="password">
+											<strong class="fw-semibold">Password <span class="text-danger">*</span></strong>
+										</label>
+										<input type="password" id="password" name="password" class="form-control rounded-3 custom-input" autocomplete="off" placeholder="*******" required>
+									</div>
+									<div class="d-flex justify-content-center mb-4">
+										<span class="text-decoration-underline text-center">Forgot your password ?</span>
+									</div>
+									<div>
+										<button class="btn btn-red-400 w-100" type="submit" style="height: 50px">
+											Log in
+										</button>
+									</div>
 								</div>
 							</div>
 						</div>

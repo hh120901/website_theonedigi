@@ -14,13 +14,13 @@
 					<img src="{{ asset('assets/images/personal-card.jpg') }}" alt="avt" class="rounded-circle me-2">
 				</div>
 				<div class="d-flex flex-column">
-					<strong>Username</strong>
-					<p class="small mb-0">Super Admin</p>
+					<strong>{{ auth()->user()->firstname}}</strong>
+					<p class="small mb-0">{{ auth()->user()->role_id == 3 ? 'Administrator' : 'Root' }}</p>
 				</div>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
 				<li><a class="dropdown-item" href="#">Profile</a></li>
-				<li><a class="dropdown-item" href="#">Logout</a></li>
+				<li><a class="dropdown-item" href="{{ route('syslog.logout') }}">Logout</a></li>
 			</ul>
 		</div>
 	</div>
