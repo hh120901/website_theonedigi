@@ -3,8 +3,32 @@
 <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+<script src="{{ asset('assets/js/todc.js') }}"></script>
 @vite('resources/js/app.js')
 
+<script>
+	$(document).ready(function() {
+		@if ($message = Session::get('success'))
+		messageBox("SUCCESS", "Success", '{{ $message }}');
+		@endif
+		
+		@if ($message = Session::get('info'))
+		messageBox("INFO", "Information", '{{ $message }}');
+		@endif
+		
+		@if ($message = Session::get('warning'))
+		messageBox("WARNING", "Warning", '{{ $message }}');
+		@endif
+		
+		@if ($message = Session::get('error'))
+		messageBox("ERROR", "Error", '{{ $message }}');
+		@endif
+		
+		@if ($errors->any())
+		messageBox("ERROR", "Error", @json($errors->all()));
+		@endif
+	});
+</script>
 <!-- Initialize Swiper -->
 <script>
 	// Tooltip

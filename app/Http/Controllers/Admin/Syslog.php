@@ -103,34 +103,23 @@ class Syslog extends Controller
 				
 				return redirect()->route('syslog.users');
 			}
-			//else {
-			//	$ids = $request->input('cid', array());
-			//	foreach ($ids as $id) {
-			//		$category = PostCategory::find($id);
-			//		if ($task == 'publish') {
-			//			$category->active = 1;
-			//			$category->save();
-			//			$this->sitemap();
-			//		}
-			//		else if ($task == 'unpublish') {
-			//			$category->active = 0;
-			//			$category->save();
-			//			$this->sitemap();
-			//		}
-			//		else if ($task == 'orderup') {
-			//			$category->decrement('order_num');
-			//			$category->save();
-			//		}
-			//		else if ($task == 'orderdown') {
-			//			$category->increment('order_num');
-			//			$category->save();
-			//		}
-			//		else if ($task == 'delete') {
-			//			$category->delete();
-			//			$this->sitemap();
-			//		}
-			//	}
-			//}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$user = User::find($id);
+					if ($task == 'orderup') {
+						$user->decrement('order_num');
+						$user->save();
+					}
+					else if ($task == 'orderdown') {
+						$user->increment('order_num');
+						$user->save();
+					}
+					else if ($task == 'delete') {
+						$user->delete();
+					}
+				}
+			}
 		}
 		
 		if ($action == 'edit') {
@@ -217,99 +206,6 @@ class Syslog extends Controller
 		}
 	}
 
-	//public function posts(Request $request, Client $client, $category=null,$action='index', $id=null) 
-	//{
-		//if ($request->isMethod('post')) {
-		//	$task = $request->input('task');
-		//	if ($action == 'edit') {
-		//		if (empty($id)) {
-		//			$request->validate(array(
-		//				'email' => 'required|string|email|max:255|unique:user,email',
-		//			));
-		//		}
-		//		if (in_array($task, array('save', 'save-edit'))) {
-		//			$user = User::firstOrNew(['id' => $id]);
-		//			$user->email = $request->input('email');
-
-		//			$user->firstname = $request->input('firstname');
-		//			$user->lastname = $request->input('lastname');
-		//			$user->phone = $request->input('phone');
-		//			$user->birthday = $request->input('birthday');
-		//			$user->gender = $request->input('gender');
-		//			$user->role_id = $request->input('role');
-		//			$user->active = !empty($request->input('active')) ? 1 : 0;
-
-		//			if ($request->input('password') != $user->password) {
-		//				$user->password = Hash::make($request->input('password'));
-		//			}
-
-		//			if ($request->hasFile('avatar')) {
-		//				if ($request->file('avatar')->isValid()) {
-		//					$directory = 'users/'.$user->email.'/avatar';
-		//					Storage::disk('public')->deleteDirectory($directory);
-		//					$user->avatar = $request->file('avatar')->store($directory, 'public');
-		//				}
-		//			}
-
-		//			$user->save();
-		//			if ($task == 'save-edit') {
-		//				return redirect(url()->current());
-		//			}
-		//		}
-				
-		//		return redirect()->route('syslog.users');
-		//	}
-		//	//else {
-		//	//	$ids = $request->input('cid', array());
-		//	//	foreach ($ids as $id) {
-		//	//		$category = PostCategory::find($id);
-		//	//		if ($task == 'publish') {
-		//	//			$category->active = 1;
-		//	//			$category->save();
-		//	//			$this->sitemap();
-		//	//		}
-		//	//		else if ($task == 'unpublish') {
-		//	//			$category->active = 0;
-		//	//			$category->save();
-		//	//			$this->sitemap();
-		//	//		}
-		//	//		else if ($task == 'orderup') {
-		//	//			$category->decrement('order_num');
-		//	//			$category->save();
-		//	//		}
-		//	//		else if ($task == 'orderdown') {
-		//	//			$category->increment('order_num');
-		//	//			$category->save();
-		//	//		}
-		//	//		else if ($task == 'delete') {
-		//	//			$category->delete();
-		//	//			$this->sitemap();
-		//	//		}
-		//	//	}
-		//	//}
-		//}
-		//if (!empty($category)){
-		//	$getCat = PostCategory::find($category);
-
-		//	if ($action == 'edit') {
-		//		//$user = User::firstOrNew(['id' => $id]);
-		//		//return view('admin.users.'.$action)
-		//		//			->with('request', $request)
-		//		//			->with('user', $user);
-		//	}
-		//	else {
-		//		$posts = Post::where('title', 'like', '%'.$request->input('search_text').'%')
-		//									->where('name', 'like', '%'.$request->input('search_text').'%')
-		//									->where('category_id', $getCat->id)
-		//							->orderBy('created_at')->paginate(5);
-		//		return view('admin.'.$category.'.'.$action)
-		//					->with('request', $request)
-		//					->with('posts', $posts);
-		//	}
-			
-		//}
-	//}
-
 	public function about(Request $request, Client $client, $action='index', $id=null)
 	{
 		$aboutCate = PostCategory::where('alias', PostCategory::ABOUT_CATEGORY)->first();
@@ -335,38 +231,26 @@ class Syslog extends Controller
 					if ($task == 'save-edit') {
 						return redirect(url()->current());
 					}
+					return redirect()->route('syslog.about')->with(['success' => 'Update Successfully!']);
 				}
-				
-				return redirect()->route('syslog.about');
 			}
-			//else {
-			//	$ids = $request->input('cid', array());
-			//	foreach ($ids as $id) {
-			//		$category = PostCategory::find($id);
-			//		if ($task == 'publish') {
-			//			$category->active = 1;
-			//			$category->save();
-			//			$this->sitemap();
-			//		}
-			//		else if ($task == 'unpublish') {
-			//			$category->active = 0;
-			//			$category->save();
-			//			$this->sitemap();
-			//		}
-			//		else if ($task == 'orderup') {
-			//			$category->decrement('order_num');
-			//			$category->save();
-			//		}
-			//		else if ($task == 'orderdown') {
-			//			$category->increment('order_num');
-			//			$category->save();
-			//		}
-			//		else if ($task == 'delete') {
-			//			$category->delete();
-			//			$this->sitemap();
-			//		}
-			//	}
-			//}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$post = Post::find($id);
+					if ($task == 'orderup') {
+						$post->decrement('order_num');
+						$post->save();
+					}
+					else if ($task == 'orderdown') {
+						$post->increment('order_num');
+						$post->save();
+					}
+					else if ($task == 'delete') {
+						$post->delete();
+					}
+				}
+			}
 		}
 		
 		if ($action == 'edit') {
@@ -381,8 +265,284 @@ class Syslog extends Controller
 									->orderBy('created_at')->paginate(5);
 			return view('admin.about.'.$action)
 						->with('request', $request)
+						->withMessage('alert error')
 						->with('posts', $posts);
 		}
 	}
 
+	public function products(Request $request, Client $client, $action='index', $id=null)
+	{
+		$productCate = PostCategory::where('alias', PostCategory::PRODUCTS_CATEGORY)->first();
+		if ($request->isMethod('post')) {
+			$task = $request->input('task');
+			if ($action == 'edit') {
+				if (in_array($task, array('save', 'save-edit'))) {
+					$post = Post::firstOrNew(['id' => $id]);
+					$post->user_id = Auth::user()->id;
+					$post->title = $request->input('title');
+					$post->description = $request->input('description');
+					$post->category_id = $productCate->id;
+					$post->active = !empty($request->input('active')) ? 1 : 0;
+
+					if ($request->hasFile('featured_image')) {
+						if ($request->file('featured_image')->isValid()) {
+							$directory = 'posts/'.$post->id.'/featured_image';
+							Storage::disk('public')->deleteDirectory($directory);
+							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
+						}
+					}
+					$post->save();
+					if ($task == 'save-edit') {
+						return redirect(url()->current());
+					}
+				}	
+				return redirect()->route('syslog.products')->with(['success' => 'Update Successfully!']);;
+			}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$post = Post::find($id);
+					if ($task == 'orderup') {
+						$post->decrement('order_num');
+						$post->save();
+					}
+					else if ($task == 'orderdown') {
+						$post->increment('order_num');
+						$post->save();
+					}
+					else if ($task == 'delete') {
+						$post->delete();
+					}
+				}
+				return redirect()->route('syslog.products');
+			}
+		}
+		
+		if ($action == 'edit') {
+			$post = Post::firstOrNew(['id' => $id]);
+			return view('admin.products.'.$action)
+						->with('request', $request)
+						->with('post', $post);
+		}
+		else {
+			$posts = Post::where('category_id', $productCate->id)
+									->where('title', 'like', '%'.$request->input('search_text').'%')
+									->orderBy('created_at')->paginate(5);
+			return view('admin.products.'.$action)
+						->with('request', $request)
+						->with('posts', $posts);
+		}
+	}
+
+	public function teams(Request $request, Client $client, $action='index', $id=null)
+	{
+		$teamCate = PostCategory::where('alias', PostCategory::TEAMS_CATEGORY)->first();
+		if ($request->isMethod('post')) {
+			$task = $request->input('task');
+			if ($action == 'edit') {
+				if (in_array($task, array('save', 'save-edit'))) {
+					$post = Post::firstOrNew(['id' => $id]);
+					$post->user_id = Auth::user()->id;
+					$post->title = $request->input('title');
+					$post->name = $request->input('name');
+					$post->cell_phone = $request->input('cell_phone');
+					$post->office_phone = $request->input('office_phone');
+					$post->fax = $request->input('fax');
+					$post->description = $request->input('description');
+					$post->category_id = $teamCate->id;
+					$post->active = !empty($request->input('active')) ? 1 : 0;
+
+					if ($request->hasFile('featured_image')) {
+						if ($request->file('featured_image')->isValid()) {
+							$directory = 'posts/'.$post->id.'/featured_image';
+							Storage::disk('public')->deleteDirectory($directory);
+							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
+						}
+					}
+					$post->save();
+					if ($task == 'save-edit') {
+						return redirect(url()->current());
+					}
+				}	
+				return redirect()->route('syslog.teams')->with(['success' => 'Update Successfully!']);;
+			}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$post = Post::find($id);
+					if ($task == 'orderup') {
+						$post->decrement('order_num');
+						$post->save();
+					}
+					else if ($task == 'orderdown') {
+						$post->increment('order_num');
+						$post->save();
+					}
+					else if ($task == 'delete') {
+						$post->delete();
+					}
+				}
+				return redirect()->route('syslog.teams');
+			}
+		}
+		
+		if ($action == 'edit') {
+			$post = Post::firstOrNew(['id' => $id]);
+			return view('admin.teams.'.$action)
+						->with('request', $request)
+						->with('post', $post);
+		}
+		else {
+			$posts = Post::where('category_id', $teamCate->id)
+									->where('title', 'like', '%'.$request->input('search_text').'%')
+									->orderBy('created_at')->paginate(5);
+			return view('admin.teams.'.$action)
+						->with('request', $request)
+						->with('posts', $posts);
+		}
+	}
+
+	public function blogs(Request $request, Client $client, $action='index', $id=null)
+	{
+		$blogsCate = PostCategory::where('alias', PostCategory::BLOGS_CATEGORY)->first();
+		$blogChild = PostCategory::where('parent_id', $blogsCate->id)->get();
+		$full_post = array();
+		foreach ($blogChild as $key => $child) {
+			$full_post[] = $child->posts;
+		}
+		if ($request->isMethod('post')) {
+			$task = $request->input('task');
+			if ($action == 'edit') {
+				if (in_array($task, array('save', 'save-edit'))) {
+					$post = Post::firstOrNew(['id' => $id]);
+					$post->user_id = Auth::user()->id;
+					$post->title = $request->input('title');
+					$post->category_id = $request->input('category');
+					$post->description = $request->input('description');
+					$post->active = !empty($request->input('active')) ? 1 : 0;
+
+					if ($request->hasFile('featured_image')) {
+						if ($request->file('featured_image')->isValid()) {
+							$directory = 'posts/'.$post->id.'/featured_image';
+							Storage::disk('public')->deleteDirectory($directory);
+							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
+						}
+					}
+					$post->save();
+					if ($task == 'save-edit') {
+						return redirect(url()->current());
+					}
+				}	
+				return redirect()->route('syslog.blogs')->with(['success' => 'Update Successfully!']);;
+			}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$post = Post::find($id);
+					if ($task == 'orderup') {
+						$post->decrement('order_num');
+						$post->save();
+					}
+					else if ($task == 'orderdown') {
+						$post->increment('order_num');
+						$post->save();
+					}
+					else if ($task == 'delete') {
+						$post->delete();
+					}
+				}
+				return redirect()->route('syslog.blogs');
+			}
+		}
+		
+		if ($action == 'edit') {
+			$post = Post::firstOrNew(['id' => $id]);
+			return view('admin.blogs.'.$action)
+						->with('request', $request)
+						->with('post', $post)
+						->with('blogChild', $blogChild);
+		}
+		else {
+			$parent_id = $blogsCate->id;
+			$posts = Post::whereIn('category_id', function ($query) use ($parent_id) {
+				$query->select('id')
+					  ->from('post_category')
+					  ->where('parent_id', $parent_id);
+			})->orderBy('created_at')->paginate(5);
+			return view('admin.blogs.'.$action)
+						->with('request', $request)
+						->with('blogChild', $blogChild)
+						->with('posts', $posts);
+		}
+	}
+
+	public function career(Request $request, Client $client, $action='index', $id=null)
+	{
+		$careerCate = PostCategory::where('alias', PostCategory::CAREER_CATEGORY)->first();
+		$careerChild = PostCategory::where('parent_id', $careerCate->id)->get();
+		if ($request->isMethod('post')) {
+			$task = $request->input('task');
+			if ($action == 'edit') {
+				if (in_array($task, array('save', 'save-edit'))) {
+					$post = Post::firstOrNew(['id' => $id]);
+					$post->user_id = Auth::user()->id;
+					$post->title = $request->input('title');
+					$post->category_id = $request->input('category');
+					$post->description = $request->input('description');
+					$post->active = !empty($request->input('active')) ? 1 : 0;
+
+					if ($request->hasFile('featured_image')) {
+						if ($request->file('featured_image')->isValid()) {
+							$directory = 'posts/'.$post->id.'/featured_image';
+							Storage::disk('public')->deleteDirectory($directory);
+							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
+						}
+					}
+					$post->save();
+					if ($task == 'save-edit') {
+						return redirect(url()->current());
+					}
+				}	
+				return redirect()->route('syslog.blogs')->with(['success' => 'Update Successfully!']);;
+			}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$post = Post::find($id);
+					if ($task == 'orderup') {
+						$post->decrement('order_num');
+						$post->save();
+					}
+					else if ($task == 'orderdown') {
+						$post->increment('order_num');
+						$post->save();
+					}
+					else if ($task == 'delete') {
+						$post->delete();
+					}
+				}
+				return redirect()->route('syslog.career');
+			}
+		}
+		
+		if ($action == 'edit') {
+			$post = Post::firstOrNew(['id' => $id]);
+			return view('admin.career.'.$action)
+						->with('request', $request)
+						->with('post', $post)
+						->with('careerChild', $careerChild);
+		}
+		else {
+			$parent_id = $careerCate->id;
+			$posts = Post::whereIn('category_id', function ($query) use ($parent_id) {
+				$query->select('id')
+					  ->from('post_category')
+					  ->where('parent_id', $parent_id);
+			})->orderBy('created_at')->paginate(5);
+			return view('admin.career.'.$action)
+						->with('request', $request)
+						->with('careerChild', $careerChild)
+						->with('posts', $posts);
+		}
+	}
 }

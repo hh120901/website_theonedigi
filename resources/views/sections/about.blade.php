@@ -1,5 +1,6 @@
 
 {{-- Screen 2 --}}
+
 <div class="container position-relative">
 	<div class="d-flex pt-5r flex-wrap">
 		<div class="pt-5r">
@@ -12,149 +13,24 @@
 			<div class="background-border d-none d-xxl-block"></div>
 			<div class="swiper mySwiper bg-light">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide ratio ratio-1x1 sl1">
-						<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
+					@if (!empty($about_posts) && count($about_posts))
+						@foreach($about_posts as $index => $about_post)
+							<div class="swiper-slide ratio ratio-1x1 sl{{ $index+1 }}">
+								<img class="brightness" src="{{ asset('storage/'.$about_post->featured_image) }}" alt="about-image">
+								<div class="px-5 text-white d-flex text-start align-items-end pb-5">
+									<div>
+										<h2 class="mb-4 fw-bold">{{ $about_post->title }}</h2>
+										<div class="excerpt-post">
+											{!! $about_post->description !!}
+										</div>
+										<div class="d-flex justify-content-end mt-4">
+											<a href="{{ url('/about-details/'.$about_post->id)}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl2">
-						<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION2</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl3">
-						<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION3</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl4">
-						<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION4</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl5">
-							<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION5</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl6">
-							<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION6</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl7">
-							<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION7</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl8">
-							<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION8</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="swiper-slide ratio ratio-1x1 sl9">
-						<img class="brightness" src="{{ asset('assets/images/about-image.jpg') }}" alt="about-image">
-						<div class="px-5 text-white d-flex text-start align-items-end pb-5">
-							<div>
-								<h2 class="mb-4 fw-bold">COMPANY MISSION9</h2>
-								<p class="fw-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas atque at excepturi, 
-									repudiandae possimus dolor blanditiis! Minima quo ab error quidem alias vero animi. 
-									Quae doloremque adipisci dignissimos perspiciatis repellendus.
-								</p>
-								<div class="d-flex justify-content-end mt-4">
-									<a href="{{ url('/about-details')}}" class="btn btn-see-detail rounded-4">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
-								</div>
-							</div>
-						</div>
-					</div>
+						@endforeach
+					@endif
 				</div>
 				{{-- custom navigation --}}
 				<div class="d-flex justify-content-between">
@@ -168,15 +44,11 @@
 			</div>
 		</div>
 		<div class="d-lg-flex flex-column flex-grow-1 align-items-end me-5 pe-5 justify-content-center gap-5 d-none">
-			<button class="btn about-btn-control-slide active" data-gotosl='sl1'>1</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl2'>2</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl3'>3</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl4'>4</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl5'>5</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl6'>6</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl7'>7</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl8'>8</button>
-			<button class="btn about-btn-control-slide" data-gotosl='sl9'>9</button>
+			@if (!empty($about_posts) && count($about_posts))
+				@foreach($about_posts as $index => $about_post)
+					<button class="btn about-btn-control-slide {{ $index == 0 ? 'active' : ''}}" data-gotosl='sl{{ $index+1 }}'>{{ $index+1 }}</button>
+				@endforeach
+			@endif
 		</div>
 	</div>
 	<div class="d-none d-lg-flex justify-content-between" style="margin-top: -1rem">
@@ -213,5 +85,19 @@
 				$(this).addClass('active');
 			}
 		})
+		aboutSwiper.on('slideChange', function (){
+				var currentSlideIndex = aboutSwiper.activeIndex;
+				getButtonControl.each(function(){
+					let thisBtn = $(this);
+					let dataTarget = thisBtn.data('gotosl');
+					let slideTarget = $("."+dataTarget); 
+					let targetIndex = slideTarget.index();
+					if (targetIndex == currentSlideIndex) {
+						thisBtn.addClass('active');
+					} else {
+						thisBtn.removeClass('active');
+					}
+				})
+			})
 	});
 </script>

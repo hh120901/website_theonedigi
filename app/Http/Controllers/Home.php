@@ -10,6 +10,8 @@ class Home extends Controller
 {
 	//
 	public function index() {
-		return view('fullpage');
+		$aboutCate = PostCategory::where('alias', PostCategory::ABOUT_CATEGORY)->first();
+		$about_posts = Post::where('category_id', $aboutCate->id)->where('active', 1)->get();
+		return view('fullpage')->with('about_posts', $about_posts);
 	}
 }
