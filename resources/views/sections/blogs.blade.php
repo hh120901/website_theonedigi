@@ -16,102 +16,47 @@
 	</div>
 	<div class="mt-4 ms-135px me-135px mb-4">
 		<div class="pt-3 d-flex justify-content-lg-between gap-3 flex-wrap">
-			<button class="btn btn-outline-red-primary btn-category active">
+			<button class="btn btn-outline-red-primary btn-category active" data-control-posts="all">
 				ALL BLOGS
 			</button>
-			<button class="btn btn-outline-red-primary btn-category">
-				TRENDING
-			</button>
-			<button class="btn btn-outline-red-primary btn-category">
-				LOCAL
-			</button>
-			<button class="btn btn-outline-red-primary btn-category">
-				GLOBAL
-			</button>
-			<button class="btn btn-outline-red-primary btn-category">
-				OTHER
-			</button>
+			@if (!empty($blogChild))
+				@foreach ($blogChild as $i => $b_child)
+					<button class="btn btn-outline-red-primary btn-category" data-control-posts="{{ $b_child->alias }}">
+						{{ $b_child->name }}
+					</button>
+				@endforeach
+			@endif
 		</div>
 	</div>
 	<div class="pt-4 px-4">
 		<div class="blog-swiper swiper">
 			<div class="swiper-wrapper" style="margin-left: 110px;">
-				<div class="swiper-slide">
-					<a href="{{ url('/blogs/details/1') }}" class="text-decoration-none">
-						<div>
-							<img class="img-featured" src="{{ asset('assets/images/blog-img.jpg') }}" alt="">
-						</div>
-						<div class="post-title mt-3 d-flex justify-content-between align-items-center">
-							<div class="w-75">
-								<p class="mb-0">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET</p>
-							</div>
-							<div>
-								<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a href="{{ url('/blogs/details/2') }}" class="text-decoration-none">
-						<div>
-							<img class="img-featured" src="{{ asset('assets/images/blog-img2.jpg') }}" alt="">
-						</div>
-						<div class="post-title mt-3 d-flex justify-content-between align-items-center">
-							<div class="w-75">
-								<p class="mb-0">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET</p>
-							</div>
-							<div>
-								<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a href="{{ url('/blogs/details/3') }}" class="text-decoration-none">
-						<div>
-							<img class="img-featured" src="{{ asset('assets/images/blog-img.jpg') }}" alt="">
-						</div>
-						<div class="post-title mt-3 d-flex justify-content-between align-items-center">
-							<div class="w-75">
-								<p class="mb-0">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET</p>
-							</div>
-							<div>
-								<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a href="{{ url('/blogs/details/4') }}" class="text-decoration-none">
-						<div>
-							<img class="img-featured" src="{{ asset('assets/images/blog-img2.jpg') }}" alt="">
-						</div>
-						<div class="post-title mt-3 d-flex justify-content-between align-items-center">
-							<div class="w-75">
-								<p class="mb-0">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET</p>
-							</div>
-							<div>
-								<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
-							</div>
-						</div>
-					</a>
-				</div>
-				<div class="swiper-slide">
-					<a href="{{ url('/blogs/details/5') }}" class="text-decoration-none">
-						<div>
-							<img class="img-featured" src="{{ asset('assets/images/blog-img2.jpg') }}" alt="">
-						</div>
-						<div class="post-title mt-3 d-flex justify-content-between align-items-center">
-							<div class="w-75">
-								<p class="mb-0">LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET LOREM IPSUM DOLOR SIT AMET</p>
-							</div>
-							<div>
-								<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
-							</div>
-						</div>
-					</a>
-				</div>
-
+				@if (!empty($blogChild))
+					@foreach ($blogChild as $i => $b_child)
+						@php
+							$child_posts = $b_child->activePosts()->get();
+						@endphp
+						@if (!empty($child_posts))
+							@foreach ($child_posts as $i_cp => $cp)
+								<div class="swiper-slide show-post-in-cate" data-cate-target="{{ $b_child->alias }}">
+									<a href="{{ url('/blogs/'. $b_child->alias .'/'.$cp->id) }}" class="text-decoration-none">
+										<div>
+											<img class="img-featured" src="{{ asset('storage/'.$cp->featured_image) }}" alt="">
+										</div>
+										<div class="post-title mt-3 d-flex justify-content-between align-items-center">
+											<div class="w-75 excerpt-blog-post">
+												{!! $cp->description !!}
+											</div>
+											<div>
+												<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
+											</div>
+										</div>
+									</a>
+								</div>
+							@endforeach
+						@endif
+					@endforeach
+				@endif
 			</div>
 			<div class="d-flex justify-content-between">
 				<div class="blog-prev-btn">
@@ -125,7 +70,7 @@
 					</svg>
 				</div>
 			</div>
-			<div class="swiper-pagination"></div>
+			{{--<div class="swiper-pagination"></div>--}}
 		  </div>
 	</div>
 	<div class="d-none d-lg-flex justify-content-between" style="margin-top: -2rem">
@@ -138,11 +83,12 @@
 	</div>
 </div>
 <script>
+	
 	$(document).ready(function () {
 		var swiper = new Swiper(".blog-swiper", {
 			slidesPerView: 2,
 			spaceBetween: 40,
-			loop: true,
+			loop: false,
 			pagination: {
 				el: ".swiper-pagination",
 				clickable: true,
@@ -170,9 +116,28 @@
 			}
 		});
 
+		let allSilde = $('.show-post-in-cate');
 		$('.btn-category').on('click', function(){
 			$('.btn-category.active').removeClass('active');
 			$(this).addClass('active');
+			let showCate = $(this).data('control-posts');
+			if (showCate == 'all') {
+				allSilde.each(function(){
+					$(this).removeClass('d-none');
+					swiper.update();
+				})
+			} else {
+				allSilde.each(function(){
+					if ($(this).data('cate-target') != showCate){
+						$(this).addClass('d-none');
+						swiper.update();
+					} else {
+						$(this).removeClass('d-none');
+						swiper.update();
+					}
+				})
+			}
+			
 		})
 	});
 </script>

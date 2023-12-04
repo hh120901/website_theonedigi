@@ -218,6 +218,13 @@ body {
 .pt-4r {
 	padding-top: 4rem;
 }
+.job-card-container {
+	height: 560px;
+	overflow-y: auto;
+}
+
+
+
 @media (min-width: 1024px) {
 	.container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
 		max-width: 1440px;
@@ -229,6 +236,18 @@ body {
 		width: 50%;
 	}
 }
+@media (max-width: 1024px){
+	.main-menu {
+		.navbar-nav {
+			position: absolute;
+			right: 0;
+			background: $secondary;
+			padding: 20px 15px;
+			z-index: 99999;
+		}
+	}
+}
+
 
 .container {
 	padding: 0;
@@ -306,6 +325,12 @@ h1, h2, h3, h4, h5, h6 {
 		font-weight: 400;
 		font-size: 16px;
 	}
+}
+.excerpt-blog-post {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	-webkit-line-clamp: 2;
 }
 // Swiper
 .mySwiper {
@@ -385,7 +410,7 @@ h1, h2, h3, h4, h5, h6 {
 	width: 100%;
 	height: auto;
 	position: relative;
-	transition: scale 0.7s ease-in-out;
+	transition: scale 0.5s ease-in-out;
 	.swiper-slide {
 		width: 460px;
 		height: auto;
@@ -477,6 +502,11 @@ h1, h2, h3, h4, h5, h6 {
 		height: 40px;
 		font-size: 14px;
 		padding: 0 1.2rem;
+		&.required {
+			&.error {
+				border: 1px solid red;
+			}
+		}
 	}
 	.form-check-input {
 		border-color: $red_primary !important;
@@ -669,6 +699,12 @@ h1, h2, h3, h4, h5, h6 {
 		line-height: 24.5px;
 		color: $gray-8;
 	}
+	p {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+		-webkit-line-clamp: 2;
+	}
 }
 // Menu: 
 .main-menu {
@@ -802,4 +838,7 @@ h1, h2, h3, h4, h5, h6 {
 			color: $secondary;
 		}
 	}
+}
+.column-product-number {
+	min-height: 700px;
 }

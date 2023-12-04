@@ -8,70 +8,28 @@
 			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">OUR TEAMS</h2>
 		</div>
 	</div>
-	<div class="team-cards row mx-4 mt-4 px-3 position-relative">
-		<div class="person-card col-lg-3 col-md-6 px-3">
-			<div class="person-card-header">
-				<img src="{{ asset('assets/images/personal-card.jpg') }}" alt="image">
-			</div>
-			<div class="person-card-body py-4">
-				<h4>VICE DIRECTOR</h4>
-				<h5>Lorem Ipsum</h5>
-			</div>
-			<div class="person-card-footer">
-				<p>Cell Phone: +84123123123123</p>
-				<p>Email: loremipsum@gmail.com</p>
-				<p>Office Phone: +84123123123123</p>
-				<p>Fax: +84123123123123</p>
-			</div>
-		</div>
-
-		<div class="person-card col-lg-3 col-md-6 px-3">
-			<div class="person-card-header">
-				<img src="{{ asset('assets/images/ava_kevin.png') }}" alt="image">
-			</div>
-			<div class="person-card-body py-4">
-				<h4>C.E.O</h4>
-				<h5>Kevin Nguyen</h5>
-			</div>
-			<div class="person-card-footer">
-				<p>Cell Phone: +84123123123123</p>
-				<p>Email: loremipsum@gmail.com</p>
-				<p>Office Phone: +84123123123123</p>
-				<p>Fax: +84123123123123</p>
-			</div>
-		</div>
-
-		<div class="person-card col-lg-3 col-md-6 px-3">
-			<div class="person-card-header">
-				<img src="{{ asset('assets/images/personal-card2.jpg') }}" alt="image">
-			</div>
-			<div class="person-card-body py-4">
-				<h4>VICE DIRECTOR</h4>
-				<h5>Lorem Ipsum</h5>
-			</div>
-			<div class="person-card-footer">
-				<p>Cell Phone: +84123123123123</p>
-				<p>Email: loremipsum@gmail.com</p>
-				<p>Office Phone: +84123123123123</p>
-				<p>Fax: +84123123123123</p>
-			</div>
-		</div>
-
-		<div class="person-card col-lg-3 col-md-6 px-3">
-			<div class="person-card-header">
-				<img src="{{ asset('assets/images/personal-card.jpg') }}" alt="image">
-			</div>
-			<div class="person-card-body py-4">
-				<h4>C.T.O</h4>
-				<h5>Some One</h5>
-			</div>
-			<div class="person-card-footer">
-				<p>Cell Phone: +84123123123123</p>
-				<p>Email: loremipsum@gmail.com</p>
-				<p>Office Phone: +84123123123123</p>
-				<p>Fax: +84123123123123</p>
-			</div>
-		</div>
+	<div class="team-cards row mx-4 mt-4 px-3 position-relative justify-content-center">
+		@if (!empty($team_posts))
+			@foreach ($team_posts as $k_t => $t_post)
+				@if ($k_t < 4)
+					<div class="person-card col-lg-3 col-md-6 px-3">
+						<div class="person-card-header">
+							<img src="{{ asset('storage/'.$t_post->featured_image) }}" alt="image">
+						</div>
+						<div class="person-card-body py-4">
+							<h4>{{ $t_post->title }}</h4>
+							<h5>{{ $t_post->name }}</h5>
+						</div>
+						<div class="person-card-footer">
+							<p>Cell Phone: {{ $t_post->cell_phone }}</p>
+							<p>Email: {{ $t_post->email }}</p>
+							<p>Office Phone: {{ $t_post->office_phone }}/p>
+							<p>Fax: {{ $t_post->fax }}/p>
+						</div>
+					</div>
+				@endif
+			@endforeach
+		@endif
 	</div>
 	<div class="d-none d-lg-flex justify-content-between">
 		<a role="button" class="slide-prev-btn">

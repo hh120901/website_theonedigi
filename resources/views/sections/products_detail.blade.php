@@ -1,22 +1,20 @@
 @extends('layouts.details')
 
 @section('content')
-	{{-- Screen 3 --}}
 	<div class="container position-relative">
 		<div class="sub-container pb-5">
 			<div class="d-flex">
 				<h2 class="title-banner me-5 mb-3">01</h2>
-				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mt-3">COMPANY FORMATION</h2>
+				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mt-3">{{ $post->title }}</h2>
 			</div>
 			<div class="d-flex mt-5">
 				<div class="w-50">
 					<div class="ratio ratio-1x1" style="height: 450px">
-						<img src="{{ asset('assets/images/image-product1.png') }}" alt="">
+						<img src="{{ asset('storage/'.$post->featured_image) }}" alt="Feature Image">
 					</div>
 				</div>
-				<div class="w-50 ps-5">
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam veritatis placeat optio quisquam non voluptates laborum, odio consectetur tempora voluptatibus aut molestiae soluta quis explicabo, ullam, nisi eaque sunt. Corporis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus unde quo, magni eveniet culpa quibusdam, deserunt aut asperiores, repellat ullam blanditiis tempora officiis tempore! Sequi nihil a eligendi tempore nisi.</p>
-					<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam veritatis placeat optio quisquam non voluptates laborum, odio consectetur tempora voluptatibus aut molestiae soluta quis explicabo, ullam, nisi eaque sunt. Corporis. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus unde quo, magni eveniet culpa quibusdam, deserunt aut asperiores, repellat ullam blanditiis tempora officiis tempore! Sequi nihil a eligendi tempore nisi.</p>
+				<div class="w-50 ps-5 overflow-hidden">
+					{!! $post->description !!}
 				</div>
 			</div>
 		</div>

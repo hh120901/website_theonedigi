@@ -46,6 +46,13 @@
 										<span class="input-error fw-semibold text-danger d-none">This field is required!</span>
 									</div>
 									<div class="mb-4">
+										<label for="email">
+											<h6 class="small fw-bold mb-3">Email <span class="text-danger">*</span></h6>
+										</label>
+										<input type="email" id="email" name="email" class="rounded-4 required custom-input bg-white" value="{{ $post->email }}" placeholder="">
+										<span class="input-error fw-semibold text-danger d-none">This field is required!</span>
+									</div>
+									<div class="mb-4">
 										<label for="cellphone">
 											<h6 class="small fw-bold mb-3">Cellphone <span class="text-danger">*</span></h6>
 										</label>
@@ -74,7 +81,7 @@
 									If you would like to publish this blog right now, please check box here!
 								</p>
 								<div class="form-check">
-									<input class="form-check-input" type="checkbox" value="1" id="active" name="active">
+									<input class="form-check-input"type="checkbox" value="1" id="active" name="active" {{ $post->active == 1 ? 'checked' : '' }}>
 									<label for="active">Publish</label>
 								</div>
 							</div>

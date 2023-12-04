@@ -11,12 +11,19 @@
 			</button>
 			<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 				<ul class="navbar-nav">
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="about">ABOUT</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="products">PRODUCTS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="teams">TEAMS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="blogs">BLOGS</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="career">CAREER</a></li>
-					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide" data-sl-target="contact">CONTACT</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="about">ABOUT</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="products">PRODUCTS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="teams">TEAMS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="blogs">BLOGS</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="career">CAREER</a></li>
+					<li class="nav-item"><a role="button" class="nav-link px-3 font-heading small navigation-to-slide d-none d-md-block" data-sl-target="contact">CONTACT</a></li>
+					{{-- Mobile --}}
+					<li class="nav-item"><a href="#about" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="about">ABOUT</a></li>
+					<li class="nav-item"><a href="#products" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="products">PRODUCTS</a></li>
+					<li class="nav-item"><a href="#teams" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="teams">TEAMS</a></li>
+					<li class="nav-item"><a href="#blogs" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="blogs">BLOGS</a></li>
+					<li class="nav-item"><a href="#career" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="career">CAREER</a></li>
+					<li class="nav-item"><a href="#contact" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="contact">CONTACT</a></li>
 				</ul>
 			</div>
 		</div>

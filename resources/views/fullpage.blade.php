@@ -1,19 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="d-lg-none">
-			@include('homepage')
+	<div class="content-responsive d-lg-none">
+			{{--@include('homepage')--}}
 			{{--@include('sections.about')--}}
 			{{--@include('sections.products')--}}
-			@include('sections.teams')
-			@include('sections.blogs')
-			@include('sections.career')
+			{{--@include('sections.teams')--}}
+			{{--@include('sections.blogs')--}}
+			{{--@include('sections.career')
 			@include('sections.contact1')
-			@include('sections.contact2')
+			@include('sections.contact2')--}}
 	</div>
-	<div class="full-content d-none d-lg-block">
+	<div class="full-content">
 		<div class="swiper home-swiper">
-			<div class="swiper-wrapper">
+			<div class="swiper-wrapper responsive-content">
 				<div class="swiper-slide" id="home">
 					@include('homepage')
 				</div>
@@ -46,78 +46,71 @@
 	</div>
 	<script>
 		$(document).ready(function () {
-			// Handle slide
-			var swiper = new Swiper(".home-swiper", {
-				navigation: {
-					nextEl: ".slide-next-btn",
-					prevEl: ".slide-prev-btn",
-				},
-				allowTouchMove: false,
-				speed: 600,
-			});
-			// click on header
-			let getNavBtn = $('.navigation-to-slide');
-			getNavBtn.on('click', function(){
-				let target = $(this).data('sl-target');
-				let slideTarget = $("#"+target);
-				let goToSlideIndex = slideTarget.index();
-				swiper.slideTo(goToSlideIndex);
-			})
-			swiper.on('slideChange', function (){
-				var currentSlideIndex = swiper.activeIndex;
-				getNavBtn.each(function(){
-					let thisBtn = $(this);
-					let dataTarget = thisBtn.data('sl-target');
-					let slideTarget = $("#"+dataTarget); 
-					let targetIndex = slideTarget.index();
-					if (targetIndex == currentSlideIndex) {
-						thisBtn.addClass('active');
-					} else {
-						thisBtn.removeClass('active');
+			var responsiveContent = $('.responsive-content');
+			var swiper = null;
+			function initHomeSwiper() {
+				var windowWidth = window.innerWidth;
+				var breakpoint = 768; 
+				
+				// check 
+				if (windowWidth < breakpoint) {
+					if (swiper !== null) {
+						swiper.destroy();
+						swiper = null;
 					}
-				})
-			})
-			// Catch url
-			var lastSegmentUrl = window.location.pathname.split('/').pop();
-			// Lấy phần sau dấu #
-			//var hashValue = window.location.hash;
-			if(lastSegmentUrl !== '') {
-				var urlTargetSlide = $("#"+lastSegmentUrl); 
-				if (urlTargetSlide.length > 0) {
-					var urlTargetSlideIndex = urlTargetSlide.index();
-					swiper.slideTo(urlTargetSlideIndex);
-				};
+					responsiveContent.addClass('d-flex flex-column');
+				} else {
+					responsiveContent.removeClass('d-flex flex-column');
+					if (swiper === null) {
+						swiper = new Swiper(".home-swiper", {
+							navigation: {
+								nextEl: ".slide-next-btn",
+								prevEl: ".slide-prev-btn",
+							},
+							allowTouchMove: false,
+							speed: 600,
+						});
+					}
+					let getNavBtn = $('.navigation-to-slide');
+					getNavBtn.on('click', function(){
+						let target = $(this).data('sl-target');
+						let slideTarget = $("#"+target);
+						let goToSlideIndex = slideTarget.index();
+						swiper.slideTo(goToSlideIndex);
+					})
+
+					swiper.on('slideChange', function (){
+						var currentSlideIndex = swiper.activeIndex;
+						getNavBtn.each(function(){
+							let thisBtn = $(this);
+							let dataTarget = thisBtn.data('sl-target');
+							let slideTarget = $("#"+dataTarget); 
+							let targetIndex = slideTarget.index();
+							if (targetIndex == currentSlideIndex) {
+								thisBtn.addClass('active');
+							} else {
+								thisBtn.removeClass('active');
+							}
+						})
+					})
+					// Catch url
+					var lastSegmentUrl = window.location.pathname.split('/').pop();
+					if(lastSegmentUrl !== '') {
+						var urlTargetSlide = $("#"+lastSegmentUrl); 
+						if (urlTargetSlide.length > 0) {
+							var urlTargetSlideIndex = urlTargetSlide.index();
+							swiper.slideTo(urlTargetSlideIndex);
+						};
+					}
+				}
 			}
+
+			initHomeSwiper();
+
+			window.addEventListener('resize', function () {
+				initHomeSwiper();
+			});
 			
-			var countScrollDown = 0;
-			var countScrollUp = 0;
-
-			//$(window).on('wheel', function(event) {
-			//	let maxScrollValue = document.documentElement.scrollHeight - window.innerHeight;
-			//	// event.originalEvent.deltaY sẽ là giá trị chiều cuộn của sự kiện, dương khi cuộn lên và âm khi cuộn xuống
-			//	if (event.originalEvent.deltaY > 0) {
-			//		if (maxScrollValue != 0) {
-			//			countScrollUp ++;
-			//			if ($(window).scrollTop() >= maxScrollValue && countScrollUp >= 2){
-			//				$('#hidden_next').trigger('click');
-			//				countScrollUp = 0;
-			//			}
-			//		} else {
-			//			$('#hidden_next').trigger('click');
-			//		}
-			//	} else if (event.originalEvent.deltaY < 0) {
-			//		if (maxScrollValue != 0) {
-			//			countScrollDown ++;
-			//			if ($(window).scrollTop() <= 0 && countScrollDown >= 2){
-			//				$('#hidden_prev').trigger('click');
-			//				countScrollDown = 0;
-			//			}
-			//		} else {
-			//			$('#hidden_prev').trigger('click');
-			//		}
-			//	}
-			//});
-
 		});
 
 	</script>

@@ -13,24 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::any('/test', function () {
-    return view('testpage');
-});
-Route::any('/about-details/{id?}', function () {
-    return view('sections/about_detail');
-});
-
-Route::any('/product-details/{id?}', function () {
-    return view('sections/products_detail');
-});
-
-Route::any('/blogs/details/{id?}', function () {
-    return view('sections/blog_detail');
-});
-
-Route::any('/career/details/{id?}', function () {
-    return view('sections/career_detail');
-});
+Route::any('/about-details/{id?}', [App\Http\Controllers\About::class, 'about_details'])->name('about_details');
+Route::any('/product-details/{id?}', [App\Http\Controllers\Product::class, 'product_details'])->name('product_details');
+Route::any('/blogs/{category}/{id?}', [App\Http\Controllers\Blog::class, 'blog_details'])->name('blog_details');
+Route::any('/career/{category}/{id?}', [App\Http\Controllers\Career::class, 'career_details'])->name('career_details');
 
 //  admin
 Route::any('/admin', [App\Http\Controllers\Admin\Syslog::class, 'index'])->name('syslog');

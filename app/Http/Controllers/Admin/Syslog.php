@@ -87,15 +87,16 @@ class Syslog extends Controller
 					if ($request->input('password') != $user->password) {
 						$user->password = Hash::make($request->input('password'));
 					}
+					$user->save();
+
 					if ($request->hasFile('avatar')) {
 						if ($request->file('avatar')->isValid()) {
 							$directory = 'users/'.$user->id.'/avatar';
 							Storage::disk('public')->deleteDirectory($directory);
 							$user->avatar = $request->file('avatar')->store($directory, 'public');
 						}
+						$user->save();
 					}
-
-					$user->save();
 					if ($task == 'save-edit') {
 						return redirect(url()->current());
 					}
@@ -219,6 +220,7 @@ class Syslog extends Controller
 					$post->description = $request->input('description');
 					$post->category_id = $aboutCate->id;
 					$post->active = !empty($request->input('active')) ? 1 : 0;
+					$post->save();
 
 					if ($request->hasFile('featured_image')) {
 						if ($request->file('featured_image')->isValid()) {
@@ -226,8 +228,8 @@ class Syslog extends Controller
 							Storage::disk('public')->deleteDirectory($directory);
 							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
 						}
+						$post->save();
 					}
-					$post->save();
 					if ($task == 'save-edit') {
 						return redirect(url()->current());
 					}
@@ -283,6 +285,7 @@ class Syslog extends Controller
 					$post->description = $request->input('description');
 					$post->category_id = $productCate->id;
 					$post->active = !empty($request->input('active')) ? 1 : 0;
+					$post->save();
 
 					if ($request->hasFile('featured_image')) {
 						if ($request->file('featured_image')->isValid()) {
@@ -344,6 +347,7 @@ class Syslog extends Controller
 					$post = Post::firstOrNew(['id' => $id]);
 					$post->user_id = Auth::user()->id;
 					$post->title = $request->input('title');
+					$post->email = $request->input('email');
 					$post->name = $request->input('name');
 					$post->cell_phone = $request->input('cell_phone');
 					$post->office_phone = $request->input('office_phone');
@@ -351,6 +355,7 @@ class Syslog extends Controller
 					$post->description = $request->input('description');
 					$post->category_id = $teamCate->id;
 					$post->active = !empty($request->input('active')) ? 1 : 0;
+					$post->save();
 
 					if ($request->hasFile('featured_image')) {
 						if ($request->file('featured_image')->isValid()) {
@@ -420,6 +425,7 @@ class Syslog extends Controller
 					$post->category_id = $request->input('category');
 					$post->description = $request->input('description');
 					$post->active = !empty($request->input('active')) ? 1 : 0;
+					$post->save();
 
 					if ($request->hasFile('featured_image')) {
 						if ($request->file('featured_image')->isValid()) {
@@ -486,24 +492,21 @@ class Syslog extends Controller
 				if (in_array($task, array('save', 'save-edit'))) {
 					$post = Post::firstOrNew(['id' => $id]);
 					$post->user_id = Auth::user()->id;
+					$post->name = $request->input('career_name');
 					$post->title = $request->input('title');
 					$post->category_id = $request->input('category');
+					$post->working_form = $request->input('working_form');
+					$post->working_type = $request->input('working_type');
 					$post->description = $request->input('description');
+					$post->requirement = $request->input('requirement');
 					$post->active = !empty($request->input('active')) ? 1 : 0;
-
-					if ($request->hasFile('featured_image')) {
-						if ($request->file('featured_image')->isValid()) {
-							$directory = 'posts/'.$post->id.'/featured_image';
-							Storage::disk('public')->deleteDirectory($directory);
-							$post->featured_image = $request->file('featured_image')->store($directory, 'public');
-						}
-					}
 					$post->save();
+
 					if ($task == 'save-edit') {
 						return redirect(url()->current());
 					}
 				}	
-				return redirect()->route('syslog.blogs')->with(['success' => 'Update Successfully!']);;
+				return redirect()->route('syslog.career')->with(['success' => 'Update Successfully!']);;
 			}
 			else {
 				$ids = $request->input('cid', array());

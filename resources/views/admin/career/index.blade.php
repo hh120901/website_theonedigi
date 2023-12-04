@@ -47,7 +47,17 @@
 												</th>
 												<th class="text-center" scope="row">{{ $i+1 }}</th>
 												<td>{{ $post->name }}</td>
-												<td>Information Technology</td>
+												<td>
+													@php
+														$post_category_id = $post->category_id;
+														$foundCategory = $careerChild->first(function ($collection) use ($post_category_id) {
+															return $collection['id'] == $post_category_id;
+														});
+														if ($foundCategory) {
+															echo $foundCategory->name;
+														}
+													@endphp
+												</td>
 												<td>{{ $post->created_at }}</td>
 												<td class="post-status {{ $post->active == 1 ? 'active' : '' }}">{{ $post->active == 1 ? 'Activated' : 'Deactivated' }}</td>
 												<td class="">

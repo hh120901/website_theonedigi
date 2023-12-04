@@ -26,4 +26,7 @@ class PostCategory extends Model
     {
         return $this->hasMany(Post::class, 'category_id');
     }
+    public function activePosts() {
+        return $this->hasMany(Post::class, 'category_id')->where('active', 1);
+    }
 }

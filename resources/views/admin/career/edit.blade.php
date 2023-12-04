@@ -23,12 +23,13 @@
 										<label for="category">
 											<h6 class="small fw-bold mb-3">Department <span class="text-danger">*</span></h6>
 										</label>
-										<select class="form-select custom-select" id="department" name="department">
-											<option selected>Choose Department...</option>
-											<option value="1">HR & ADMINISTRATOR</option>
-											<option value="2">ACCOUNTING</option>
-											<option value="3">INFORMATION TECHNOLOGY</option>
-										  </select>
+										<select class="form-select custom-select" id="category" name="category">
+											@if (!empty($careerChild))
+												@foreach ($careerChild as $index => $child)
+													<option value="{{ $child->id }}" {{ $post->category_id == $child->id ? 'selected' : '' }}>{{ $child->name }}</option>
+												@endforeach
+											@endif
+										</select>
 									</div>
 									<div class="mb-4">
 										<label for="title">
@@ -65,22 +66,22 @@
 							</div>
 
 							<div class="col-lg-12 mb-3">
-								<div class="">
+								<div class="mx-3">
 									<label for="title">
 										<h6 class="small fw-bold mb-3">Job descriptions <span class="text-danger">*</span></h6>
 									</label>
-									<textarea name="description" id="description" class="custom-textarea bg-white" cols="30" rows="3">{{ $post->description }}</textarea>
+									<textarea name="description" id="description" class="custom-textarea bg-white tinymce" cols="30" rows="3">{{ $post->description }}</textarea>
 								</div>
 							</div>
 							<div class="col-lg-12">
-								<div class="mb-4">
+								<div class="mb-4 mx-3">
 									<label for="title">
 										<h6 class="small fw-bold mb-3">Job requirements <span class="text-danger">*</span></h6>
 									</label>
-									<textarea name="requirement" id="requirement" class="custom-textarea bg-white" cols="30" rows="3">{{ $post->requirement }}</textarea>
+									<textarea name="requirement" id="requirement" class="custom-textarea bg-white tinymce" cols="30" rows="3">{{ $post->requirement }}</textarea>
 								</div>
 							</div>
-							<div>
+							<div class="mx-3">
 								<p class="mb-2 fw-semibold">
 									If you would like to publish this blog right now, please check box here!
 								</p>
@@ -103,11 +104,4 @@
 			</div>
 		</div>
 	</div>
-	<script>
-		$(document).ready(function () {
-			$('.input-upload-image').on('click', function (){
-				$('#featured_image').trigger('click');
-			});
-		});
-	</script>
 @endsection
