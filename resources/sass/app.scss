@@ -550,6 +550,9 @@ h1, h2, h3, h4, h5, h6 {
 			font-size: 16px;
 			background-color: white !important;
 		}
+		&.error {
+			border: 1px solid red;
+		}
 	}
 	.custom-select {
 		height: 3rem;

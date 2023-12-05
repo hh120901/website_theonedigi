@@ -64,10 +64,10 @@
 					<h4 class="fw-bold mb-4">INFORMATION TO APPLY</h4>
 				</div>
 				<div class="apply-form-body">
-					<form action="" name="applyForm" id="career-apply-form" method="POST" enctype="multipart/form-data">
+					<form action="{{ url('/apply-job') }}" name="applyForm" id="career-apply-form" method="POST" enctype="multipart/form-data">
 						@csrf
-						<input type="hidden" name="job_id" name="job_id" value="33">
-						<input type="hidden" name="job_name" name="job_name" value="ABC">
+						<input type="hidden" name="job_id" name="job_id" value="{{ $post->id }}">
+						<input type="hidden" name="job_name" name="job_name" value="{{ $post->name }}">
 						<div class="apply-input-group mb-4">
 							<label for="candidate_name">
 								<h6 class="small fw-bold">Full Name <span class="text-danger">*</span></h6>

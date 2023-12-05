@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::any('/apply-job', [App\Http\Controllers\Career::class, 'apply_form'])->name('apply_form');
+Route::any('/send-contact', [App\Http\Controllers\Contact::class, 'index'])->name('contact_form');
 Route::any('/about-details/{id?}', [App\Http\Controllers\About::class, 'about_details'])->name('about_details');
 Route::any('/product-details/{id?}', [App\Http\Controllers\Product::class, 'product_details'])->name('product_details');
 Route::any('/blogs/{category}/{id?}', [App\Http\Controllers\Blog::class, 'blog_details'])->name('blog_details');
@@ -35,6 +37,12 @@ Route::any('/admin/blogs', [App\Http\Controllers\Admin\Syslog::class, 'blogs'])-
 Route::any('/admin/blogs/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'blogs'])->name('syslog.blogs.{action}.{id}');
 Route::any('/admin/career', [App\Http\Controllers\Admin\Syslog::class, 'career'])->name('syslog.career');
 Route::any('/admin/career/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'career'])->name('syslog.career.{action}.{id}');
+Route::any('/admin/applicants', [App\Http\Controllers\Admin\Syslog::class, 'applicants'])->name('syslog.applicants');
+Route::any('/admin/applicants/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'applicants'])->name('syslog.applicants.{action}.{id}');
+
+Route::any('/mail-template', function () {
+    return view('emails.career.career');
+});
 
 Route::any('/admin/user-role', function () {
     return view('admin.roles.index');

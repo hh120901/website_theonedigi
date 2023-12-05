@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\MailDB;
 use GuzzleHttp\Client;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
@@ -439,7 +440,7 @@ class Syslog extends Controller
 						return redirect(url()->current());
 					}
 				}	
-				return redirect()->route('syslog.blogs')->with(['success' => 'Update Successfully!']);;
+				return redirect()->route('syslog.blogs')->with(['success' => 'Update Successfully!']);
 			}
 			else {
 				$ids = $request->input('cid', array());
@@ -546,6 +547,51 @@ class Syslog extends Controller
 						->with('request', $request)
 						->with('careerChild', $careerChild)
 						->with('posts', $posts);
+		}
+	}
+
+	public function applicants(Request $request, Client $client, $action='index', $id=null)
+	{
+		if ($action == 'download-cv') {
+			if (!empty($id)){
+				$applicant = MailDB::find($id);
+				$filePath = storage_path('app/public/'.$applicant->attachment);
+				$filename = basename($filePath);
+				$headers = [
+					'Content-Type' => 'application/pdf', // Adjust the content type based on your file type
+				];
+			}
+			return response()->download($filePath, $filename, $headers);
+		}
+		if ($request->isMethod('post')) {
+			$task = $request->input('task');
+			if ($action == 'edit') {
+				
+			}
+			else {
+				$ids = $request->input('cid', array());
+				foreach ($ids as $id) {
+					$applicant = MailDB::find($id);
+					if ($task == 'delete') {
+						$applicant->delete();
+					}
+				}
+				return redirect()->route('syslog.applicants');
+			}
+		}
+		
+		if ($action == 'edit') {
+			$post = Post::firstOrNew(['id' => $id]);
+			return view('admin.career.applicants.'.$action)
+						->with('request', $request)
+						->with('post', $post)
+						->with('careerChild', $careerChild);
+		}
+		else {
+			$applicants = MailDB::where('type', 'career')->orderBy('created_at')->paginate(5);
+			return view('admin.career.applicants.'.$action)
+						->with('request', $request)
+						->with('applicants', $applicants);
 		}
 	}
 }

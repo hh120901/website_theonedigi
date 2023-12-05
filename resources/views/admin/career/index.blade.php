@@ -79,6 +79,9 @@
 									<a class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3 btn-delete">
 										Delete
 									</a>
+									<a href="{{ url('/admin/applicants') }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
+										Applicants
+									</a>
 									<a href="{{ url('/admin/career/edit') }}" class="btn btn-red-400 btn-add-post">
 										Add new
 									</a>
