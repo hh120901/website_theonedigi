@@ -13,13 +13,13 @@
 						<div class="d-flex justify-content-between align-items-center">
 							<span class="fs-5 fw-semibold">Career List</span>
 							<div class="input-search-group border rounded-3 d-flex justify-content-center bg-white">
-								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3"  placeholder="Search..." name="search_resouces" id="search_resouces">
+								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3" value="{{ $request->input('search_text') }}"  placeholder="Search..." name="search_text" id="search_text">
 								<button class="btn btn-search d-flex justify-content-center align-items-center px-2">
 									<img src="{{ asset('assets/images/search-btn.svg') }}" alt="">
 								</button>
 							</div>
 						</div>
-						<div class="mt-4">
+						<div class="mt-4 table-responsive">
 							@if (!empty($posts))
 								<table class="table table-bordered rounded-3 table-management">
 									<thead>
@@ -58,7 +58,7 @@
 														}
 													@endphp
 												</td>
-												<td>{{ $post->created_at }}</td>
+												<td>{{ $post->created_at->format('d-m-Y H:i:s') }}</td>
 												<td class="post-status {{ $post->active == 1 ? 'active' : '' }}">{{ $post->active == 1 ? 'Activated' : 'Deactivated' }}</td>
 												<td class="">
 													<div class="d-flex align-items-center">
@@ -79,9 +79,11 @@
 									<a class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3 btn-delete">
 										Delete
 									</a>
-									<a href="{{ url('/admin/applicants') }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
-										Applicants
-									</a>
+									@if (auth()->user()->role_id == 9 || in_array(auth()->user()->getRole->alias, ['admin', 'hr']))
+										<a href="{{ url('/admin/applicants') }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
+											Applicants
+										</a>
+									@endif
 									<a href="{{ url('/admin/career/edit') }}" class="btn btn-red-400 btn-add-post">
 										Add new
 									</a>

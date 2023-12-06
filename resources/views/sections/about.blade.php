@@ -2,12 +2,12 @@
 {{-- Screen 2 --}}
 
 <div class="container position-relative">
-	<div class="d-flex pt-5r flex-wrap">
-		<div class="pt-5r">
+	<div class="d-md-flex pt-5r flex-wrap">
+		<div class="pt-lg-5r">
 			<span class="mt-3 block-span-red-135"></span>
 		</div>
 		<div class="me-5">
-			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">ABOUT US</h2>
+			<h2 class="fw-bold text-decoration-underline text-secondary title-section">ABOUT US</h2>
 		</div>
 		<div class="position-relative w-up-lg-100">
 			<div class="background-border d-none d-xxl-block"></div>
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="d-lg-flex flex-column flex-grow-1 align-items-end me-5 pe-5 justify-content-center gap-5 d-none">
+		<div class="d-flex flex-lg-column flex-grow-1 align-items-end me-lg-5 mt-3 pe-lg-5 justify-content-center flex-wrap gap-3 gap-lg-5">
 			@if (!empty($about_posts) && count($about_posts))
 				@foreach($about_posts as $index => $about_post)
 					<button class="btn about-btn-control-slide {{ $index == 0 ? 'active' : ''}}" data-gotosl='sl{{ $index+1 }}'>{{ $index+1 }}</button>

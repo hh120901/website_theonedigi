@@ -1,4 +1,11 @@
 <section class="sidebar">
+	@php
+		$user = auth()->user();
+		$admin_role = ['admin'];
+		$hr_role = ['admin', 'hr'];
+		$content_role = ['admin', 'content'];
+		$cs_role = ['admin', 'cs'];
+	@endphp
 	<div>
 		<div class="d-flex flex-column flex-shrink-0 p-3 w-100" >
 			<a class="no-decor" href="{{ url('/admin') }}">
@@ -13,14 +20,14 @@
 			</a>
 			<hr>
 			<div>
-				<ul class="group-management mt-2"><span class="d-flex align-items-center mb-3"><img class="me-2" src="{{ asset('assets/images/notes.svg') }}" alt="">Content management</span>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/about') }}">About us</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/products') }}">Our Products</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/teams') }}">Teams</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/blogs') }}">Blogs</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/career') }}">Career</a></li>
+				<ul class="group-management mt-2 {{ (in_array($user->getRole->alias, $hr_role) || in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><span class="d-flex align-items-center mb-3"><img class="me-2" src="{{ asset('assets/images/notes.svg') }}" alt="">Content management</span>
+					<li class="management-item {{ (in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/about') }}">About us</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/products') }}">Our Products</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/teams') }}">Teams</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/blogs') }}">Blogs</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $hr_role) || in_array($user->getRole->alias, $content_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/career') }}">Career</a></li>
 				</ul>
-				<ul class="group-management">
+				<ul class="group-management {{ (in_array($user->getRole->alias, $cs_role)) ? '' : 'd-none' }}">
 					<span class="d-flex align-items-center mb-3">
 						<svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 							<ellipse cx="12" cy="16.5" rx="6" ry="2.5" stroke="#28303F" stroke-width="1.5" stroke-linejoin="round"/>
@@ -32,9 +39,9 @@
 						</svg>
 						User management
 					</span>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/users') }}">User</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/user-role') }}">User Roles</a></li>
-					<li class="management-item"><a class="management-link" href="{{ url('/admin/contact') }}">Request Contact Us</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $admin_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/users') }}">User</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $admin_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/roles') }}">User Roles</a></li>
+					<li class="management-item {{ (in_array($user->getRole->alias, $cs_role)) ? '' : 'd-none' }}"><a class="management-link" href="{{ url('/admin/contact') }}">Request Contact Us</a></li>
 				</ul>
 			</div>
 		</div>

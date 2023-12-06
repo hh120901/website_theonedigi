@@ -13,7 +13,7 @@
 						<div class="d-flex flex-wrap justify-content-between align-items-center">
 							<span class="fs-5 fw-semibold">User List</span>
 							<div class="input-search-group border rounded-3 d-flex justify-content-center bg-white">
-								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3"  placeholder="Search..." name="search_resouces" id="search_resouces">
+								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3" value="{{ $request->input('search_text') }}"  placeholder="Search..." name="search_text" id="search_text">
 								<button class="btn btn-search d-flex justify-content-center align-items-center px-2">
 									<img src="{{ asset('assets/images/search-btn.svg') }}" alt="">
 								</button>
@@ -41,28 +41,28 @@
 									</thead>
 									<tbody>
 										@foreach ($users as $i => $user)
-											
+											<tr>
+												<th scope="col">
+													<div class="form-check d-flex justify-content-center">
+														<input class="form-check-input checkbox-manage-content" name="cid[]" id="cb{{$i}}" value="{{ $user->id }}" type="checkbox" value="">
+													</div>
+												</th>
+												<th class="text-center" scope="row">{{ $i+1 }}</th>
+												<td>{{ $user->firstname.' '.$user->lastname }}</td>
+												<td>{{ $user->getRole->name }}</td>
+												<td>{{ $user->email }}</td>
+												<td style="width: 130px">{{ $user->created_at }}</td>
+												<td style="width: 130px">{{ $user->last_activity }}</td>
+												<td class="post-status {{ $user->active == 1 ? 'active' : '' }}">{{ $user->active == 1 ? 'Activated' : 'Deactivated' }}</td>
+												<td class="">
+													<div class="d-flex align-items-center">
+														<a href="{{ url('/admin/users/edit/'.$user->id) }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
+														<a role="button" onclick="return confirmBox('Delete items', 'Are you sure you want to delete the selected items?', 'itemTask', ['{{ $user->id }}', 'delete'])"><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
+													</div>
+												</td>
+											</tr>
+								
 										@endforeach
-										<tr>
-											<th scope="col">
-												<div class="form-check d-flex justify-content-center">
-													<input class="form-check-input checkbox-manage-content" name="cid[]" id="cb{{$i}}" value="{{ $user->id }}" type="checkbox" value="">
-												</div>
-											</th>
-											<th class="text-center" scope="row">1</th>
-											<td>{{ $user->firstname.' '.$user->lastname }}</td>
-											<td>{{ $user->role_id == 3 ? 'Administrator' : ($user->role_id == 2 ? 'Customer Support' : 'Content') }}</td>
-											<td>{{ $user->email }}</td>
-											<td style="width: 130px">{{ $user->created_at }}</td>
-											<td style="width: 130px">{{ $user->last_activity }}</td>
-											<td class="post-status {{ $user->active == 1 ? 'active' : '' }}">{{ $user->active == 1 ? 'Activated' : 'Deactivated' }}</td>
-											<td class="">
-												<div class="d-flex align-items-center">
-													<a href="{{ url('/admin/users/edit/'.$user->id) }}" class="me-3"><img src="{{ asset('assets/images/icon-eye.svg') }}" alt=""></a>
-													<a role="button" onclick="return confirmBox('Delete items', 'Are you sure you want to delete the selected items?', 'itemTask', ['{{ $user->id }}', 'delete'])"><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
-												</div>
-											</td>
-										</tr>
 									</tbody>
 								</table>
 							@endif

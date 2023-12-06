@@ -11,15 +11,15 @@
 			<a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
 				data-bs-toggle="dropdown" aria-expanded="false">
 				<div class="ratio ratio-1x1 me-2" style="width: 36px; height: 36px">
-					<img src="{{ asset('assets/images/personal-card.jpg') }}" alt="avt" class="rounded-circle me-2">
+					<img src="{{ asset('storage/'.auth()->user()->avatar) }}" alt="avt" class="rounded-circle me-2">
 				</div>
 				<div class="d-flex flex-column">
 					<strong>{{ auth()->user()->firstname}}</strong>
-					<p class="small mb-0">{{ auth()->user()->role_id == 3 ? 'Administrator' : 'Root' }}</p>
+					<p class="small mb-0">{{ auth()->user()->getRole->name ?? 'Root' }}</p>
 				</div>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
-				<li><a class="dropdown-item" href="#">Profile</a></li>
+				<li><a class="dropdown-item" href="{{ url('/admin/users/edit/'.auth()->user()->id) }}">Profile</a></li>
 				<li><a class="dropdown-item" href="{{ route('syslog.logout') }}">Logout</a></li>
 			</ul>
 		</div>

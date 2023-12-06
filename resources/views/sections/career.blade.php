@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="d-flex pt-5r flex-wrap flex-lg-nowrap"> 
 		<div class="pt-5r">
-			<span class="mt-3 block-span-red-135"></span>
+			<span class="my-3 block-span-red-135"></span>
 		</div>
 		<div>
 			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">CAREER</h2>
@@ -14,8 +14,8 @@
 			</p>
 		</div>
 	</div>
-	<div class="mt-3 ms-135px me-135px mb-4">
-		<div class="pt-3 d-flex justify-content-lg-between gap-3 flex-wrap">
+	<div class="mb-3 ms-135px me-135px mb-4">
+		<div class="pt-3 d-flex justify-content-between gap-3 flex-wrap">
 			@if (!empty($careerChild))
 				@foreach ($careerChild as $i => $c_child)
 				<button class="btn btn-outline-red-primary btn-job {{ $i == 0 ? 'active' : '' }}" data-control-jobs="{{ $c_child->alias }}">
@@ -34,7 +34,7 @@
 					@endphp
 					@foreach ($c_posts as $career_key => $c_post)
 						<div class="job-card mb-3">
-							<div class="d-flex flex-wrap justify-content-between">
+							<div class="d-flex flex-wrap justify-content-between gap-3 my-3 my-md-0">
 								<h4 class="job-title mb-0">{{ $c_post->name }}</h4>
 								<div>
 									<a href="{{ url('/career/'.$c_child->alias.'/'.$c_post->id)}}" class="btn btn-see-detail-red rounded-4 btn-outline-red-primary">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>

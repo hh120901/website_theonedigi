@@ -1,11 +1,11 @@
 
 <div class="container">
-	<div class="d-flex pt-5r pb-2"> 
-		<div class="pt-5r">
+	<div class="d-md-flex pt-5r pb-2"> 
+		<div class="pt-lg-5r">
 			<span class="mt-3 block-span-red-135"></span>
 		</div>
 		<div>
-			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">OUR TEAMS</h2>
+			<h2 class="fw-bold text-decoration-underline text-secondary title-section">OUR TEAMS</h2>
 		</div>
 	</div>
 	<div class="team-cards row mx-4 mt-4 px-3 position-relative justify-content-center">

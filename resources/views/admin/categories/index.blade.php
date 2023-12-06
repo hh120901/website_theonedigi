@@ -13,13 +13,13 @@
 						<div class="d-flex flex-wrap justify-content-between align-items-center">
 							<span class="fs-5 fw-semibold">Resources List</span>
 							<div class="input-search-group border rounded-3 d-flex justify-content-center bg-white">
-								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3"  placeholder="Search..." name="search_resouces" id="search_resouces">
+								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3" value="{{ $request->input('search_text') }}"  placeholder="Search..." name="search_text" id="search_text">
 								<button class="btn btn-search d-flex justify-content-center align-items-center px-2">
 									<img src="{{ asset('assets/images/search-btn.svg') }}" alt="">
 								</button>
 							</div>
 						</div>
-						<div class="mt-4">
+						<div class="mt-4 table-responsive">
 							@if (count($categories))
 								<table class="table table-bordered rounded-3 table-management table-hover">
 									<thead>
@@ -42,7 +42,7 @@
 											<tr>
 												<th scope="col">
 													<div class="form-check d-flex justify-content-center">
-														<input class="form-check-input checkbox-manage-content" type="checkbox" value="{{ $category->id }}" name="cid" id="cb{{ $category->id }}">
+														<input class="form-check-input checkbox-manage-content" type="checkbox" value="{{ $category->id }}" name="cid[]" id="cb{{ $category->id }}">
 													</div>
 												</th>
 												<th class="text-center" scope="row">{{ $i+1 }}</th>

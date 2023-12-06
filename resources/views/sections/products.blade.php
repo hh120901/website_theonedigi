@@ -2,19 +2,19 @@
 	{{-- Screen 3 --}}
 	<div class="container position-relative">
 		<div class="d-flex pt-5r flex-wrap"> 
-			<div class="pt-5r">
+			<div class="pt-lg-5r">
 				<span class="mt-3 block-span-red-135"></span>
 			</div>
 			<div>
-				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">OUR PRODUCTS</h2>
-				<div class="d-flex flex-wrap">
-					<div class="numbers column-product-number d-flex flex-column justify-content-center align-items-center mt-3 mx-3 mx-xl-5" style="width: 75px">
+				<h2 class="fw-bold text-decoration-underline text-secondary title-section">OUR PRODUCTS</h2>
+				<div class="d-flex flex-wrap justify-content-center">
+					<div class="numbers column-product-number d-flex flex-lg-column justify-content-center align-items-center mt-3 mx-3 mx-xl-5">
 						<div class="">
 							<button class="btn btn-control-up">
 								<i class="fal fa-caret-up fs-4"></i>
 							</button>
 						</div>
-						<div class="my-4 d-flex d-lg-block">
+						<div class="my-4 d-flex d-lg-block gap-3 flex-wrap">
 							@if (!empty($product_posts))
 								@php
 									$counter = 0;
@@ -24,7 +24,7 @@
 										$counter ++;
 									@endphp
 									@if ($counter == 2) 
-										<div class="mb-4 pt-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{ $k % 2 == 0 ? $k+2 : $k+1 }}">
+										<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-lg-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{ $k % 2 == 0 ? $k+2 : $k+1 }}">
 											<span class="btn-select-products">{{ $k }}</span>
 											<div class="line-between-steps" style="height: 1.5rem"></div>
 											<span class="btn-select-products">{{ $k+1 }}</span>
@@ -34,7 +34,7 @@
 										@endphp
 									@else
 										@if( $k == count($product_posts) - 1 ) 
-											<div class="mb-4 pt-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{  $k % 2 == 0 ? $k+2 : $k+1 }}">
+											<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{  $k % 2 == 0 ? $k+2 : $k+1 }}">
 												<span class="btn-select-products">{{ $k+1 }}</span>
 											</div>
 										@endif
@@ -48,11 +48,11 @@
 							</button>
 						</div>
 					</div>
-					<div class="d-flex gap-3 gap-xxl-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
+					<div class="d-flex gap-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
 						@if (!empty($product_posts))
 							@foreach ($product_posts as $key => $product_post)
 								@if ($key % 2 == 0)
-									<div class="our-products-card mx-4 card-index-1 active-{{ $key+1 }}-{{ $key+2 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
+									<div class="our-products-card card-index-1 mx-4 active-{{ $key+1 }}-{{ $key+2 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
 										<div class="ratio ratio-1x1" style="height: 320px">
 											<img src="{{ asset('storage/'.$product_post->featured_image) }}" alt="image">
 										</div>
@@ -74,7 +74,7 @@
 										</div>
 									</div>
 								@else 
-									<div class="our-products-card mx-4 align-self-end active-{{ $key }}-{{ $key+1 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
+									<div class="our-products-card align-self-end mx-4 active-{{ $key }}-{{ $key+1 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
 										<div class="d-flex justify-content-between">
 											<div class="d-flex">
 												<h2 class="title-banner">{{ '0'.$key+1 }}</h2>

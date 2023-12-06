@@ -23,19 +23,19 @@
 											<label for="title">
 												<h6 class="small fw-bold mb-3">First name <span class="text-danger">*</span></h6>
 											</label>
-											<input type="text" id="firstname" name="firstname" class="rounded-4 custom-input bg-white" placeholder="Enter your first name" value="{{ $user->firstname }}" required>
+											<input type="text" id="firstname" name="firstname" class="rounded-4 custom-input bg-white" placeholder="Enter your first name" value="{{ $user->firstname }}">
 										</div>
 										<div class="mb-4">
 											<label for="title">
 												<h6 class="small fw-bold mb-3">Email <span class="text-danger">*</span></h6>
 											</label>
-											<input type="email" id="email" name="email" class="rounded-4 custom-input bg-white" placeholder="Enter your email" value="{{ $user->email }}" required>
+											<input type="email" id="email" name="email" class="rounded-4 custom-input bg-white" placeholder="Enter your email" value="{{ $user->email }}">
 										</div>
 										<div class="mb-4">
 											<label for="title">
 												<h6 class="small fw-bold mb-3">Date of birth <span class="text-danger">*</span></h6>
 											</label>
-											<input type="date" id="birthday" name="birthday" class="rounded-4 custom-input bg-white" placeholder="dd/mm/yyyy" value="{{ $user->birthday }}" required>
+											<input type="date" id="birthday" name="birthday" class="rounded-4 custom-input bg-white" placeholder="dd/mm/yyyy" value="{{ $user->birthday }}">
 										</div>
 									</div>
 									<div class="col-lg-6">
@@ -43,13 +43,13 @@
 											<label for="title">
 												<h6 class="small fw-bold mb-3">Last name <span class="text-danger">*</span></h6>
 											</label>
-											<input type="text" id="lastname" name="lastname" class="rounded-4 custom-input bg-white" placeholder="Enter your last name" value="{{ $user->lastname }}" required>
+											<input type="text" id="lastname" name="lastname" class="rounded-4 custom-input bg-white" placeholder="Enter your last name" value="{{ $user->lastname }}">
 										</div>
 										<div class="mb-4">
 											<label for="title">
 												<h6 class="small fw-bold mb-3">Phone <span class="text-danger">*</span></h6>
 											</label>
-											<input type="text" id="phone" name="phone" class="rounded-4 custom-input bg-white" placeholder="Enter your email" value="{{ $user->phone }}" required>
+											<input type="text" id="phone" name="phone" class="rounded-4 custom-input bg-white" placeholder="Enter your email" value="{{ $user->phone }}">
 										</div>
 										<div class="mb-4">
 											<label for="category">
@@ -73,9 +73,9 @@
 										</div>
 										<div class="col-lg-6 d-flex align-items-end px-4">
 											<div class="d-flex pb-4">
-												<a href="" role="button">Auto-generate password</a>
-												<div class="border-end border-2 mx-3 border-secondary"></div>
-												<a href="" role="button">Choose my specific password.</a>
+												<a role="button" class="btn-generate-password">Auto-generate password</a>
+												{{--<div class="border-end border-2 mx-3 border-secondary"></div>
+												<a role="button" class="btn-choose-password">Choose my specific password.</a>--}}
 											</div>
 										</div>
 									</div>
@@ -85,11 +85,13 @@
 											<label for="user_role">
 												<h6 class="small fw-bold mb-3">User Role <span class="text-danger">*</span></h6>
 											</label>
-											<select class="form-select custom-select" name="role" id="role">
+											<select class="form-select custom-select" name="role" id="role" {{ ( auth()->user()->role_id == 9 || auth()->user()->getRole->alias == 'admin' ) ? '' : 'disabled' }}>
 												<option>Select role...</option>
-												<option value="3" {{ $user->role_id == 3 ? 'selected' : '' }}>Administrator</option>
-												<option value="1" {{ $user->role_id == 1 ? 'selected' : '' }}>Content</option>
-												<option value="2" {{ $user->role_id == 2 ? 'selected' : '' }}>Customer Support</option>
+												@if (count($roles))
+													@foreach ($roles as $role)
+														<option value="{{ $role->id }}" {{ $user->role_id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+													@endforeach
+												@endif
 											</select>
 										</div>
 									</div>
@@ -124,6 +126,24 @@
 			$('.input-upload-image').on('click', function (){
 				$('#featured_image').trigger('click');
 			});
+
+			$('.btn-generate-password').on('click', function(){
+				let random_pass = generateRandomPassword(10);
+				$('#password').attr('type', 'text');
+				$('#password').val(random_pass);
+			});
+
+			function generateRandomPassword(length) {
+			const charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_";
+
+			let password = "";
+			for (let i = 0; i < length; i++) {
+				const randomIndex = Math.floor(Math.random() * charset.length);
+				password += charset.charAt(randomIndex);
+			}
+
+			return password;
+		}
 		});
 	</script>
 @endsection

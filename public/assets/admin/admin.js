@@ -14,6 +14,10 @@ $(document).ready(function () {
 		$("#checkedboxcounter").val($(".checkbox-manage-content:checked").length);
 	})
 	
+	$(".btn-search").click(function(e) {
+		submitButton("search", window.location.pathname);
+	});
+	
 	$('.custom-input.required').on('focus', function(){
 		$(this).removeClass('error');
 		$(this).parent().find('.input-error').addClass('d-none');

@@ -1,8 +1,8 @@
 <div class="container text-white bg-dark">
-	<header class="d-flex align-items-center justify-content-center justify-content-md-between py-3 border-bottom header-container align-items-center px-5">
+	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-between py-3 border-bottom header-container align-items-center px-3 px-lg-5">
 		<div class="d-flex align-items-center">
-			<a href="{{ url('/') }}" class="site-logo no-decor"><img src="{{ asset('assets/images/logo_todc.png') }}" alt="logo img"></a>
-			<a href="{{ url('/') }}" class="site-name no-decor"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>
+			<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('assets/images/logo_todc.png') }}" alt="logo img"></a>
+			<a role="button" class="site-name no-decor navigation-to-slide" data-sl-target="home"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>
 		</div>
 		<div class="main-menu navbar navbar-expand-lg">
 			<button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -17,17 +17,22 @@
 					<li class="nav-item"><a href="{{ url('/blogs') }}" class="nav-link px-2" data-sl-target="blogs">BLOGS</a></li>
 					<li class="nav-item"><a href="{{ url('/career') }}" class="nav-link px-2" data-sl-target="career">CAREER</a></li>
 					<li class="nav-item"><a href="{{ url('/contact') }}" class="nav-link px-2" data-sl-target="contact">CONTACT</a></li>
+					<li class="nav-item"><input type="text" class="input-search font-heading" style="width: 150px" placeholder="Search"></li>
 				</ul>
 			</div>
 		</div>
-		<div class="d-flex justify-content-between align-items-center">
-			<input type="text" class="input-search me-4" placeholder="Search">
-			<img src="{{ asset('assets/images/user-circle.svg') }}" alt="">
+		<div class="d-lg-flex justify-content-between align-items-center d-none">
+			<input type="text" class="input-search font-heading" placeholder="Search">
 			<div class="border-end border-white mx-3" style="height: 50px"></div>
-			<div class="d-flex gap-3">
+			<div class="d-flex gap-3 align-items-center">
+				<div class="ratio ratio-1x1 border rounded-1 border-white" style="width: 40px; height: 28px">
+					<img class="rounded-1" src="{{ asset('assets/images/lang-eng.svg') }}" alt="">
+				</div>
 				<img src="{{ asset('assets/images/vn-flag.svg') }}" alt="">
-				<img src="{{ asset('assets/images/usa-flag.svg') }}" alt="">
 			</div>
 		</div>
 	</header>
 </div>
+
+
+

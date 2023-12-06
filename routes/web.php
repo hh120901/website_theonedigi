@@ -13,6 +13,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/test-db', function () {
+    return view('sections/testdb');
+});
+
 Route::any('/apply-job', [App\Http\Controllers\Career::class, 'apply_form'])->name('apply_form');
 Route::any('/send-contact', [App\Http\Controllers\Contact::class, 'index'])->name('contact_form');
 Route::any('/about-details/{id?}', [App\Http\Controllers\About::class, 'about_details'])->name('about_details');
@@ -39,20 +43,11 @@ Route::any('/admin/career', [App\Http\Controllers\Admin\Syslog::class, 'career']
 Route::any('/admin/career/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'career'])->name('syslog.career.{action}.{id}');
 Route::any('/admin/applicants', [App\Http\Controllers\Admin\Syslog::class, 'applicants'])->name('syslog.applicants');
 Route::any('/admin/applicants/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'applicants'])->name('syslog.applicants.{action}.{id}');
-
-Route::any('/mail-template', function () {
-    return view('emails.career.career');
-});
-
-Route::any('/admin/user-role', function () {
-    return view('admin.roles.index');
-});
-Route::any('/admin/contact', function () {
-    return view('admin.contact.index');
-});
-Route::any('/admin/contact/edit/{id?}', function () {
-    return view('admin.contact.edit');
-});
+Route::any('/admin/contact', [App\Http\Controllers\Admin\Syslog::class, 'contact'])->name('syslog.contact');
+Route::any('/admin/contact/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'contact'])->name('syslog.contact.{action}.{id}');
+Route::any('/admin/roles', [App\Http\Controllers\Admin\Syslog::class, 'roles'])->name('syslog.roles');
+Route::any('/admin/roles/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'roles'])->name('syslog.roles.{action}.{id}');
+Route::any('/admin/settings/{action}/{id?}', [App\Http\Controllers\Admin\Syslog::class, 'settings'])->name('syslog.settings');
 
 Route::any('/admin/login', [App\Http\Controllers\Admin\Syslog::class, 'login'])->name('syslog.login');
 

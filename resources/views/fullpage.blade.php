@@ -1,16 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="content-responsive d-lg-none">
-			{{--@include('homepage')--}}
-			{{--@include('sections.about')--}}
-			{{--@include('sections.products')--}}
-			{{--@include('sections.teams')--}}
-			{{--@include('sections.blogs')--}}
-			{{--@include('sections.career')
-			@include('sections.contact1')
-			@include('sections.contact2')--}}
-	</div>
 	<div class="full-content">
 		<div class="swiper home-swiper">
 			<div class="swiper-wrapper responsive-content">

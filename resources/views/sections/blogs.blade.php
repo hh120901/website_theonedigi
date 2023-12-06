@@ -1,11 +1,11 @@
 
 <div class="container">
-	<div class="d-flex pt-5r flex-wrap flex-lg-nowrap"> 
-		<div class="pt-5r">
+	<div class="d-md-flex pt-5r flex-wrap flex-lg-nowrap"> 
+		<div class="pt-lg-5r">
 			<span class="mt-3 block-span-red-135"></span>
 		</div>
 		<div>
-			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary">BLOGS</h2>
+			<h2 class="fw-bold text-decoration-underline text-secondary title-section">BLOGS</h2>
 		</div>
 		<div class="me-135px ms-5">
 			<p>
@@ -15,7 +15,7 @@
 		</div>
 	</div>
 	<div class="mt-4 ms-135px me-135px mb-4">
-		<div class="pt-3 d-flex justify-content-lg-between gap-3 flex-wrap">
+		<div class="pt-3 d-flex justify-content-between gap-3 flex-wrap">
 			<button class="btn btn-outline-red-primary btn-category active" data-control-posts="all">
 				ALL BLOGS
 			</button>
