@@ -1,13 +1,32 @@
+@php
+	$new_applicants = \App\Models\MailDB::where('type', 'career')->where('active', 0)->get();
+	$new_contacts = \App\Models\MailDB::where('type', 'contact')->where('active', 0)->get();
+	$count_career = count($new_applicants) ?? 0;
+	$count_contact = count($new_contacts) ?? 0;
+	$new_counter = $count_career + $count_contact;
+@endphp
+
 <div class="head-bar">
 	<div class="d-flex align-items-center justify-content-end pe-4 h-100">
-		<button class="btn p-0 me-4 position-relative">
-			<img class="pt-1" src="{{ asset('assets/images/icon-notifi.svg') }}" alt="">
-			<span class="position-absolute start-100 translate-middle badge rounded-pill bg-red-400 badge-notifi">
-				9
-				<span class="visually-hidden">unread messages</span>
-			  </span>
-		</button>
-		<div class="dropdown">
+		<div class="">
+			<button class="btn p-0 me-4 position-relative" data-bs-toggle="dropdown" aria-expanded="false">
+				<img class="pt-1" src="{{ asset('assets/images/icon-notifi.svg') }}" alt="">
+				<span class="position-absolute start-100 translate-middle badge rounded-pill bg-red-400 badge-notifi">
+					{{ $new_counter }}
+					<span class="visually-hidden">unread messages</span>
+				</span>
+			</button>
+				
+			<ul class="dropdown-menu">
+				@if (!empty($new_applicants))
+					<li><a class="dropdown-item" href="{{ url('/admin/career') }}">New Applicants ({{ count($new_applicants) }})</a></li>
+				@endif
+				@if (!empty($new_contacts))
+					<li><a class="dropdown-item" href="{{ url('/admin/contact') }}">New Request ({{ count($new_contacts) }})</a></li>
+				@endif
+			  </ul>
+		</div>
+		<div class="">
 			<a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle"
 				data-bs-toggle="dropdown" aria-expanded="false">
 				<div class="ratio ratio-1x1 me-2" style="width: 36px; height: 36px">

@@ -33,6 +33,7 @@
 											<th scope="col">Career Name</th>
 											<th scope="col">Department</th>
 											<th scope="col">Created Date</th>
+											<th scope="col">Applicants</th>
 											<th scope="col">Status</th>
 											<th scope="col">Action</th>
 										</tr>
@@ -59,6 +60,24 @@
 													@endphp
 												</td>
 												<td>{{ $post->created_at->format('d-m-Y H:i:s') }}</td>
+												<td>
+													@php
+														$new_apply = 0;
+														$applicants = \App\Models\MailDB::where('job_id', $post->id)->get();
+														if (count($applicants)) {
+															foreach ($applicants as $k => $apply) {
+																if ($apply->active == 0) {
+																	$new_apply += 1;
+																}
+															}
+														}
+													@endphp
+													{{ count($applicants) ?? 0 }}
+													@if ($new_apply > 0)
+														<span class="text-red-primary">( new )</span>
+													@endif
+
+												</td>
 												<td class="post-status {{ $post->active == 1 ? 'active' : '' }}">{{ $post->active == 1 ? 'Activated' : 'Deactivated' }}</td>
 												<td class="">
 													<div class="d-flex align-items-center">
@@ -79,11 +98,6 @@
 									<a class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3 btn-delete">
 										Delete
 									</a>
-									@if (auth()->user()->role_id == 9 || in_array(auth()->user()->getRole->alias, ['admin', 'hr']))
-										<a href="{{ url('/admin/applicants') }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
-											Applicants
-										</a>
-									@endif
 									<a href="{{ url('/admin/career/edit') }}" class="btn btn-red-400 btn-add-post">
 										Add new
 									</a>

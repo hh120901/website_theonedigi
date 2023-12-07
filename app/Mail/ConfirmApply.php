@@ -4,6 +4,7 @@ namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
@@ -29,11 +30,10 @@ class ConfirmApply extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            //from: $this->data->sender,
+            from: new Address($this->data->sender, 'Hr TODC'),
             subject: $this->data->subjects,
 			replyTo: $this->data->sender,
 			to: $this->data->receivers,
-            //cc: $this->data->cc,
         );
     }
 

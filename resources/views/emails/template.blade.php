@@ -70,25 +70,25 @@
 		$settings = \App\Models\Setting::where('active', 1)->first();
 	@endphp
 	<div class="container">
-		<div class="d-flex align-items-center mb-5" style="gap: 20px">
-			<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('assets/images/logo_site.png') }}" width="64" alt="logo img"></a>
-			<a role="button" class="site-name no-decor navigation-to-slide" data-sl-target="home"><h4 class="fw-semibold" style="padding-bottom: 0.5rem">THE ONE <br> DIGI CORP</h4></a>
+		<div class="d-flex mb-5" style="gap: 20px; align-items: center;">
+			<a href="{{ url('/') }}"><img src="{{ asset('assets/images/logo_site.png') }}" width="64" alt="logo img"></a>
+			<a href="{{ url('/') }}"><h4 class="fw-semibold" style="padding-bottom: 0.5rem">THE ONE <br> DIGI CORP</h4></a>
 		</div>
 		@yield('content')
 		<div>
 			<h4 class="fw-bold fs-4">Best Regards,</h4>
-			<div class="d-flex align-items-center" style="gap: 20px">
-				<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('assets/images/logo_site.png') }}" width="64" alt="logo img"></a>
-				<a role="button" class="site-name no-decor navigation-to-slide" data-sl-target="home"><h4 class="fw-semibold" style="padding-bottom: 0.5rem">THE ONE <br> DIGI CORP</h4></a>
+			<div class="d-flex" style="gap: 20px; align-items: center;">
+				<a href="{{ url('/') }}" style="margin-right: 1rem"><img src="{{ asset('assets/images/logo_site.png') }}" width="64" alt="logo img"></a>
+				<a href="{{ url('/') }}"><h4 class="fw-semibold" style="padding-bottom: 0.5rem">THE ONE <br> DIGI CORP</h4></a>
 			</div>
 			<p class="mb-3"><strong>Address: </strong>{{ $settings->company_address }}</p>
 			<p class="mb-3"><strong>Hotline: </strong>{{ $settings->company_phone }}</p>
 			<p class="mb-3"><strong>Email: </strong>{{ $settings->hr_email }}</p>
 		</div>
 		<div class="social-icon d-flex" style="gap: 1rem">
-			<a href="#"><img class="social-icon" src="{{ asset('assets/images/icon-social/fb.png') }}" alt="FB"></a>
-			<a href="#"><img class="social-icon" src="{{ asset('assets/images/icon-social/x.png') }}" alt="X"></a>
-			<a href="#"><img class="social-icon" src="{{ asset('assets/images/icon-social/linkind.png') }}" alt="IN"></a>
+			<a href="#" style="margin-right: 1rem"><img class="social-icon" src="{{ asset('assets/images/icon-social/fb.png') }}" alt="FB"></a>
+			<a href="#" style="margin-right: 1rem"><img class="social-icon" src="{{ asset('assets/images/icon-social/x.png') }}" alt="X"></a>
+			<a href="#" style="margin-right: 1rem"><img class="social-icon" src="{{ asset('assets/images/icon-social/linkind.png') }}" alt="IN"></a>
 		</div>	
 	</div>
 </body>

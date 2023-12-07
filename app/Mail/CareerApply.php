@@ -35,7 +35,7 @@ class CareerApply extends Mailable
             subject: $this->data->subjects,
 			replyTo: $this->data->sender,
 			to: $this->data->receivers,
-            //cc: $this->data->cc,
+            bcc: $this->data->bcc,
         );
     }
 

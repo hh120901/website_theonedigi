@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\MailDB;
+use App\Models\Setting;
 use App\Mail\CareerApply;
 use App\Mail\ConfirmApply;
 use App\Models\PostCategory;
@@ -29,6 +30,7 @@ class Career extends Controller
 
 	public function apply_form(Request $request)
 	{
+		$settings = Setting::first();
 		if ($request->isMethod('post')) {
 			if (!empty($request->input('candidate_email'))) {
 				$request->validate(array(
@@ -51,16 +53,16 @@ class Career extends Controller
 				$mail->sender = $request->input('candidate_email');
 				$mail->name = $request->input('candidate_name');
 				$mail->phone = $request->input('candidate_phone');
-				$mail->receiver = 'codehgl@gmail.com';
+				$mail->receiver = $settings->company_email;
 				$mail->attachment = $path;
 				$mail->type = 'career';
 				$mail->job_id = $request->input('job_id');
 				$mail = MailDB::create((array)$mail);
 
 				$data = array(
-					//'cc'=> ['codehgl@outlook.com', 'itsystestol@outlook.com'],
+					'bcc'=> [$settings->hr_email],
 					'sender' => $request->input('candidate_email'),
-					'receivers' => 'codehgl@gmail.com',
+					'receivers' => $settings->company_email,
 					'subjects' => '[CAREER APPLYCANT] '.$request->input('job_name').' - '.$request->input('candidate_name'),
 					'attachmentPath' => $path,
 					'tpl_data'	=> $mail,
@@ -68,9 +70,9 @@ class Career extends Controller
 				
 				Mail::send(new CareerApply((object) $data));
 
-				$data['sender'] = '';
+				$data['sender'] = $settings->hr_email;
 				$data['receivers'] = $request->input('candidate_email');
-
+				
 				Mail::send(new ConfirmApply((object) $data));
 
 				return redirect()->back()->with(['success' => 'Sent Email Successfully!']);

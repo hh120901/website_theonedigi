@@ -10,20 +10,14 @@
 	<title>The One Digi</title>
 	@include('layouts/sections/styles')
 </head>
-<body >
+<body class="bg-white">
 	<section>
-		<div class="container bg-white">
+		<div class="container bg-white w-100">
 			<form action="{{ route('syslog.login') }}" method="POST">
 				@csrf
-				<div class="row bg-white mx-3 mx-md-0 align-items-center">
-					<div class="col-lg-4 px-0 d-none d-sm-block" style="height: 1024px">
-						<div style="background-image: url({{ asset('assets/images/bg-ad-light.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: left; height: 100%;">
-							<div style="background-image: url({{ asset('assets/images/bg-ad.png') }}); background-position-y: bottom; background-repeat: no-repeat; background-position-x: center; height: 100%;">
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-8 px-0">
-						<div class="h-100 py-5 pt-md-0 d-flex justify-content-center align-items-center">
+				<div class="d-flex justify-content-center align-items-center"  style="height: 100vh;">
+					<div class="">
+						<div class="h-100 pt-md-0 d-flex justify-content-center align-items-center">
 							<div>
 								<div class="d-flex mb-4 justify-content-center align-items-center">
 									<div class="ratio ratio-1x1" style="width: 100px; height: 100px">

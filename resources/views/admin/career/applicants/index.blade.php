@@ -11,7 +11,7 @@
 					<h4 class="ms-5 fw-bold text-red-primary mb-3">Applicants</h4>
 					<div class="border rounded-3 px-3 py-4 mx-5 bg-white">
 						<div class="d-flex justify-content-between align-items-center">
-							<span class="fs-5 fw-semibold">Applicant List</span>
+							<span class="fs-5 fw-semibold">{{ $job->name ?? 'Job Name' }}</span>
 							<div class="input-search-group border rounded-3 d-flex justify-content-center bg-white">
 								<input type="text" class="input-search-resources border-0 small rounded-3 ps-3" value="{{ $request->input('search_text') }}"  placeholder="Search..." name="search_text" id="search_text">
 								<button class="btn btn-search d-flex justify-content-center align-items-center px-2">
@@ -50,11 +50,14 @@
 												<td>{{ $applicant->name }}</td>
 												<td>{{ $applicant->sender }}</td>
 												<td>{{ $applicant->phone }}</td>
-												<td><a href="{{ asset('storage/'.$applicant->attachment) }}" target="_blank">View</a></td>
-												<td class="post-status {{ $applicant->active == 1 ? 'active' : '' }}">{{ $applicant->active == 1 ? 'Read' : 'Unread' }}</td>
+												<td class="text-nowrap">
+													<a href="{{ asset('storage/'.$applicant->attachment) }}" target="_blank">View</a>
+													<a href="{{ url('/admin/applicants/download-cv/'.$applicant->id) }}" target="_blank" class="ms-2 download-cv" data-download-id="{{ $applicant->id }}"><img src="{{ asset('assets/images/icon-download.svg') }}" alt=""></a>
+												</td>
+												<td class="post-status {{ $applicant->active == 1 ? 'active' : '' }}">{{ $applicant->active == 1 ? 'Processed' : 'Unread' }}</td>
 												<td class="">
 													<div class="d-flex align-items-center">
-														<a href="{{ url('/admin/applicants/download-cv/'.$applicant->id) }}" target="_blank" class="me-3 download-cv" data-download-id="{{ $applicant->id }}"><img src="{{ asset('assets/images/icon-download.svg') }}" alt=""></a>
+														<a role="button" onclick="return confirmBox('Confirm processed', 'This request has been processed? ', 'itemTask', ['{{ $applicant->id }}', 'changeStatus'])"><i class="fal fa-check fs-5 pt-2 me-3"></i></a>
 														<a role="button" onclick="return confirmBox('Delete items', 'Are you sure you want to delete the selected items?', 'itemTask', ['{{ $applicant->id }}', 'delete'])"><img src="{{ asset('assets/images/icon-trash.svg') }}" alt=""></a>
 													</div>
 												</td>

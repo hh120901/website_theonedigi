@@ -53,6 +53,13 @@
 										<span class="input-error fw-semibold text-danger d-none">This field is required!</span>
 									</div>
 									<div class="mb-4">
+										<label for="cs_email">
+											<h6 class="small fw-bold mb-3">Cs email <span class="text-danger">*</span></h6>
+										</label>
+										<input type="text" id="cs_email" name="cs_email" class="rounded-4 custom-input required bg-white" placeholder="" value="{{ $setting->cs_email }}">
+										<span class="input-error fw-semibold text-danger d-none">This field is required!</span>
+									</div>
+									<div class="mb-4">
 										<label for="logo">
 											<h6 class="small fw-bold mb-3">Logo <span class="text-danger">*</span></h6>
 										</label>

@@ -28,9 +28,9 @@
 			@endif
 		</div>
 	</div>
-	<div class="pt-4 px-4">
-		<div class="blog-swiper swiper">
-			<div class="swiper-wrapper" style="margin-left: 110px;">
+	<div class="pt-4 pe-3 px-lg-4">
+		<div class="blog-swiper swiper ">
+			<div class="swiper-wrapper" style="margin-left: 7rem">
 				@if (!empty($blogChild))
 					@foreach ($blogChild as $i => $b_child)
 						@php
@@ -38,16 +38,14 @@
 						@endphp
 						@if (!empty($child_posts))
 							@foreach ($child_posts as $i_cp => $cp)
-								<div class="swiper-slide show-post-in-cate" data-cate-target="{{ $b_child->alias }}">
+								<div class="swiper-slide show-post-in-cate position-relative" data-cate-target="{{ $b_child->alias }}">
 									<a href="{{ url('/blogs/'. $b_child->alias .'/'.$cp->id) }}" class="text-decoration-none">
-										<div>
-											<img class="img-featured" src="{{ asset('storage/'.$cp->featured_image) }}" alt="">
-										</div>
-										<div class="post-title mt-3 d-flex justify-content-between align-items-center">
+										<img class="img-featured" src="{{ asset('storage/'.$cp->featured_image) }}" alt="">
+										<div class="post-title mt-3 d-flex justify-content-between align-items-center overflow-hidden">
 											<div class="w-75 excerpt-blog-post">
 												{!! $cp->description !!}
 											</div>
-											<div>
+											<div class="d-none d-lg-block">
 												<img class="" src="{{ asset('assets/images/arrow-title-blog.svg') }}" alt="">
 											</div>
 										</div>
@@ -111,7 +109,7 @@
 				// when window width is >= 640px
 				800: {
 				slidesPerView: 2,
-				spaceBetween: 40
+				spaceBetween: 30
 				},
 			}
 		});

@@ -96,6 +96,11 @@
 						<a href="{{ url()->previous() }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
 							Cancle
 						</a>
+						@if (auth()->user()->role_id == 9 || in_array(auth()->user()->getRole->alias, ['admin', 'hr']))
+							<a href="{{ url('/admin/applicants/index/'.$post->id) }}" class="btn btn-outline-red-400 fw-semibold btn-remove-post me-3">
+								Applicants
+							</a>
+						@endif
 						<button type="button" class="btn btn-red-400 btn-add-post btn-save">
 							Save
 						</button>

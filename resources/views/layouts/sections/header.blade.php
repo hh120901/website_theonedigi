@@ -24,10 +24,11 @@
 					<li class="nav-item"><a href="#blogs" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="blogs">BLOGS</a></li>
 					<li class="nav-item"><a href="#career" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="career">CAREER</a></li>
 					<li class="nav-item"><a href="#contact" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="contact">CONTACT</a></li>
+					<li class="nav-item d-md-none"><input type="text" class="input-search font-heading" style="width: 150px" placeholder="Search"></li>
 				</ul>
 			</div>
 		</div>
-		<div class="d-lg-flex justify-content-between align-items-center d-none">
+		<div class="d-xxl-flex justify-content-between align-items-center d-none">
 			<input type="text" class="input-search font-heading" placeholder="Search">
 			<div class="border-end border-white mx-3" style="height: 50px"></div>
 			<div class="d-flex gap-3 align-items-center">

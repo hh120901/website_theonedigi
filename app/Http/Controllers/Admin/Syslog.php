@@ -8,11 +8,13 @@ use App\Models\MailDB;
 use GuzzleHttp\Client;
 use App\Models\Setting;
 use App\Models\UserRole;
+use App\Mail\ReplyContact;
 use App\Models\PostCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class Syslog extends Controller
@@ -152,7 +154,7 @@ class Syslog extends Controller
 				$roles = UserRole::all();
 				$users = User::where('firstname', 'like', '%'.$request->input('search_text').'%')
 											->where('lastname', 'like', '%'.$request->input('search_text').'%')
-											->orderBy('created_at')->paginate(10);
+											->orderByDesc('created_at')->paginate(10);
 				return view('admin.users.'.$action)
 							->with('request', $request)
 							->with('roles', $roles)
@@ -210,7 +212,7 @@ class Syslog extends Controller
 			}
 			else {
 				$categories = PostCategory::where('name', 'like', '%'.$request->input('search_text').'%')
-											->orderBy('created_at')->paginate(5);
+											->orderByDesc('created_at')->paginate(5);
 				return view('admin.categories.'.$action)
 							->with('request', $request)
 							->with('categories', $categories);
@@ -280,7 +282,7 @@ class Syslog extends Controller
 			else {
 				$posts = Post::where('category_id', $aboutCate->id)
 										->where('title', 'like', '%'.$request->input('search_text').'%')
-										->orderBy('created_at')->paginate(5);
+										->orderByDesc('created_at')->paginate(5);
 				return view('admin.about.'.$action)
 							->with('request', $request)
 							->withMessage('alert error')
@@ -350,7 +352,7 @@ class Syslog extends Controller
 			else {
 				$posts = Post::where('category_id', $productCate->id)
 										->where('title', 'like', '%'.$request->input('search_text').'%')
-										->orderBy('created_at')->paginate(5);
+										->orderByDesc('created_at')->paginate(5);
 				return view('admin.products.'.$action)
 							->with('request', $request)
 							->with('posts', $posts);
@@ -424,7 +426,7 @@ class Syslog extends Controller
 			else {
 				$posts = Post::where('category_id', $teamCate->id)
 										->where('name', 'like', '%'.$request->input('search_text').'%')
-										->orderBy('created_at')->paginate(5);
+										->orderByDesc('created_at')->paginate(5);
 				return view('admin.teams.'.$action)
 							->with('request', $request)
 							->with('posts', $posts);
@@ -503,7 +505,7 @@ class Syslog extends Controller
 					$query->select('id')
 						  ->from('post_category')
 						  ->where('parent_id', $parent_id);
-				})->orderBy('created_at')->paginate(5);
+				})->orderByDesc('created_at')->paginate(5);
 				return view('admin.blogs.'.$action)
 							->with('request', $request)
 							->with('blogChild', $blogChild)
@@ -575,7 +577,7 @@ class Syslog extends Controller
 						->from('post_category')
 						->where('parent_id', $parent_id);
 				})->where('name', 'like', '%'.$request->input('search_text').'%')
-					->orderBy('created_at')->paginate(5);
+					->orderByDesc('created_at')->paginate(5);
 				return view('admin.career.'.$action)
 							->with('request', $request)
 							->with('careerChild', $careerChild)
@@ -612,8 +614,15 @@ class Syslog extends Controller
 					$ids = $request->input('cid', array());
 					foreach ($ids as $id) {
 						$applicant = MailDB::find($id);
-						if ($task == 'delete') {
+						if ($task == 'changeStatus') {
+							$applicant->active = 1;
+							$applicant->save();
+							return redirect()->back()->with(['success'=> 'Status has been changed!']);
+						}
+						else if ($task == 'delete') {
 							$applicant->delete();
+							return redirect()->back()->with(['success'=> 'Deleted!']);
+
 						}
 					}
 				}
@@ -627,11 +636,13 @@ class Syslog extends Controller
 							->with('careerChild', $careerChild);
 			}
 			else {
-				$applicants = MailDB::where('type', 'career')
+				$job = Post::find($id);
+				$applicants = MailDB::where('type', 'career')->where('job_id', $id)
 									->where('name', 'like', '%'.$request->input('search_text').'%')
-									->orderBy('created_at')->paginate(5);
+									->orderByDesc('created_at')->paginate(5);
 				return view('admin.career.applicants.'.$action)
 							->with('request', $request)
+							->with('job', $job)
 							->with('applicants', $applicants);
 			}
 		}
@@ -647,14 +658,37 @@ class Syslog extends Controller
 				$task = $request->input('task');
 				if ($action == 'edit') {
 					if (in_array($task, array('save', 'save-edit'))) {
+						$authUser = Auth::user();
 						$contact = MailDB::find($id);
-						$contact->active = !empty($request->input('active')) ? 1 : 0;
+						$reply = MailDB::where('reply_id', $contact->id)->first();
+						$reply = !empty($reply) ? $reply : new \StdClass();
+						$reply->user_id = $authUser->id;
+						$reply->reply_id = $contact->id;
+						$reply->sender = $authUser->email;
+						$reply->receiver = $contact->sender;
+						$reply->name = $authUser->firstname .' '. $authUser->lastname;
+						$reply->phone = $authUser->phone;
+						$reply->type = 'reply_contact';
+						$reply->message = $request->input('comment');
+						$reply = MailDB::create((array)$reply);
+						$contact->active = 1;
 						$contact->save();
-						if ($task == 'save-edit') {
-							return redirect(url()->current());
-						}
+						
+						$response_data = new \StdClass();
+						$response_data->contact = $contact;
+						$response_data->reply = $reply;
+
+						//Send mail
+						$data = array(
+							'sender' => $reply->sender,
+							'receivers' => $reply->receiver = $contact->sender,
+							'subject' => '[TODC Contact] - '.$contact->name,
+							'tpl_data'	=> $response_data,
+						);
+
+						Mail::send(new ReplyContact((object) $data));
 					}	
-					return redirect()->route('syslog.contact')->with(['success' => 'Update Successfully!']);
+					return redirect()->route('syslog.contact')->with(['success' => 'Completed!']);
 				}
 				else {
 					$ids = $request->input('cid', array());
@@ -669,14 +703,17 @@ class Syslog extends Controller
 			
 			if ($action == 'edit') {
 				$contact = MailDB::find($id);
+				$reply = MailDB::where('reply_id', $contact->id)->first();
+
 				return view('admin.contact.'.$action)
 							->with('request', $request)
+							->with('reply', $reply)
 							->with('contact', $contact);
 			}
 			else {
 				$contacts = MailDB::where('type', 'contact')
 									->where('name', 'like', '%'.$request->input('search_text').'%')
-									->orderBy('created_at')->paginate(5);
+									->orderByDesc('created_at')->paginate(5);
 				return view('admin.contact.'.$action)
 							->with('request', $request)
 							->with('contacts', $contacts);
@@ -725,7 +762,7 @@ class Syslog extends Controller
 			}
 			else {
 				$roles = UserRole::where('name', 'like', '%'.$request->input('search_text').'%')
-										->orderBy('created_at')->paginate(5);
+										->orderByDesc('created_at')->paginate(5);
 				return view('admin.roles.'.$action)
 							->with('request', $request)
 							->with('roles', $roles);
@@ -748,6 +785,7 @@ class Syslog extends Controller
 						$settings->company_email = $request->input('company_email');
 						$settings->company_address = $request->input('company_address');
 						$settings->hr_email = $request->input('hr_email');
+						$settings->cs_email = $request->input('cs_email');
 
 						if ($request->hasFile('logo')) {
 							if ($request->file('logo')->isValid()) {
@@ -783,7 +821,7 @@ class Syslog extends Controller
 			}
 			else {
 				$settings = UserRole::where('name', 'like', '%'.$request->input('search_text').'%')
-										->orderBy('created_at')->paginate(5);
+										->orderByDesc('created_at')->paginate(5);
 				return view('admin.settings.'.$action)
 							->with('request', $request)
 							->with('settings', $settings);

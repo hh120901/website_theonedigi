@@ -27,11 +27,10 @@ class ConfirmContact extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            //from: $this->data->sender,
+            from: $this->data->sender,
             subject: $this->data->subject,
 			replyTo: $this->data->sender,
 			to: $this->data->receivers,
-            //cc: $this->data->cc,
         );
     }
 

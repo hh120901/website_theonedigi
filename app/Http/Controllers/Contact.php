@@ -31,16 +31,16 @@ class Contact extends Controller
 			$mail = MailDB::create((array)$mail);
 
 			$data = array(
-				//'cc'=> ['codehgl@outlook.com', 'itsystestol@outlook.com'],
 				'sender' => $request->input('contact_email'),
 				'receivers' => $settings->company_email,
+				'bcc'=> [$settings->cs_email],
 				'subject' => '[TODC Contact] - '.$request->input('contact_name'),
 				'tpl_data'	=> $mail,
 			);
 
 			Mail::send(new ContactMail((object) $data));
 
-			$data['sender'] = '';
+			$data['sender'] = $settings->cs_email;
 			$data['receivers'] = $request->input('contact_email');
 
 			Mail::send(new ConfirmContact((object) $data));

@@ -7,7 +7,7 @@
 				@csrf
 				<input type="hidden" name="checkedboxcounter" id="checkedboxcounter" value="0">
 				<input type="hidden" id="task" name="task" value="{{ $request->input('task') }}">
-				<div class="px-5 pt-5r">
+				<div class="pt-5r">
 					<h4 class="ms-5 fw-bold text-red-primary mb-3">Request Contact Us</h4>
 					<div class="border rounded-3 px-3 py-4 mx-5 bg-white">
 						<div class="d-flex justify-content-between align-items-center">

@@ -3,16 +3,17 @@
 namespace App\Mail;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class ContactMail extends Mailable
+class ReplyContact extends Mailable
 {
     use Queueable, SerializesModels;
-	protected $data;
+    protected $data;
     /**
      * Create a new message instance.
      */
@@ -24,15 +25,15 @@ class ContactMail extends Mailable
     /**
      * Get the message envelope.
      */
-	public function envelope(): Envelope
-	{
-		return new Envelope(
-			subject: $this->data->subject,
+    public function envelope(): Envelope
+    {
+        return new Envelope(
+            from: new Address($this->data->sender, 'TODC - Customer Support'),
+            subject: $this->data->subject,
 			replyTo: $this->data->sender,
 			to: $this->data->receivers,
-            bcc: $this->data->bcc,
-		);
-	}
+        );
+    }
 
     /**
      * Get the message content definition.
@@ -40,7 +41,7 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.contact.contact_for_sys',
+            view: 'emails.contact.response_inquiry',
             with: ['data' => $this->data],
         );
     }

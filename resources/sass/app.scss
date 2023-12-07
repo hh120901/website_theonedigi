@@ -517,6 +517,9 @@ h1, h2, h3, h4, h5, h6 {
 		&.error {
 			border: 1px solid red;
 		}
+		&.disabled {
+			background-color: $gray-100 !important;
+		}
 	}
 	.custom-textarea {
 		background-color: $white;
@@ -533,6 +536,9 @@ h1, h2, h3, h4, h5, h6 {
 		}
 		&.error {
 			border: 1px solid red;
+		}
+		&.disabled {
+			background-color: $gray-100 !important;
 		}
 	}
 	.custom-select {
@@ -793,8 +799,19 @@ h1, h2, h3, h4, h5, h6 {
 	.our-products-card {
 		width: 20rem;
 		margin-bottom: 0;
+	}	
+}
+@media (max-width: 1200px) {
+	.blog-swiper {
+		.swiper-wrapper {
+			margin-left: 0 !important;
+			.swiper-slide {
+				.img-featured{
+					width: 100%;
+				}
+			}
+		}
 	}
-	
 }
 @media (max-width: 1024px) {
 	.title-section {
@@ -843,6 +860,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (min-width: 1024px) {
+	.position-lg-absolute {
+		position: absolute;
+	}
 	.about-detail-image {
 		width: 590px;
 		height: 768px;
