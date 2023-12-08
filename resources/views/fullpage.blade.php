@@ -98,6 +98,8 @@
 			initHomeSwiper();
 
 			window.addEventListener('resize', function () {
+				
+				//console.log($('.test-home').height());
 				initHomeSwiper();
 			});
 			

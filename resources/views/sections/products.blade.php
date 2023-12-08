@@ -1,114 +1,116 @@
 
 	{{-- Screen 3 --}}
-	<div class="container position-relative">
-		<div class="d-flex pt-5r flex-wrap"> 
-			<div class="pt-lg-5r">
-				<span class="mt-3 block-span-red-135"></span>
-			</div>
-			<div>
-				<h2 class="fw-bold text-decoration-underline text-secondary title-section">OUR PRODUCTS</h2>
-				<div class="d-flex flex-wrap justify-content-center">
-					<div class="numbers column-product-number d-flex flex-lg-column justify-content-center align-items-center mt-3 mx-3 mx-xl-5">
-						<div class="">
-							<button class="btn btn-control-up">
-								<i class="fal fa-caret-up fs-4"></i>
-							</button>
-						</div>
-						<div class="my-4 d-flex d-lg-block gap-3 flex-wrap">
-							@if (!empty($product_posts))
-								@php
-									$counter = 0;
-								@endphp
-								@foreach ($product_posts as $k => $pd_post)
+	<div class="container h-100">
+		<div class="d-flex flex-column h-100 justify-content-center">
+			<div class="d-flex flex-wrap"> 
+				<div class="">
+					<span class="mt-3 block-span-red-135"></span>
+				</div>
+				<div>
+					<h2 class="fw-bold text-decoration-underline text-secondary title-section">OUR PRODUCTS</h2>
+					<div class="d-flex flex-wrap justify-content-center">
+						<div class="numbers column-product-number d-flex flex-lg-column justify-content-center align-items-center mt-3 mx-3 mx-xxl-5">
+							<div class="">
+								<button class="btn btn-control-up">
+									<i class="fal fa-caret-up fs-4"></i>
+								</button>
+							</div>
+							<div class="my-4 mx-3 d-flex d-lg-block gap-3 flex-wrap">
+								@if (!empty($product_posts))
 									@php
-										$counter ++;
+										$counter = 0;
 									@endphp
-									@if ($counter == 2) 
-										<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-lg-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{ $k % 2 == 0 ? $k+2 : $k+1 }}">
-											<span class="btn-select-products">{{ $k }}</span>
-											<div class="line-between-steps" style="height: 1.5rem"></div>
-											<span class="btn-select-products">{{ $k+1 }}</span>
-										</div>
+									@foreach ($product_posts as $k => $pd_post)
 										@php
-											$counter = 0;
+											$counter ++;
 										@endphp
-									@else
-										@if( $k == count($product_posts) - 1 ) 
-											<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{  $k % 2 == 0 ? $k+2 : $k+1 }}">
+										@if ($counter == 2) 
+											<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-lg-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{ $k % 2 == 0 ? $k+2 : $k+1 }}">
+												<span class="btn-select-products">{{ $k }}</span>
+												<div class="line-between-steps" style="height: 1.5rem"></div>
 												<span class="btn-select-products">{{ $k+1 }}</span>
 											</div>
+											@php
+												$counter = 0;
+											@endphp
+										@else
+											@if( $k == count($product_posts) - 1 ) 
+												<div class="mb-lg-4 pt-lg-3 d-flex gap-3 flex-column rounded-pill justify-content-center align-items-center label-product-steps {{ $k == '0' || $k == '1' ? 'active' : '' }}" role="button" data-active-card="{{ $k%2 == 0 ? $k+1 : $k }}-{{  $k % 2 == 0 ? $k+2 : $k+1 }}">
+													<span class="btn-select-products">{{ $k+1 }}</span>
+												</div>
+											@endif
 										@endif
+									@endforeach
+								@endif
+							</div>
+							<div class="">
+								<button class="btn btn-control-down">
+									<i class="fal fa-caret-down pt-1 fs-4"></i>
+								</button>
+							</div>
+						</div>
+						<div class="d-flex gap-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
+							@if (!empty($product_posts))
+								@foreach ($product_posts as $key => $product_post)
+									@if ($key % 2 == 0)
+										<div class="our-products-card card-index-1 active-{{ $key+1 }}-{{ $key+2 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
+											<div class="ratio ratio-1x1" style="height: 320px">
+												<img src="{{ asset('storage/'.$product_post->featured_image) }}" alt="image">
+											</div>
+											<div class="d-flex justify-content-between">
+												<div class="d-flex">
+													<h2 class="card-title mb-0">{{ '0'.$key+1 }}</h2>
+													<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
+												</div>
+												<div class="d-flex">
+													<div class="mb-4 d-flex align-items-end">
+														<img src="{{ asset('assets/images/arrow-45deg.svg') }}" alt="icon" class="pb-1">
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-end">
+												<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
+													VIEW DETAILS
+												</button></a>
+											</div>
+										</div>
+									@else 
+										<div class="our-products-card align-self-end active-{{ $key }}-{{ $key+1 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
+											<div class="d-flex justify-content-between">
+												<div class="d-flex">
+													<h2 class="card-title mb-0">{{ '0'.$key+1 }}</h2>
+													<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
+												</div>
+												<div class="d-flex">
+													<div class="mb-4 d-flex align-items-end">
+														<img src="{{ asset('assets/images/arrow-135deg.svg') }}" alt="icon" class="pb-1">
+													</div>
+												</div>
+											</div>
+											<div class="d-flex justify-content-end mb-3">
+												<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
+													VIEW DETAILS
+												</button></a>
+											</div>
+											<div class="ratio ratio-1x1" style="height: 320px">
+												<img src="{{ asset('storage/'.$product_post->featured_image) }}" alt="image">
+											</div>
+										</div>
 									@endif
 								@endforeach
 							@endif
 						</div>
-						<div class="">
-							<button class="btn btn-control-down">
-								<i class="fal fa-caret-down pt-1 fs-4"></i>
-							</button>
-						</div>
-					</div>
-					<div class="d-flex gap-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
-						@if (!empty($product_posts))
-							@foreach ($product_posts as $key => $product_post)
-								@if ($key % 2 == 0)
-									<div class="our-products-card card-index-1 mx-4 active-{{ $key+1 }}-{{ $key+2 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
-										<div class="ratio ratio-1x1" style="height: 320px">
-											<img src="{{ asset('storage/'.$product_post->featured_image) }}" alt="image">
-										</div>
-										<div class="d-flex justify-content-between">
-											<div class="d-flex">
-												<h2 class="title-banner">{{ '0'.$key+1 }}</h2>
-												<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
-											</div>
-											<div class="d-flex">
-												<div class="mb-4 d-flex align-items-end">
-													<img src="{{ asset('assets/images/arrow-45deg.svg') }}" alt="icon" class="pb-1">
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-end">
-											<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
-												VIEW DETAILS
-											</button></a>
-										</div>
-									</div>
-								@else 
-									<div class="our-products-card align-self-end mx-4 active-{{ $key }}-{{ $key+1 }}" style="{{ $key == 0 || $key == 1 ? '' : 'display: none;' }}">
-										<div class="d-flex justify-content-between">
-											<div class="d-flex">
-												<h2 class="title-banner">{{ '0'.$key+1 }}</h2>
-												<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
-											</div>
-											<div class="d-flex">
-												<div class="mb-4 d-flex align-items-end">
-													<img src="{{ asset('assets/images/arrow-135deg.svg') }}" alt="icon" class="pb-1">
-												</div>
-											</div>
-										</div>
-										<div class="d-flex justify-content-end mb-3">
-											<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
-												VIEW DETAILS
-											</button></a>
-										</div>
-										<div class="ratio ratio-1x1" style="height: 320px">
-											<img src="{{ asset('storage/'.$product_post->featured_image) }}" alt="image">
-										</div>
-									</div>
-								@endif
-							@endforeach
-						@endif
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="d-none d-lg-flex justify-content-between" style="margin-top: -2rem">
-			<a role="button" class="slide-prev-btn">
-				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
-			</a>
-			<a role="button" class="slide-next-btn" style="transform: rotate(180deg)">
-				<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
-			</a>
+			<div class="d-none d-md-flex justify-content-between">
+				<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
+					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+				</a>
+				<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
+					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+				</a>
+			</div>
 		</div>
 	</div>
 	<script>
