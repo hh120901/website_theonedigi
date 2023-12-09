@@ -116,7 +116,7 @@
 				// when window width is >= 640px
 				992: {
 				slidesPerView: 2,
-				spaceBetween: 50
+				spaceBetween: 30
 				},
 			}
 		});
