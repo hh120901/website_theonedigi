@@ -1,13 +1,13 @@
 
 {{-- Screen 2 --}}
-<div class="container h-100">
-	<div class="d-flex h-100 flex-column justify-content-center">
+<div class="container h-100 position-relative">
+	<div class="d-flex h-100 flex-column justify-content-center pt-up-sm-5r">
 		<div class="d-md-flex flex-wrap">
 			<div class="pt-lg-5r">
-				<span class="mt-3 block-span-red-135"></span>
+				<span class="block-span-red-135 mt-5r"></span>
 			</div>
 			<div class="me-3 me-xl-5">
-				<h2 class="fw-bold text-decoration-underline text-secondary title-section">ABOUT US</h2>
+				<h2 class="fw-bold ms-2 text-decoration-underline text-secondary title-section">ABOUT US</h2>
 			</div>
 			<div class="position-relative w-up-lg-100">
 				<div class="background-border d-none d-xxl-block"></div>
@@ -52,11 +52,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="d-none d-md-flex justify-content-between" style="">
-		<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
+	<div class="d-none d-md-flex justify-content-between z-3">
+		<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex z-3">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
-		<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
+		<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex z-3" style="transform: rotate(180deg)">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
 	</div>

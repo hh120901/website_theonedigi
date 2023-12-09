@@ -1,21 +1,21 @@
 
 	{{-- Screen 3 --}}
-	<div class="container h-100">
-		<div class="d-flex flex-column h-100 justify-content-center">
+	<div class="container h-100 position-relative">
+		<div class="d-flex flex-column h-100 justify-content-center pt-up-sm-5r">
 			<div class="d-flex flex-wrap"> 
-				<div class="">
-					<span class="mt-3 block-span-red-135"></span>
+				<div class="pt-lg-5r">
+					<span class="mt-3 block-span-red-135 mt-5r"></span>
 				</div>
 				<div>
-					<h2 class="fw-bold text-decoration-underline text-secondary title-section">OUR PRODUCTS</h2>
+					<h2 class="fw-bold ms-2 text-decoration-underline text-secondary title-section">OUR PRODUCTS</h2>
 					<div class="d-flex flex-wrap justify-content-center">
-						<div class="numbers column-product-number d-flex flex-lg-column justify-content-center align-items-center mt-3 mx-3 mx-xxl-5">
+						<div class="numbers column-product-number d-flex flex-lg-column justify-content-center align-items-center mt-3 mx-sm-3 mx-xxl-5">
 							<div class="">
 								<button class="btn btn-control-up">
 									<i class="fal fa-caret-up fs-4"></i>
 								</button>
 							</div>
-							<div class="my-4 mx-3 d-flex d-lg-block gap-3 flex-wrap">
+							<div class="my-4 mx-2 mx-sm-3 d-flex d-lg-block gap-3 flex-wrap">
 								@if (!empty($product_posts))
 									@php
 										$counter = 0;
@@ -49,7 +49,7 @@
 								</button>
 							</div>
 						</div>
-						<div class="d-flex gap-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
+						<div class="d-flex gap-3 gap-sm-5 flex-wrap mt-3 ms-xxl-5 ps-xxl-5">
 							@if (!empty($product_posts))
 								@foreach ($product_posts as $key => $product_post)
 									@if ($key % 2 == 0)
@@ -60,16 +60,16 @@
 											<div class="d-flex justify-content-between">
 												<div class="d-flex">
 													<h2 class="card-title mb-0">{{ '0'.$key+1 }}</h2>
-													<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
+													<h6 class="mt-3 ms-3 ms-sm-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
 												</div>
 												<div class="d-flex">
 													<div class="mb-4 d-flex align-items-end">
-														<img src="{{ asset('assets/images/arrow-45deg.svg') }}" alt="icon" class="pb-1">
+														<img src="{{ asset('assets/images/arrow-45deg.svg') }}" alt="icon" class="pb-1 pt-3 pt-sm-0">
 													</div>
 												</div>
 											</div>
 											<div class="d-flex justify-content-end">
-												<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
+												<a href="{{ url('/product-details/'.$product_post->id .'?counter='.$key+1) }}" title="View Details"><button class="btn btn-view-details">
 													VIEW DETAILS
 												</button></a>
 											</div>
@@ -79,16 +79,16 @@
 											<div class="d-flex justify-content-between">
 												<div class="d-flex">
 													<h2 class="card-title mb-0">{{ '0'.$key+1 }}</h2>
-													<h6 class="mt-3 ms-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
+													<h6 class="mt-3 ms-3 ms-sm-4 text-secondary fw-bold">{{ $product_post->title }}</h6>
 												</div>
 												<div class="d-flex">
 													<div class="mb-4 d-flex align-items-end">
-														<img src="{{ asset('assets/images/arrow-135deg.svg') }}" alt="icon" class="pb-1">
+														<img src="{{ asset('assets/images/arrow-135deg.svg') }}" alt="icon" class="pb-1 pt-3 pt-sm-0">
 													</div>
 												</div>
 											</div>
 											<div class="d-flex justify-content-end mb-3">
-												<a href="{{ url('/product-details/'.$product_post->id) }}" title="View Details"><button class="btn btn-view-details">
+												<a href="{{ url('/product-details/'.$product_post->id .'?counter='.$key+1) }}" title="View Details"><button class="btn btn-view-details">
 													VIEW DETAILS
 												</button></a>
 											</div>
@@ -103,11 +103,11 @@
 					</div>
 				</div>
 			</div>
-			<div class="d-none d-md-flex justify-content-between">
-				<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
+			<div class="d-none d-md-flex justify-content-between ">
+				<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex z-3">
 					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 				</a>
-				<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
+				<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex z-3" style="transform: rotate(180deg)">
 					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 				</a>
 			</div>

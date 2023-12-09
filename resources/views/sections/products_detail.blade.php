@@ -4,7 +4,7 @@
 	<div class="container position-relative">
 		<div class="sub-container pb-5">
 			<div class="d-flex align-items-center align-items-sm-start">
-				<h2 class="title-banner me-5 mb-3">01</h2>
+				<h2 class="title-banner me-5 mb-3">{{ '0'.$counter }}</h2>
 				<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mt-3">{{ $post->title }}</h2>
 			</div>
 			<div class="d-flex mt-5 flex-column flex-sm-row">

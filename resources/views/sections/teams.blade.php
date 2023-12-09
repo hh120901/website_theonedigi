@@ -1,19 +1,19 @@
 
-<div class="container h-100">
-	<div class="h-100 d-flex flex-column justify-content-center">
+<div class="container h-100 position-relative">
+	<div class="h-100 d-flex flex-column justify-content-center pt-up-sm-5r">
 		<div class="d-md-flex pb-2"> 
 			<div class="pt-lg-5r">
-				<span class="mt-3 block-span-red-135"></span>
+				<span class="block-span-red-135 mt-5r"></span>
 			</div>
 			<div>
 				<h2 class="fw-bold ms-2 text-decoration-underline text-secondary title-section">OUR TEAMS</h2>
 			</div>
 		</div>
-		<div class="team-cards row mx-4 mt-4 px-3 position-relative justify-content-center">
+		<div class="team-cards row mx-sm-4 mt-4 px-3 position-relative justify-content-center">
 			@if (!empty($team_posts))
 				@foreach ($team_posts as $k_t => $t_post)
 					@if ($k_t < 4)
-						<div class="person-card col-lg-3 col-md-6 px-3">
+						<div class="person-card col-lg-3 col-md-6 px-0 px-sm-3">
 							<div class="person-card-header">
 								<img src="{{ asset('storage/'.$t_post->featured_image) }}" alt="image">
 							</div>

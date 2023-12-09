@@ -249,6 +249,7 @@ body {
 	border: 5rem solid $red_primary;
 	width: 65%; 
 	height: 50vh; 
+	max-height: 515px;
 	left: 70%;
 	top: 50%;
 	transform: translateY(-50%);
@@ -328,6 +329,7 @@ h1, h2, h3, h4, h5, h6 {
 .mySwiper {
 	width: 520px;
 	height: 70vh;
+	max-height: 752px;
 	.swiper-slide {
 		cursor: pointer;
 		text-align: center;
@@ -834,6 +836,43 @@ h1, h2, h3, h4, h5, h6 {
 			}
 		}
 	}
+	.small-red-span.h-respon {
+		margin: 1.5rem 0;
+	}
+	.full-content {
+		height: auto;
+		max-height: auto;
+	}
+	.person-card-header {
+		height: 320px !important;
+		transition: margin-bottom 0.5s ease, transform 0.5s ease;
+		overflow: hidden;
+		img {
+			transition: transform 0.5s ease;
+			width: 100%;
+			min-height: 320px !important;
+		}
+	}
+	.pt-up-sm-5r {
+		padding-top: 5rem;
+	}
+	.job-title, .h4-title {
+		font-size: 18px !important;
+	}
+	.custom-prev-btn, .custom-next-btn {
+		height: 2.5rem;
+		width: 2.5rem;
+	}
+	.mySwiper{
+		.about-excerpt {
+			padding: 2rem 4rem ;
+		}
+	}
+	.h-mb-4 {
+		margin-bottom: 1.5rem;
+	}
+
+
 }
 @media (max-width: 992px) {
 	.title-section {
@@ -890,6 +929,7 @@ h1, h2, h3, h4, h5, h6 {
 		width: 40vw;
 		max-width: 590px;
 		height: 80vh;
+		max-height: 768px;
 	}
 	.our-products-card {
 		width: 25rem;
@@ -934,7 +974,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 	.btn-category, .btn-job {
-		width: 10rem;
+		width: 9rem;
 	}
 }
 @media (min-height: 550px) {
@@ -945,14 +985,16 @@ h1, h2, h3, h4, h5, h6 {
 		display: none;
 	}
 }
-@media (max-height: 650px) {
+
+@media (max-height: 600px) and (min-width: 768px) {
 	.full-content {
 		height: auto;
 		max-height: 1024px;
 		overflow-y: scroll;
 	}
 }
-@media (min-height: 700px) {
+
+@media (min-height: 728px) and (min-width: 768px) {
 	// Title
 	.title-banner {
 		margin-top: 0;
@@ -985,9 +1027,15 @@ h1, h2, h3, h4, h5, h6 {
 			min-height: 200px !important;
 		}
 	}
+	.shorter-hidden {
+		display: none;
+	}
+	.h-mb-4 {
+		margin-bottom: 0.5rem;
+	}
 }
 
-@media (min-height: 850px) {
+@media (min-height: 850px) and (min-width: 768px) {
 	// Title
 	.title-banner {
 		font-size: 6rem;
@@ -1026,6 +1074,13 @@ h1, h2, h3, h4, h5, h6 {
 	}
 	.blog-swiper-container{
 		padding-top: 1.5rem;
+	}
+	.block-span-red-135.mt-5r {
+		margin-top: 5rem !important;
+	}
+
+	.h-mb-4 {
+		margin-bottom: 1.5rem;
 	}
 }
 

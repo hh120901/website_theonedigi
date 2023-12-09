@@ -1,7 +1,7 @@
-<div class="container contact1-container h-100">
-	<div class="d-flex flex-column h-100 justify-content-center">
+<div class="container position-relative">
+	<div class="pt-5r">
 		<div class=" ms-135px me-135px">
-			<h2 class="fs-3r fw-bold text-decoration-underline text-secondary mb-5">LET'S BE PARTNERS IN SUCCESS!</h2>
+			<h2 class="fw-bold text-decoration-underline text-secondary title-section h-mb-4 ms-0">LET'S BE PARTNERS IN SUCCESS!</h2>
 			<div class="row">
 				<div class="col-lg-6 d-flex flex-column justify-content-between">
 					<div>
@@ -45,7 +45,7 @@
 						<p>
 							Address: 40 - 42 Thien Phuoc Street, Ward 10, Tan Binh District, Ho Chi Minh City, Vietnam
 						</p>
-						<div class="d-flex gap-2">
+						<div class="d-flex gap-2 my-4">
 							<p>Phone:</p>
 							<div>
 								<p>(84) 902.111.222 - mobile</p>
@@ -58,14 +58,15 @@
 					</div>
 				</div>
 			</div>
-			<div class="d-none d-lg-flex justify-content-between">
-				<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
-					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
-				</a>
-				<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
-					<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
-				</a>
-			</div>
+			
 		</div>
 	</div>
+</div>
+<div class="container navigation-container d-none d-md-flex justify-content-between sticky-bottom">
+	<a role="button" class="slide-prev-btn  d-none d-md-flex z-3">
+		<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+	</a>
+	<a role="button" class="slide-next-btn  d-none d-md-flex z-3" style="transform: rotate(180deg)">
+		<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
+	</a>
 </div>

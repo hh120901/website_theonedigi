@@ -22,7 +22,7 @@
 				<div class="swiper-slide" id="career">
 					@include('sections.career')
 				</div>
-				<div class="swiper-slide" id="contact">
+				<div class="swiper-slide overflow-y-scroll" id="contact">
 					@include('sections.contact1')
 				</div>
 				<div class="swiper-slide">
@@ -96,11 +96,19 @@
 			}
 
 			initHomeSwiper();
-
+			var previousScreen = 'desktop';
 			window.addEventListener('resize', function () {
-				
-				//console.log($('.test-home').height());
-				initHomeSwiper();
+				let currentScreen = window.innerWidth;
+				if (currentScreen > 768 && previousScreen == 'mobile'){
+					initHomeSwiper();
+					previousScreen = 'desktop';
+					console.log("change-to-desktop");
+				}
+				else if(currentScreen < 768 && previousScreen == 'desktop') {
+					initHomeSwiper();
+					previousScreen = 'mobile';
+					console.log("change-to-mobile");
+				}
 			});
 			
 		});

@@ -4,14 +4,15 @@
 		$admin_role = ['admin'];
 		$hr_role = ['admin', 'hr'];
 		$content_role = ['admin', 'content'];
-		$cs_role = ['admin', 'cs'];
+		$cs_role = ['admin', 'cs', 'content'];
+		$settings = \App\Models\Setting::first();
 	@endphp
 	<div>
 		<div class="d-flex flex-column flex-shrink-0 p-3 w-100" >
 			<a class="no-decor" href="{{ url('/admin') }}">
 				<div class="d-flex align-items-center">
 					<div class="logo-img ratio ratio-1x1">
-						<img src="{{ asset('assets/images/logo_site.png') }}" height="24px" alt="logo">
+						<img src="{{ asset('storage/'.$settings->logo) }}" alt="logo">
 					</div>
 					<h4 class="fw-semibold ms-4 mb-0 text-black text-nowrap">
 						THE ONE <br> DIGI CORP

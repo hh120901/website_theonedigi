@@ -1,8 +1,11 @@
+@php
+	$settings = \App\Models\Setting::first();
+@endphp
 <div class="container-fluid text-white bg-dark">
 	<div class="container header-container">
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-between py-2 align-items-center h-100">
 			<div class="d-flex align-items-center">
-				<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('assets/images/logo_todc.png') }}" alt="logo img"></a>
+				<a role="button" class="site-logo no-decor navigation-to-slide" data-sl-target="home"><img src="{{ asset('storage/'.$settings->logo) }}" width="40" height="40" alt="logo"></a>
 				<a role="button" class="site-name no-decor navigation-to-slide" data-sl-target="home"><h2 class="fw-semibold text-white fs-6 ps-3 mb-0">THE ONE DIGI CORP</h2></a>
 			</div>
 			<div class="main-menu navbar navbar-expand-lg">
@@ -25,7 +28,7 @@
 						<li class="nav-item"><a href="#blogs" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="blogs">BLOGS</a></li>
 						<li class="nav-item"><a href="#career" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="career">CAREER</a></li>
 						<li class="nav-item"><a href="#contact" class="nav-link px-3 font-heading small d-block d-md-none" data-sl-target="contact">CONTACT</a></li>
-						<li class="nav-item d-md-none"><input type="text" class="input-search font-heading" style="width: 150px" placeholder="Search"></li>
+						<li class="nav-item d-lg-none"><input type="text" class="input-search font-heading" style="width: 150px" placeholder="Search"></li>
 					</ul>
 				</div>
 			</div>

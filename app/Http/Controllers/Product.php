@@ -11,10 +11,11 @@ class Product extends Controller
     //
     public function product_details(Request $request, $id=null) {
 		if (!empty($id)) {
+            $counter = $request->input('counter', 1);
             $productCate = PostCategory::where('alias', PostCategory::PRODUCTS_CATEGORY)->first();
 			$post = Post::where('category_id', $productCate->id)->where('id', $id)->where('active', 1)->first();
             if (!empty($post)) {
-                return view('sections.products_detail')->with('post', $post);
+                return view('sections.products_detail')->with('post', $post)->with('counter', $counter);
 			}
 		}
 		return redirect(url('/products'));

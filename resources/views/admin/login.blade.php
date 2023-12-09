@@ -12,6 +12,9 @@
 </head>
 <body class="bg-white">
 	<section>
+		@php
+			$settings = \App\Models\Setting::first();
+		@endphp
 		<div class="container bg-white w-100">
 			<form action="{{ route('syslog.login') }}" method="POST">
 				@csrf
@@ -21,7 +24,7 @@
 							<div>
 								<div class="d-flex mb-4 justify-content-center align-items-center">
 									<div class="ratio ratio-1x1" style="width: 100px; height: 100px">
-										<img src="{{ asset('assets/images/logo_site.png') }}" alt="logo">
+										<img src="{{ asset('storage/'.$settings->logo) }}" alt="logo">
 									</div>
 									<h2 class="fw-bold text-black fs-1 ms-5 mb-0">THE ONE <br> DIGI CORP</h2>
 								</div>

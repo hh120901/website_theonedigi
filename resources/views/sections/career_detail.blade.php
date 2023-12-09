@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 		<div class="d-flex pt-4r flex-wrap flex-lg-nowrap gap-lg-0 gap-3"> 
-			<div class="pt-5r">
+			<div class="pt-lg-5r">
 				<span class="mt-3 block-span-red-135"></span>
 			</div>
 			<div class="d-flex justify-content-between w-100">

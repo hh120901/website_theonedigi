@@ -1,11 +1,11 @@
 
-<div class="container h-100">
-	<div class="d-flex pt-5r flex-wrap flex-lg-nowrap"> 
-		<div class="pt-5r">
+<div class="container h-100 position-relative">
+	<div class="d-sm-flex pt-5r flex-wrap flex-lg-nowrap"> 
+		<div class="pt-lg-5r">
 			<span class="my-3 block-span-red-135"></span>
 		</div>
 		<div>
-			<h2 class="fw-bold text-decoration-underline text-secondary title-section">CAREER</h2>
+			<h2 class="fw-bold ms-0 ms-sm-2 text-decoration-underline text-secondary title-section">CAREER</h2>
 		</div>
 		<div class="me-135px ms-5">
 			<p>
@@ -40,7 +40,7 @@
 									<a href="{{ url('/career/'.$c_child->alias.'/'.$c_post->id)}}" class="btn btn-see-detail-red rounded-4 btn-outline-red-primary">SEE DETAILS <i class="fal fa-arrow-up ms-3 fs-6 fw-medium" style="transform: rotate(45deg);"></i></a>
 								</div>
 							</div>
-							<div class="d-flex flex-wrap gap-4">
+							<div class="d-flex flex-wrap gap-2 gap-sm-4">
 								<button class="btn btn-job-description rounded-4">
 									<img src="{{ asset('assets/images/icon-location.svg') }}" alt="">
 									<span  class="mx-3">{{ $c_post->working_form }}</span>
@@ -59,7 +59,7 @@
 			@endforeach
 		@endif
 	</div>
-	<div class="d-none d-lg-flex justify-content-between">
+	<div class="d-none d-md-flex justify-content-between">
 		<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
@@ -91,7 +91,6 @@
 				if (listJob.height() > 560){
 					listJob.height(560);
 				}
-				console.log(listJob.height());
 			});
 	});
 </script>

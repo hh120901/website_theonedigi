@@ -1,12 +1,12 @@
 
-<div class="container h-100">
-	<div class="d-flex flex-column h-100 justify-content-center">
+<div class="container h-100 position-relative">
+	<div class="d-flex flex-column h-100 justify-content-center pt-up-sm-5r">
 		<div class="d-md-flex flex-wrap flex-lg-nowrap"> 
 			<div class="pt-lg-5r">
 				<span class="mt-3 block-span-red-135"></span>
 			</div>
 			<div>
-				<h2 class="fw-bold ms-2 text-decoration-underline text-secondary title-section">BLOGS</h2>
+				<h2 class="fw-bold ms-0 ms-sm-2 text-decoration-underline text-secondary title-section">BLOGS</h2>
 			</div>
 			<div class="me-135px ms-5">
 				<p class="blog-overview">
@@ -79,10 +79,10 @@
 		</div>--}}
 	</div>
 	<div class="d-none d-md-flex justify-content-between">
-		<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex">
+		<a role="button" class="slide-prev-btn position-absolute bottom-0 start-0 d-none d-md-flex z-3">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
-		<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
+		<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex z-3" style="transform: rotate(180deg)">
 			<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 		</a>
 	</div>

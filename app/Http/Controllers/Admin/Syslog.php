@@ -30,7 +30,7 @@ class Syslog extends Controller
 		$this->admin_role = ['admin'];
 		$this->hr_role = ['admin', 'hr'];
 		$this->content_role = ['admin', 'content'];
-		$this->cs_role = ['admin', 'cs'];
+		$this->cs_role = ['admin', 'cs', 'content'];
 		$this->middleware(function ($request, $next) {
 			if (!in_array($request->route()->getName(), array('syslog.login'))) {
 				if (!Auth::check() || Auth::user()->active != 1) {

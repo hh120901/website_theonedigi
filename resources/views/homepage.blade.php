@@ -1,8 +1,8 @@
 {{-- Screen 1 --}}
-<div class="container h-100">
+<div class="container h-100 px-0">
 	<div class="position-relative h-100" id="test-home" style="background-image: url({{ asset('assets/images/bgbanner1.png') }}); background-position-y: bottom; background-repeat: no-repeat;">
 		<div class="h-100" style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right;">
-			<div class="d-flex flex-column justify-content-center h-100">
+			<div class="d-flex flex-column justify-content-center h-100 px-3">
 				<div class="d-flex flex-wrap">
 					<div class="title w-lg-50">
 						<div class="row">
@@ -20,10 +20,10 @@
 				</div>
 				<hr class="banner-divider">
 				<div class="d-flex">
-					<div class="w-50 pe-5">
+					<div class="w-50 pe-2 pe-sm-5">
 						<p class="fs-5 text-secondary mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident consequuntur adipisci reiciendis sed facere necessitatib.</p>
 					</div>
-					<div class="w-50 ps-5">
+					<div class="w-50 ps-2 ps-sm-5">
 						<p class="fs-5 text-secondary mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia totam culpa sint minima iste d</p>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 						</button>
 					</div>--}}
 				</div>
-				<div class="">
+				<div class="z-3">
 					<a role="button" class="slide-next-btn position-absolute bottom-0 end-0 d-none d-md-flex" style="transform: rotate(180deg)">
 						<img src="{{ asset('assets/images/arrow-left.svg') }}" alt="">
 					</a>
