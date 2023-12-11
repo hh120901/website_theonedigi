@@ -1,4 +1,3 @@
-
 <div class="container h-100 position-relative">
 	<div class="d-flex flex-column h-100 justify-content-center pt-up-sm-5r">
 		<div class="d-md-flex flex-wrap flex-lg-nowrap"> 

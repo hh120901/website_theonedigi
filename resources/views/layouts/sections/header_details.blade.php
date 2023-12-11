@@ -1,3 +1,6 @@
+@php
+	$settings = \App\Models\Setting::first();
+@endphp
 <div class="container-fluid text-white bg-dark">
 	<div class="container">
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-between py-3 header-container align-items-center px-3 px-lg-5">
