@@ -51,7 +51,7 @@
 												<td>{{ $user->firstname.' '.$user->lastname }}</td>
 												<td>{{ $user->getRole->name }}</td>
 												<td>{{ $user->email }}</td>
-												<td style="width: 130px">{{ $user->created_at }}</td>
+												<td style="width: 130px">{{ $user->created_at->format('d-m-Y H:i') }}</td>
 												<td style="width: 130px">{{ $user->last_activity }}</td>
 												<td class="post-status {{ $user->active == 1 ? 'active' : '' }}">{{ $user->active == 1 ? 'Activated' : 'Deactivated' }}</td>
 												<td class="">

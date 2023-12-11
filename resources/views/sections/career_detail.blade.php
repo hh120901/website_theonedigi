@@ -107,7 +107,7 @@
 							<div class="pt-1">
 								<input class="form-check-input p-2 me-3" type="checkbox" value="confirm" name="confirm-information" id="confirm-information" required>
 							</div>
-							<label class="form-check-label fw-semibold small" for="confirm-information">
+							<label class="form-check-label fw-semibold" for="confirm-information">
 								I agree to ABC’s Terms and Conditions and the Privacy Policy *
 							</label>
 						</div>
