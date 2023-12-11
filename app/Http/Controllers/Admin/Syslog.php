@@ -36,7 +36,7 @@ class Syslog extends Controller
 				if (!Auth::check() || Auth::user()->active != 1) {
 					return redirect()->route('syslog.login');
 				}
-				Auth::user()->last_activity = date('d-m-Y H:i:s');
+				Auth::user()->last_activity = date('Y-m-d H:i:s');
 				Auth::user()->save();
 			}
 			return $next($request);
