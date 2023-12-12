@@ -66,7 +66,7 @@
 											$staff = \App\Models\User::find($reply->user_id);
 										}
 									@endphp
-									<input type="text" id="staff_name" name="staff_name" class="rounded-4 custom-input disabled bg-white" value="{{ $staff->name ?? (auth()->user()->firstname.' '.auth()->user()->lastname) }}" readonly>
+									<input type="text" id="staff_name" name="staff_name" class="rounded-4 custom-input disabled bg-white" value="{{ empty($staff) ? (auth()->user()->firstname.' '.auth()->user()->lastname) : $staff->firstname. ' ' . $staff->lastname }}" readonly>
 								</div>
 							</div>
 							<div class="col-lg-6">
