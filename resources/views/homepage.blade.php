@@ -1,16 +1,16 @@
 {{-- Screen 1 --}}
 <div class="container h-100 px-0">
-	<div class="position-relative h-100" id="test-home" style="background-image: url({{ asset('assets/images/bgbanner1.png') }}); background-position-y: bottom; background-repeat: no-repeat;">
-		<div class="h-100" style="background-image: url({{ asset('assets/images/bgbanner01.png') }}); background-position-y: inherit; background-repeat: no-repeat; background-position-x: right;">
+	<div class="position-relative h-100" id="test-home">
+		<div class="h-100" >
 			<div class="d-flex flex-column justify-content-center h-100 px-3">
 				<div class="d-flex flex-wrap">
 					<div class="title w-lg-50">
 						<div class="row">
 							<div class="col-lg-10">
-								<h2 class="title-banner">WELCOME TO OUR PLACE!</h2>
+								<h2 class="title-banner text-secondary">WELCOME TO OUR PLACE!</h2>
 							</div>
 						</div>
-						<p class="fs-5 pe-5">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo beatae nobis, amet dolore magni dicta quod quia autem voluptatem pariatur.</p>
+						<p class="fs-5 pe-5 text-secondary">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus quo beatae nobis, amet dolore magni dicta quod quia autem voluptatem pariatur.</p>
 					</div>
 					<div class="img-banner w-lg-50 d-flex justify-content-center overflow-hidden">
 						<div class="rounded-box ratio ratio-1x1 d-flex align-items-end justify-content-center overflow-hidden">
@@ -29,9 +29,9 @@
 				</div>
 				<div class="d-flex justify-content-center position-relative">
 					<div class="social-icon d-flex gap-4 align-items-end">
-						<a href="#"><img class="border border-secondary rounded-5" src="{{ asset('assets/images/FB.svg') }}" alt="FB-icon"></a>
-						<a href="#"><img src="{{ asset('assets/images/Twitter.svg') }}" alt="TW-icon"></a>
-						<a href="#"><img src="{{ asset('assets/images/Linkedin.svg') }}" alt="In-icon"></a>
+						<a href="#" class="home-icon-social"><img class="border border-secondary rounded-5" src="{{ asset('assets/images/FB.svg') }}" alt="FB-icon"></a>
+						<a href="#" class="home-icon-social border border-secondary rounded-5 d-flex justify-content-center align-items-center"><img src="{{ asset('assets/images/icons/twitter.svg') }}" alt="TW-icon"></a>
+						<a href="#" class="home-icon-social border border-secondary rounded-5 d-flex justify-content-center align-items-center"><img src="{{ asset('assets/images/icons/linkedin.svg') }}" alt="In-icon"></a>
 					</div>	
 					{{--<div class="btn-scroll">
 						<button class="btn btn-red-primary position-absolute end-0 fs-4 fw-semibold text-decoration-underline h-100 btn-next-page slide-next-btn d-none d-lg-block">

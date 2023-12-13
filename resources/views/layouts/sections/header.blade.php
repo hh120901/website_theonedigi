@@ -1,7 +1,7 @@
 @php
 	$settings = \App\Models\Setting::first();
 @endphp
-<div class="container-fluid text-white bg-dark">
+<div class="container-fluid text-white bg-red-primary">
 	<div class="container header-container">
 		<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-between py-2 align-items-center h-100">
 			<div class="d-flex align-items-center">
@@ -35,18 +35,18 @@
 			<div class="nav-search">
 				<div class="d-flex align-items-center d-xxl-none">
 					<div>
-						<a role="button" class="btn btn-outline-dark me-3" data-bs-toggle="dropdown"><i class="fal fa-search text-white"></i></a>
-						<ul class="dropdown-menu bg-dark p-0 rounded-4">
+						<a role="button" class="btn bg-red-primary me-3" data-bs-toggle="dropdown"><i class="fal fa-search text-white"></i></a>
+						<ul class="dropdown-menu p-0 rounded-4">
 							<li><input type="text" class="input-search font-heading small w-100" placeholder="Search"></li>
 						</ul>
 					</div>
 					<div class="">
 						<div role="button" class="ratio ratio-1x1 border rounded-1 border-white" style="width: 40px; height: 28px" data-bs-toggle="collapse" data-bs-target="#change_lang">
-							<img class="rounded-1" src="{{ asset('assets/images/lang-eng.svg') }}" alt="">
+							<img class="rounded-1" src="{{ asset('assets/images/icons/icon-usa-flag.svg') }}" alt="">
 						</div>
 						<div class="collapse" id="change_lang">
 							<a href="#" class="collapse-lang-item">
-								<img src="{{ asset('assets/images/vn-flag.svg') }}" alt="">
+								<img src="{{ asset('assets/images/icons/icon-vn-flag.svg') }}" alt="">
 							</a>
 						</div>
 					</div>
@@ -57,9 +57,9 @@
 					<div class="border-end border-white mx-3" style="height: 40px"></div>
 					<div class="d-flex gap-3 align-items-center">
 						<div class="ratio ratio-1x1 border rounded-1 border-white" style="width: 40px; height: 28px">
-							<img class="rounded-1" src="{{ asset('assets/images/lang-eng.svg') }}" alt="">
+							<img class="rounded-1" src="{{ asset('assets/images/icons/icon-usa-flag.svg') }}" alt="">
 						</div>
-						<img src="{{ asset('assets/images/vn-flag.svg') }}" alt="">
+						<img src="{{ asset('assets/images/icons/icon-vn-flag.svg') }}" alt="">
 					</div>
 				</div>
 			</div>
