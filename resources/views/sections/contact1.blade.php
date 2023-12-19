@@ -1,6 +1,6 @@
 <div class="container position-relative">
 	<div class="pt-5r">
-		<div class=" ms-135px me-135px">
+		<div class="ms-135px me-135px">
 			<h2 class="fw-bold text-decoration-underline text-secondary title-section h-mb-4 ms-0">LET'S BE PARTNERS IN SUCCESS!</h2>
 			<div class="row">
 				<div class="col-lg-6 d-flex flex-column justify-content-between">

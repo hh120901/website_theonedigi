@@ -1,7 +1,7 @@
 
 	{{-- Screen 3 --}}
 	<div class="container h-100 position-relative">
-		<div class="d-flex flex-column h-100 justify-content-center pt-up-sm-5r">
+		<div class="d-flex flex-column h-100 pt-5r">
 			<div class="d-flex flex-wrap"> 
 				<div class="pt-lg-5r">
 					<span class="mt-3 block-span-red-135 mt-5r"></span>

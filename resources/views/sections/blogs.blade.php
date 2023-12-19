@@ -1,8 +1,8 @@
 <div class="container h-100 position-relative">
-	<div class="d-flex flex-column h-100 justify-content-center pt-up-sm-5r">
+	<div class="d-flex flex-column h-100 pt-5r">
 		<div class="d-md-flex flex-wrap flex-lg-nowrap"> 
 			<div class="pt-lg-5r">
-				<span class="mt-3 block-span-red-135"></span>
+				<span class="mt-5r block-span-red-135"></span>
 			</div>
 			<div>
 				<h2 class="fw-bold ms-0 ms-sm-2 text-decoration-underline text-secondary title-section">BLOGS</h2>

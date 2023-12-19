@@ -2,7 +2,7 @@
 <div class="container h-100 position-relative">
 	<div class="d-sm-flex pt-5r flex-wrap flex-lg-nowrap"> 
 		<div class="pt-lg-5r">
-			<span class="my-3 block-span-red-135"></span>
+			<span class="mt-5r block-span-red-135"></span>
 		</div>
 		<div>
 			<h2 class="fw-bold ms-0 ms-sm-2 text-decoration-underline text-secondary title-section">CAREER</h2>

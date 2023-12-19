@@ -1,7 +1,7 @@
 
 {{-- Screen 2 --}}
 <div class="container h-100 position-relative">
-	<div class="d-flex h-100 flex-column justify-content-center pt-up-sm-5r">
+	<div class="d-flex h-100 flex-column pt-5r">
 		<div class="d-md-flex flex-wrap">
 			<div class="pt-lg-5r">
 				<span class="block-span-red-135 mt-5r"></span>
